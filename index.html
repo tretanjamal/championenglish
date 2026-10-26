@@ -1,0 +1,2062 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChampionEnglish - Siap Lomba Bahasa Inggris SMP</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Font: Inter & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            rg: {
+              teal: '#00B4D8',
+              tealDark: '#0077B6',
+              tealLight: '#E0F7FA',
+              navy: '#03045E',
+              amber: '#FFB703',
+              orange: '#FB8500',
+              bgLight: '#F8FAFC',
+              card: '#FFFFFF',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F8FAFC;
+      color: #1E293B;
+    }
+    .rg-gradient-primary {
+      background: linear-gradient(135deg, #00B4D8 0%, #0077B6 100%);
+    }
+    .rg-gradient-warm {
+      background: linear-gradient(135deg, #FB8500 0%, #FFB703 100%);
+    }
+    .rg-gradient-navy {
+      background: linear-gradient(135deg, #03045E 0%, #023E8A 100%);
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .modal-enter {
+      animation: modalFadeIn 0.25s ease-out forwards;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 min-h-screen flex flex-col pb-20 md:pb-6">
+
+  <!-- TOP HEADER NAV -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all">
+    <div class="max-w-6xl mx-auto px-4 py-2.5 flex items-center justify-between">
+      
+      <!-- Brand & Mascot Logo -->
+      <div class="flex items-center space-x-3 cursor-pointer" onclick="navigateTo('home')">
+        <div class="w-10 h-10 rounded-2xl rg-gradient-primary flex items-center justify-center text-white shadow-md shadow-rg-teal/30">
+          <i class="fa-solid fa-graduation-cap text-lg"></i>
+        </div>
+        <div>
+          <div class="flex items-center space-x-1.5">
+            <span class="font-black text-xl tracking-tight text-slate-800">Champion<span class="text-rg-teal">English</span></span>
+            <span class="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-700 uppercase tracking-wider">SMP Lomba</span>
+          </div>
+          <p class="text-[11px] text-slate-500 font-medium -mt-0.5">Modul Cepat Juara English Competition</p>
+        </div>
+      </div>
+
+      <!-- DESKTOP TOP NAVIGATION MENU (Disamakan dengan nama di HP) -->
+      <nav class="hidden md:flex items-center space-x-1 text-xs font-bold text-slate-600 bg-slate-100/90 p-1.5 rounded-2xl border border-slate-200">
+        <button onclick="navigateTo('home')" class="nav-desktop-item px-3.5 py-1.5 rounded-xl transition flex items-center space-x-1.5 text-rg-teal bg-white shadow-sm font-extrabold" data-tab="home">
+          <i class="fa-solid fa-house"></i>
+          <span>Beranda</span>
+        </button>
+        <button onclick="navigateTo('units')" class="nav-desktop-item px-3.5 py-1.5 rounded-xl transition flex items-center space-x-1.5 text-slate-600 hover:text-slate-900" data-tab="units">
+          <i class="fa-solid fa-book-open-reader"></i>
+          <span>Modul</span>
+        </button>
+        <button onclick="navigateTo('tryout')" class="nav-desktop-item px-3.5 py-1.5 rounded-xl transition flex items-center space-x-1.5 text-slate-600 hover:text-slate-900" data-tab="tryout">
+          <i class="fa-solid fa-stopwatch"></i>
+          <span>Tryout</span>
+        </button>
+        <button onclick="navigateTo('cheatSheet')" class="nav-desktop-item px-3.5 py-1.5 rounded-xl transition flex items-center space-x-1.5 text-slate-600 hover:text-slate-900" data-tab="cheatSheet">
+          <i class="fa-solid fa-bolt text-amber-500"></i>
+          <span>Rumus</span>
+        </button>
+        <button onclick="navigateTo('settings')" class="nav-desktop-item px-3.5 py-1.5 rounded-xl transition flex items-center space-x-1.5 text-slate-600 hover:text-slate-900" data-tab="settings">
+          <i class="fa-solid fa-gear"></i>
+          <span>Pengaturan</span>
+        </button>
+      </nav>
+
+      <!-- User Gamification & Profile & Secret Guru Trigger -->
+      <div class="flex items-center space-x-2 md:space-x-3">
+        <!-- Daily Streak -->
+        <div class="flex items-center space-x-1.5 bg-orange-50 border border-orange-200/80 px-2.5 py-1 rounded-full text-xs font-bold text-orange-600 shadow-xs">
+          <i class="fa-solid fa-fire text-amber-500"></i>
+          <span id="headerStreak">1 Hari</span>
+        </div>
+
+        <!-- Champion Points (XP) -->
+        <div class="flex items-center space-x-1.5 bg-teal-50 border border-teal-200/80 px-2.5 py-1 rounded-full text-xs font-bold text-rg-tealDark shadow-xs">
+          <i class="fa-solid fa-bolt text-teal-500"></i>
+          <span id="headerXP">100 XP</span>
+        </div>
+
+        <!-- Student Profile Button -->
+        <button onclick="openProfileModal()" class="flex items-center space-x-2 p-1 rounded-xl hover:bg-slate-100 transition">
+          <div class="w-8 h-8 rounded-full bg-slate-200 border-2 border-rg-teal overflow-hidden flex items-center justify-center text-xs font-bold text-slate-600">
+            <span id="navAvatarInitials">SJ</span>
+          </div>
+          <span id="navStudentName" class="hidden sm:inline font-bold text-xs text-slate-700 max-w-[110px] truncate">Siswa Juara</span>
+        </button>
+
+        <!-- Tombol Rahasia Guru (Ikon Gembok Halus) -->
+        <button onclick="openTeacherAuthModal()" title="Akses Guru" class="text-slate-300 hover:text-rg-teal transition p-1 text-xs">
+          <i class="fa-solid fa-shield-halved"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- BOTTOM NAVBAR (Tampilan Mobile HP) -->
+  <nav class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 py-2 px-3 shadow-lg md:hidden">
+    <div class="max-w-md mx-auto flex items-center justify-around">
+      <button onclick="navigateTo('home')" class="nav-bottom-item flex flex-col items-center text-rg-teal" data-tab="home">
+        <i class="fa-solid fa-house text-lg"></i>
+        <span class="text-[10px] font-bold mt-1">Beranda</span>
+      </button>
+      <button onclick="navigateTo('units')" class="nav-bottom-item flex flex-col items-center text-slate-400 hover:text-slate-600" data-tab="units">
+        <i class="fa-solid fa-book-open-reader text-lg"></i>
+        <span class="text-[10px] font-bold mt-1">Modul</span>
+      </button>
+      <button onclick="navigateTo('tryout')" class="nav-bottom-item flex flex-col items-center text-slate-400 hover:text-slate-600" data-tab="tryout">
+        <i class="fa-solid fa-stopwatch text-lg"></i>
+        <span class="text-[10px] font-bold mt-1">Tryout</span>
+      </button>
+      <button onclick="navigateTo('cheatSheet')" class="nav-bottom-item flex flex-col items-center text-slate-400 hover:text-slate-600" data-tab="cheatSheet">
+        <i class="fa-solid fa-bolt text-lg"></i>
+        <span class="text-[10px] font-bold mt-1">Rumus</span>
+      </button>
+      <button onclick="navigateTo('settings')" class="nav-bottom-item flex flex-col items-center text-slate-400 hover:text-slate-600" data-tab="settings">
+        <i class="fa-solid fa-gear text-lg"></i>
+        <span class="text-[10px] font-bold mt-1">Pengaturan</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ONBOARDING MODAL: REGISTRASI DATA DIRI SISWA WAJIB -->
+  <div id="modalOnboarding" class="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 space-y-5 shadow-2xl modal-enter border border-slate-100">
+      <div class="text-center space-y-2">
+        <div class="w-14 h-14 rounded-2xl rg-gradient-primary text-white flex items-center justify-center text-2xl mx-auto shadow-lg shadow-rg-teal/30">
+          <i class="fa-solid fa-user-graduate"></i>
+        </div>
+        <h3 class="text-xl font-extrabold text-slate-800">Selamat Datang, Calon Juara!</h3>
+        <p class="text-xs text-slate-500">Masukkan identitasmu agar nilai latihan, kuis modul, dan skor tryout otomatis tersimpan di Spreadsheet.</p>
+      </div>
+
+      <div class="space-y-3.5">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Nama Lengkap Murid <span class="text-rose-500">*</span></label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 text-xs">
+              <i class="fa-solid fa-user"></i>
+            </span>
+            <input type="text" id="onboardStudentName" class="w-full pl-9 pr-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-rg-teal focus:border-rg-teal outline-none transition" placeholder="Contoh: Muhammad Bima Pratama">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Kelas <span class="text-rose-500">*</span></label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 text-xs">
+              <i class="fa-solid fa-chalkboard-user"></i>
+            </span>
+            <input type="text" id="onboardClassName" class="w-full pl-9 pr-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-rg-teal focus:border-rg-teal outline-none transition" placeholder="Contoh: 8A / Kelas 7 Unggulan">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Asal Sekolah <span class="text-rose-500">*</span></label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 text-xs">
+              <i class="fa-solid fa-school"></i>
+            </span>
+            <input type="text" id="onboardSchoolName" class="w-full pl-9 pr-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-rg-teal focus:border-rg-teal outline-none transition" placeholder="Contoh: SMP Negeri 1 Jakarta">
+          </div>
+        </div>
+      </div>
+
+      <button onclick="submitOnboardingData()" class="w-full py-3 rounded-2xl bg-rg-teal hover:bg-rg-tealDark text-white font-extrabold text-xs shadow-lg shadow-rg-teal/30 transition transform active:scale-95 flex items-center justify-center space-x-2">
+        <i class="fa-solid fa-paper-plane"></i>
+        <span>Mulai Belajar & Rekam Data</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL: PROFIL & SINKRONISASI -->
+  <div id="modalProfile" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-6 space-y-4 shadow-2xl modal-enter border border-slate-100">
+      <div class="flex justify-between items-center pb-2 border-b border-slate-100">
+        <h4 class="font-extrabold text-sm text-slate-800">Profil Siswa Juara</h4>
+        <button onclick="closeProfileModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+      </div>
+      <div class="text-center py-2">
+        <div class="w-16 h-16 rounded-full rg-gradient-primary mx-auto flex items-center justify-center text-white text-2xl font-black shadow-md shadow-rg-teal/30 mb-2">
+          <span id="profileAvatarBig">SJ</span>
+        </div>
+        <h5 id="profileModalName" class="font-bold text-base text-slate-800">Siswa Juara</h5>
+        <p id="profileModalSchool" class="text-xs text-slate-500 font-medium">SMP Siap Lomba</p>
+      </div>
+      <div class="grid grid-cols-2 gap-3 text-center">
+        <div class="bg-teal-50 p-2.5 rounded-2xl border border-teal-100">
+          <span class="text-[10px] uppercase font-bold text-rg-tealDark block">Total XP</span>
+          <span id="profileXPCount" class="font-black text-rg-tealDark text-sm">100 XP</span>
+        </div>
+        <div class="bg-orange-50 p-2.5 rounded-2xl border border-orange-100">
+          <span class="text-[10px] uppercase font-bold text-orange-600 block">Unit Selesai</span>
+          <span id="profileCompletedCount" class="font-black text-orange-600 text-sm">0 / 14</span>
+        </div>
+      </div>
+      <button onclick="navigateTo('settings'); closeProfileModal();" class="w-full py-2.5 rounded-xl border border-slate-200 text-slate-700 font-bold text-xs hover:bg-slate-50 transition flex items-center justify-center space-x-1.5">
+        <i class="fa-solid fa-gear"></i>
+        <span>Buka Pengaturan Akun & Spreadsheet</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toastBox" class="fixed top-5 right-5 z-50 hidden transition-all duration-300">
+    <div id="toastContent" class="flex items-center space-x-2 px-4 py-3 rounded-2xl shadow-xl text-xs font-bold text-white bg-slate-800">
+      <i id="toastIcon" class="fa-solid fa-circle-check"></i>
+      <span id="toastMsg">Pesan sukses!</span>
+    </div>
+  </div>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 py-5 flex-1 w-full">
+
+    <!-- ========================================== -->
+    <!-- TAB 1: BERANDA (HOME RUANGGURU EXPERIENCE) -->
+    <!-- ========================================== -->
+    <section id="tab-home" class="space-y-6">
+      
+      <!-- HERO BANNER -->
+      <div class="relative overflow-hidden rounded-3xl rg-gradient-primary text-white p-6 sm:p-8 shadow-xl shadow-rg-teal/20">
+        <div class="relative z-10 max-w-xl space-y-3">
+          <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-extrabold tracking-wide uppercase">
+            <i class="fa-solid fa-trophy text-amber-300"></i>
+            <span>Target Juara 1 English Competition</span>
+          </span>
+          <h1 class="text-2xl sm:text-3xl font-black leading-tight">
+            Halo, <span id="heroStudentName" class="text-amber-300">Siswa Juara</span>! Siap Taklukkan Soal Lomba?
+          </h1>
+          <p class="text-xs sm:text-sm text-white/90 leading-relaxed">
+            Kuasai 14 Unit esensial dari dasar sampai mahir: Noun, Tenses, Parallel Structure, Reading Tricks, dan Latihan Simulasi Tryout 20 Soal.
+          </p>
+          <div class="pt-2 flex flex-wrap gap-2.5">
+            <button onclick="navigateTo('units')" class="px-5 py-2.5 rounded-2xl bg-white text-rg-tealDark font-extrabold text-xs shadow-md hover:bg-amber-300 hover:text-slate-900 transition flex items-center space-x-2">
+              <i class="fa-solid fa-play"></i>
+              <span>Lanjut Belajar Modul</span>
+            </button>
+            <button onclick="navigateTo('tryout')" class="px-5 py-2.5 rounded-2xl bg-rg-navy/40 hover:bg-rg-navy/60 backdrop-blur-md text-white font-extrabold text-xs transition flex items-center space-x-2">
+              <i class="fa-solid fa-stopwatch"></i>
+              <span>Mulai Tryout Lomba</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Background Elements -->
+        <div class="absolute -right-8 -bottom-10 opacity-15 pointer-events-none">
+          <i class="fa-solid fa-award text-[220px]"></i>
+        </div>
+      </div>
+
+      <!-- PROGRESS SUMMARY CARDS -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-teal-50 text-rg-teal flex items-center justify-center text-lg font-bold">
+            <i class="fa-solid fa-book-bookmark"></i>
+          </div>
+          <div>
+            <div id="statCompletedUnits" class="font-black text-slate-800 text-base">0 / 14</div>
+            <div class="text-[10px] text-slate-500 font-semibold uppercase">Unit Tuntas</div>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center text-lg font-bold">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <div>
+            <div id="statXPCount" class="font-black text-slate-800 text-base">100 XP</div>
+            <div class="text-[10px] text-slate-500 font-semibold uppercase">Champion XP</div>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center text-lg font-bold">
+            <i class="fa-solid fa-fire"></i>
+          </div>
+          <div>
+            <div id="statStreakDay" class="font-black text-slate-800 text-base">1 Hari</div>
+            <div class="text-[10px] text-slate-500 font-semibold uppercase">Daily Streak</div>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-lg font-bold">
+            <i class="fa-solid fa-table"></i>
+          </div>
+          <div>
+            <div id="statCloudStatus" class="font-black text-emerald-600 text-xs truncate">Tersinkron</div>
+            <div class="text-[10px] text-slate-500 font-semibold uppercase">Google Sheets</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PETA BELAJAR QUICK ACCORDION (Tahap A-F) -->
+      <div class="space-y-3">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-base sm:text-lg font-extrabold text-slate-800">Peta Belajar Modul Juara</h2>
+            <p class="text-xs text-slate-500">Klik unit untuk langsung membaca konsep ringkas dan latihan soal.</p>
+          </div>
+          <button onclick="navigateTo('units')" class="text-xs font-bold text-rg-teal hover:underline flex items-center space-x-1">
+            <span>Lihat Semua</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5" id="homeUnitsGrid">
+          <!-- Dynamically filled with Unit 1-6 for quick access -->
+        </div>
+      </div>
+
+      <!-- TIPS STRATEGI CEPAT LOMBA -->
+      <div class="bg-amber-50 border border-amber-200/70 rounded-3xl p-5 sm:p-6 space-y-3">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-8 h-8 rounded-xl bg-amber-500 text-white flex items-center justify-center text-sm font-bold">
+            <i class="fa-solid fa-lightbulb"></i>
+          </div>
+          <h3 class="font-extrabold text-slate-800 text-sm sm:text-base">5 Pertanyaan Emas Sebelum Memilih Jawaban</h3>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Gunakan checklist ini saat ragu di soal lomba pilihan ganda:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-medium text-slate-700">
+          <div class="flex items-start space-x-2 bg-white/70 p-2.5 rounded-xl border border-amber-200/50">
+            <span class="font-bold text-amber-600">1.</span>
+            <span>Kotak kosong butuh jenis kata apa? (Noun, Verb, Adjective, Adverb?)</span>
+          </div>
+          <div class="flex items-start space-x-2 bg-white/70 p-2.5 rounded-xl border border-amber-200/50">
+            <span class="font-bold text-amber-600">2.</span>
+            <span>Subjeknya tunggal atau jamak? (Cek akhiran -s pada verb simple present)</span>
+          </div>
+          <div class="flex items-start space-x-2 bg-white/70 p-2.5 rounded-xl border border-amber-200/50">
+            <span class="font-bold text-amber-600">3.</span>
+            <span>Tense apa? Cari kata petunjuk waktu (*yesterday, now, since, by the time*).</span>
+          </div>
+          <div class="flex items-start space-x-2 bg-white/70 p-2.5 rounded-xl border border-amber-200/50">
+            <span class="font-bold text-amber-600">4.</span>
+            <span>Kalimat aktif atau pasif? Apakah subjeknya benda yang dikenai aksi?</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 2: DAFTAR MODUL LENGKAP (UNIT 1 - 14)  -->
+    <!-- ========================================== -->
+    <section id="tab-units" class="space-y-5 hidden">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <h2 class="text-xl font-extrabold text-slate-800">Daftar Modul Belajar (Unit 1 - 14)</h2>
+          <p class="text-xs text-slate-500">Pilih materi yang ingin kamu kuasai hari ini. Setiap unit dilengkapi rangkuman materi &amp; kuis.</p>
+        </div>
+        <!-- Filter Tabs -->
+        <div class="flex items-center space-x-1 overflow-x-auto no-scrollbar py-1">
+          <button onclick="filterUnits('all')" class="unit-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-rg-teal text-white shadow-xs" data-filter="all">Semua</button>
+          <button onclick="filterUnits('A')" class="unit-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-600 border border-slate-200" data-filter="A">Tahap A (Kata)</button>
+          <button onclick="filterUnits('B')" class="unit-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-600 border border-slate-200" data-filter="B">Tahap B (Tenses)</button>
+          <button onclick="filterUnits('C')" class="unit-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-600 border border-slate-200" data-filter="C">Tahap C-E (Pola &amp; Teks)</button>
+        </div>
+      </div>
+
+      <!-- GRID CONTAINER 14 UNITS -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="allUnitsGrid">
+        <!-- Rendered by JavaScript -->
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 3: UNIT VIEWER (MATERI + LATIHAN)       -->
+    <!-- ========================================== -->
+    <section id="tab-unit-viewer" class="space-y-5 hidden">
+      <!-- Back button & Navigation -->
+      <div class="flex items-center justify-between pb-3 border-b border-slate-200">
+        <button onclick="navigateTo('units')" class="inline-flex items-center space-x-2 text-xs font-extrabold text-rg-tealDark hover:text-rg-teal transition">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Kembali ke Daftar Modul</span>
+        </button>
+        <span id="viewerStageBadge" class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-teal-100 text-rg-tealDark uppercase">Tahap A</span>
+      </div>
+
+      <!-- Unit Title Card -->
+      <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-xs space-y-2">
+        <span id="viewerUnitSubtitle" class="text-xs font-extrabold text-rg-teal uppercase tracking-wider">UNIT 1</span>
+        <h2 id="viewerUnitTitle" class="text-xl sm:text-2xl font-black text-slate-800">Noun (Kata Benda)</h2>
+        <div id="viewerUnitGoals" class="text-xs text-slate-600 space-y-1 pt-1">
+          <!-- Bullet points -->
+        </div>
+      </div>
+
+      <!-- Unit Content Tabs: Konsep / Jebakan / Latihan -->
+      <div class="flex space-x-2 border-b border-slate-200">
+        <button onclick="switchViewerTab('concept')" id="tabBtnConcept" class="viewer-subtab pb-2.5 px-3 font-extrabold text-xs text-rg-teal border-b-2 border-rg-teal transition">
+          <i class="fa-solid fa-book-open mr-1.5"></i>Konsep &amp; Rumus
+        </button>
+        <button onclick="switchViewerTab('traps')" id="tabBtnTraps" class="viewer-subtab pb-2.5 px-3 font-bold text-xs text-slate-500 hover:text-slate-700 transition">
+          <i class="fa-solid fa-triangle-exclamation mr-1.5 text-amber-500"></i>Awas, Jebakan!
+        </button>
+        <button onclick="switchViewerTab('practice')" id="tabBtnPractice" class="viewer-subtab pb-2.5 px-3 font-bold text-xs text-slate-500 hover:text-slate-700 transition">
+          <i class="fa-solid fa-circle-question mr-1.5 text-indigo-500"></i>Coba Sendiri (Kuis)
+        </button>
+      </div>
+
+      <!-- SUBTAB 1: CONCEPT -->
+      <div id="subtabConcept" class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-xs space-y-4 text-xs sm:text-sm leading-relaxed text-slate-700">
+        <div id="viewerConceptBody" class="space-y-4">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- SUBTAB 2: TRAPS -->
+      <div id="subtabTraps" class="hidden bg-amber-50/50 rounded-3xl p-6 border border-amber-200/80 shadow-xs space-y-3">
+        <h4 class="font-extrabold text-sm text-amber-900 flex items-center space-x-2">
+          <i class="fa-solid fa-triangle-exclamation text-amber-600"></i>
+          <span>Jebakan yang Sering Mengelabui Siswa di Lomba:</span>
+        </h4>
+        <div id="viewerTrapsBody" class="space-y-2 text-xs text-slate-700">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- SUBTAB 3: PRACTICE / TRY IT -->
+      <div id="subtabPractice" class="hidden space-y-4">
+        <div class="bg-white rounded-3xl p-5 border border-slate-200 flex items-center justify-between">
+          <div>
+            <h4 class="font-extrabold text-sm text-slate-800">Latihan Coba Sendiri</h4>
+            <p class="text-xs text-slate-500">Pilih jawaban yang paling tepat. Nilai akan otomatis disinkronkan ke Spreadsheet.</p>
+          </div>
+          <span id="practiceProgressBadge" class="text-xs font-black px-2.5 py-1 rounded-xl bg-slate-100 text-slate-700">6 Soal</span>
+        </div>
+
+        <div id="viewerPracticeQuestions" class="space-y-4">
+          <!-- Questions rendered here -->
+        </div>
+
+        <!-- Submit practice button -->
+        <div class="pt-2">
+          <button onclick="checkUnitPracticeAnswers()" class="w-full sm:w-auto px-6 py-3 rounded-2xl rg-gradient-primary text-white font-extrabold text-xs shadow-lg shadow-rg-teal/30 hover:opacity-95 transition flex items-center justify-center space-x-2">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Periksa Jawaban &amp; Simpan Nilai</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 4: TRYOUT SIMULASI LOMBA               -->
+    <!-- ========================================== -->
+    <section id="tab-tryout" class="space-y-5 hidden">
+      <!-- Tryout Intro Card -->
+      <div id="tryoutIntroCard" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
+        <div class="max-w-xl space-y-2">
+          <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-indigo-100 text-indigo-700 uppercase">Simulasi Realistis</span>
+          <h2 class="text-2xl font-black text-slate-800">Tryout Bahasa Inggris SMP - Siap Lomba</h2>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Uji kesiapanmu dengan 20 soal kombinasi (Grammar, Vocabulary, Reading, dan Cloze Test) dengan batas waktu 15 menit. Hasil tryout otomatis dikirim ke Google Sheets gurumu.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 text-center text-xs">
+          <div class="p-3 rounded-2xl bg-slate-50 border border-slate-200">
+            <span class="text-slate-400 font-bold block text-[10px] uppercase">Jumlah Soal</span>
+            <span class="font-black text-slate-800 text-base">20 Butir</span>
+          </div>
+          <div class="p-3 rounded-2xl bg-slate-50 border border-slate-200">
+            <span class="text-slate-400 font-bold block text-[10px] uppercase">Durasi Waktu</span>
+            <span class="font-black text-slate-800 text-base">15 Menit</span>
+          </div>
+          <div class="p-3 rounded-2xl bg-slate-50 border border-slate-200">
+            <span class="text-slate-400 font-bold block text-[10px] uppercase">Passing Grade</span>
+            <span class="font-black text-slate-800 text-base">75 / 100</span>
+          </div>
+          <div class="p-3 rounded-2xl bg-slate-50 border border-slate-200">
+            <span class="text-slate-400 font-bold block text-[10px] uppercase">Reward XP</span>
+            <span class="font-black text-amber-600 text-base">+150 XP</span>
+          </div>
+        </div>
+
+        <button onclick="startTryoutExam()" class="w-full sm:w-auto px-8 py-3.5 rounded-2xl rg-gradient-warm text-white font-black text-xs sm:text-sm shadow-lg shadow-orange-500/25 transition transform active:scale-95 flex items-center justify-center space-x-2">
+          <i class="fa-solid fa-play"></i>
+          <span>Mulai Kerjakan Tryout Sekarang</span>
+        </button>
+      </div>
+
+      <!-- Tryout Active Exam Arena -->
+      <div id="tryoutArena" class="hidden space-y-4">
+        <!-- Floating Exam Header -->
+        <div class="sticky top-16 z-30 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-slate-200 shadow-md flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <span class="text-xs font-black text-slate-700" id="tryoutCurrentNumberBadge">Soal 1 dari 20</span>
+          </div>
+          <div class="flex items-center space-x-2 text-rose-600 bg-rose-50 px-3 py-1 rounded-full border border-rose-200 font-black text-xs">
+            <i class="fa-solid fa-stopwatch animate-pulse"></i>
+            <span id="tryoutTimerDisplay">15:00</span>
+          </div>
+        </div>
+
+        <!-- Question Body Card -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
+          <p id="tryoutQuestionText" class="text-sm sm:text-base font-bold text-slate-800 leading-relaxed">
+            Pertanyaan tryout akan muncul di sini...
+          </p>
+          <div id="tryoutOptionsContainer" class="space-y-2.5">
+            <!-- Render 4 options A, B, C, D -->
+          </div>
+        </div>
+
+        <!-- Exam Controls -->
+        <div class="flex items-center justify-between pt-2">
+          <button onclick="prevTryoutQuestion()" id="btnPrevTryout" class="px-4 py-2 rounded-xl border border-slate-200 bg-white font-bold text-xs text-slate-600 hover:bg-slate-50 transition flex items-center space-x-1.5">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Sebelumnya</span>
+          </button>
+          <button onclick="nextTryoutQuestion()" id="btnNextTryout" class="px-5 py-2 rounded-xl rg-gradient-primary font-bold text-xs text-white hover:opacity-90 transition flex items-center space-x-1.5">
+            <span>Berikutnya</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <button onclick="finishTryoutExam()" id="btnFinishTryout" class="hidden px-5 py-2 rounded-xl bg-emerald-600 font-black text-xs text-white hover:bg-emerald-700 transition flex items-center space-x-1.5">
+            <i class="fa-solid fa-check"></i>
+            <span>Selesai &amp; Kumpulkan</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Tryout Result Card -->
+      <div id="tryoutResultCard" class="hidden bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm text-center space-y-4">
+        <div class="w-20 h-20 rounded-full mx-auto flex items-center justify-center text-3xl font-black shadow-lg" id="resultScoreBadge">
+          85
+        </div>
+        <div class="space-y-1">
+          <h3 id="resultTitle" class="text-xl font-black text-slate-800">Hebat! Kamu Siap Juara!</h3>
+          <p id="resultSubtitle" class="text-xs text-slate-500 max-w-md mx-auto">
+            Skor tryout kamu telah terekam dan disinkronkan ke Spreadsheet.
+          </p>
+        </div>
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 max-w-sm mx-auto text-xs grid grid-cols-2 gap-3 font-semibold">
+          <div>Benar: <span id="resultCorrectCount" class="text-emerald-600 font-bold">17</span></div>
+          <div>Salah: <span id="resultWrongCount" class="text-rose-600 font-bold">3</span></div>
+        </div>
+        <div class="pt-2 flex justify-center space-x-3">
+          <button onclick="startTryoutExam()" class="px-5 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50">
+            Ulangi Tryout
+          </button>
+          <button onclick="navigateTo('units')" class="px-5 py-2.5 rounded-xl rg-gradient-primary text-xs font-bold text-white">
+            Pelajari Modul Kembali
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 5: CHEAT SHEET (RUMUS TERCEPAT LOMBA) -->
+    <!-- ========================================== -->
+    <section id="tab-cheatSheet" class="space-y-5 hidden">
+      <div class="bg-gradient-to-r from-amber-500 to-orange-500 rounded-3xl p-6 text-white shadow-lg space-y-2">
+        <span class="text-[10px] font-black px-2.5 py-1 rounded-full bg-white/20 uppercase">Halaman 51-54 Modul</span>
+        <h2 class="text-xl sm:text-2xl font-black">Contekan Rumus Tercepat Menuju Lomba</h2>
+        <p class="text-xs sm:text-sm text-white/90">
+          Tabel ajaib eliminasi cepat: Kalau kamu melihat kata kunci tertentu di soal, langsung pilih polanya!
+        </p>
+      </div>
+
+      <!-- Quick Formula Table -->
+      <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xs">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 text-slate-700 border-b border-slate-200 font-extrabold">
+              <tr>
+                <th class="p-3.5">Kalau kamu melihat... (Kata Kunci)</th>
+                <th class="p-3.5">Pilih Bentuk...</th>
+                <th class="p-3.5">Alasan / Contoh Rumus</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 font-medium text-slate-600" id="cheatSheetTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Kamus Istilah Resmi -->
+      <div class="bg-white rounded-3xl p-6 border border-slate-200 space-y-3">
+        <h3 class="font-extrabold text-sm text-slate-800 flex items-center space-x-2">
+          <i class="fa-solid fa-spell-check text-rg-teal"></i>
+          <span>Kamus Istilah Bahasa Inggris Lomba (Halaman 2)</span>
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 text-xs" id="glossaryGrid">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 6: PENGATURAN (GOOGLE SPREADSHEET SYNC)-->
+    <!-- ========================================== -->
+    <section id="tab-settings" class="space-y-5 hidden">
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs space-y-6">
+        <div class="border-b border-slate-100 pb-4">
+          <div class="flex items-center space-x-2 text-rg-teal mb-1">
+            <i class="fa-solid fa-user-gear text-base"></i>
+            <span class="text-xs font-black uppercase tracking-wider">Akun Siswa</span>
+          </div>
+          <h2 class="text-xl font-extrabold text-slate-800">Pengaturan Profil Murid</h2>
+          <p class="text-xs text-slate-500">Perbarui identitasmu jika ada kesalahan nama, pergantian kelas, atau sekolah. Perubahan akan langsung disesuaikan pada pencatatan nilai.</p>
+        </div>
+
+        <!-- Student Info Form -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Nama Lengkap Siswa <span class="text-rose-500">*</span></label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 text-xs">
+                <i class="fa-solid fa-user"></i>
+              </span>
+              <input type="text" id="settingStudentName" class="w-full pl-9 pr-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-rg-teal outline-none" placeholder="Masukkan nama kamu...">
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Kelas <span class="text-rose-500">*</span></label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 text-xs">
+                <i class="fa-solid fa-chalkboard-user"></i>
+              </span>
+              <input type="text" id="settingClassName" class="w-full pl-9 pr-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-rg-teal outline-none" placeholder="Contoh: Kelas 8A">
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Sekolah <span class="text-rose-500">*</span></label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 text-xs">
+                <i class="fa-solid fa-school"></i>
+              </span>
+              <input type="text" id="settingSchoolName" class="w-full pl-9 pr-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-rg-teal outline-none" placeholder="Contoh: SMPN 1 Indonesia">
+            </div>
+          </div>
+        </div>
+
+        <!-- Kartu Ringkasan Akun -->
+        <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="flex items-center space-x-3.5">
+            <div class="w-12 h-12 rounded-2xl rg-gradient-primary text-white flex items-center justify-center text-lg font-black shadow-md shadow-rg-teal/20">
+              <span id="settingsAvatarBadge">SJ</span>
+            </div>
+            <div>
+              <h4 id="settingsCardName" class="text-sm font-extrabold text-slate-800">Siswa Juara</h4>
+              <p id="settingsCardSchool" class="text-xs text-slate-500">Kelas 8A • SMP Siap Lomba</p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-2 text-xs">
+            <span class="px-3 py-1.5 rounded-xl bg-teal-100/70 text-rg-tealDark font-bold flex items-center space-x-1.5">
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+              <span>Perekaman Nilai Aktif</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="pt-2 flex flex-wrap gap-2.5">
+          <button onclick="saveAppSettings()" class="px-6 py-2.5 rounded-xl rg-gradient-primary text-white font-extrabold text-xs shadow-md shadow-rg-teal/30 hover:opacity-95 transition flex items-center space-x-2">
+            <i class="fa-solid fa-floppy-disk"></i>
+            <span>Simpan Perubahan Profil</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 7: LAMAN RAHASIA GURU (GURU MONITORING)-->
+    <!-- ========================================== -->
+    <section id="tab-teacher" class="space-y-6 hidden">
+      <!-- Header Dashboard Guru -->
+      <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4 border border-slate-800">
+        <div>
+          <div class="flex items-center space-x-2 mb-1">
+            <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-extrabold text-[10px] uppercase tracking-wider border border-emerald-500/30 flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+              Mode Guru Aktif
+            </span>
+            <span class="text-xs text-slate-400">Portal Evaluasi &amp; Progress Lomba</span>
+          </div>
+          <h2 class="text-2xl font-black text-white">Monitoring Siswa Juara SMP</h2>
+          <p class="text-xs text-slate-400 mt-1">Pantau langsung hasil rekaman kuis modul, tryout, dan data sinkronisasi Google Sheets.</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="exportTeacherLogToCSV()" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold border border-slate-700 flex items-center space-x-2 transition">
+            <i class="fa-solid fa-file-csv text-emerald-400"></i>
+            <span>Ekspor CSV</span>
+          </button>
+          <button onclick="lockTeacherPortal()" class="px-4 py-2.5 rounded-xl bg-rose-600/20 hover:bg-rose-600/30 text-rose-300 text-xs font-bold border border-rose-500/30 flex items-center space-x-2 transition">
+            <i class="fa-solid fa-lock"></i>
+            <span>Kunci &amp; Keluar</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Guru -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-xs">
+          <span class="text-[10px] font-bold uppercase text-slate-400 block">Total Aktivitas Tercatat</span>
+          <span id="teacherTotalRecords" class="text-xl font-black text-slate-800">0</span>
+          <span class="text-[10px] text-slate-400 mt-0.5 block">Latihan &amp; Tryout</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-xs">
+          <span class="text-[10px] font-bold uppercase text-slate-400 block">Rata-rata Skor Tryout</span>
+          <span id="teacherAvgTryout" class="text-xl font-black text-rg-teal">0</span>
+          <span class="text-[10px] text-slate-400 mt-0.5 block">Standar Lolos: 75</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-xs">
+          <span class="text-[10px] font-bold uppercase text-slate-400 block">Modul Tuntas (Lokal)</span>
+          <span id="teacherCompletedUnitsStat" class="text-xl font-black text-amber-500">0 / 14</span>
+          <span class="text-[10px] text-slate-400 mt-0.5 block">Unit Dikuasai</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-xs">
+          <span class="text-[10px] font-bold uppercase text-slate-400 block">Status Sinkronisasi</span>
+          <span id="teacherSyncStatus" class="text-xs font-black text-emerald-600 truncate block mt-1">Siap Merekam</span>
+          <span class="text-[10px] text-slate-400 mt-0.5 block">Google Spreadsheet</span>
+        </div>
+      </div>
+
+      <!-- Tabel Riwayat Pengerjaan Murid -->
+      <div class="bg-white rounded-3xl border border-slate-200 shadow-xs overflow-hidden">
+        <div class="p-4 sm:p-5 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-50/50">
+          <div>
+            <h3 class="font-extrabold text-sm text-slate-800 flex items-center gap-2">
+              <i class="fa-solid fa-list-check text-rg-teal"></i>
+              <span>Log Riwayat Belajar &amp; Tryout Siswa</span>
+            </h3>
+            <p class="text-xs text-slate-500">Riwayat otomatis terupdate saat murid menyelesaikan latihan soal atau tryout.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="clearTeacherHistory()" class="text-xs font-bold text-rose-500 hover:text-rose-700 px-3 py-1.5 rounded-lg border border-rose-200 hover:bg-rose-50 transition">
+              <i class="fa-solid fa-trash-can mr-1"></i>Bersihkan Log
+            </button>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-100/75 text-slate-700 font-extrabold border-b border-slate-200">
+              <tr>
+                <th class="p-3.5">Waktu</th>
+                <th class="p-3.5">Nama Siswa</th>
+                <th class="p-3.5">Kelas / Sekolah</th>
+                <th class="p-3.5">Aktivitas Modul</th>
+                <th class="p-3.5">Nilai / Skor</th>
+                <th class="p-3.5">Keterangan</th>
+              </tr>
+            </thead>
+            <tbody id="teacherRecordsTableBody" class="divide-y divide-slate-100 text-slate-600 font-medium">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL RAHASIA: OTENTIKASI GURU -->
+  <div id="modalTeacherAuth" class="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-6 space-y-4 shadow-2xl modal-enter border border-slate-100 text-center">
+      <div class="w-14 h-14 rounded-2xl bg-slate-900 text-emerald-400 flex items-center justify-center text-xl mx-auto shadow-lg">
+        <i class="fa-solid fa-key"></i>
+      </div>
+      <div>
+        <h4 class="font-black text-base text-slate-800">Laman Rahasia Guru</h4>
+        <p class="text-xs text-slate-500 mt-1">Masukkan kata sandi guru untuk memantau rekap skor dan progres murid.</p>
+      </div>
+
+      <div class="space-y-2">
+        <input type="password" id="teacherPassInput" class="w-full text-center tracking-widest px-4 py-2.5 rounded-xl border border-slate-200 text-sm font-bold focus:ring-2 focus:ring-rg-teal outline-none transition" placeholder="Ketik kata sandi...">
+        <p id="teacherAuthError" class="text-[11px] font-bold text-rose-500 hidden">Password salah! Silakan coba lagi.</p>
+      </div>
+
+      <div class="grid grid-cols-2 gap-2 pt-1">
+        <button onclick="closeTeacherAuthModal()" class="py-2.5 rounded-xl border border-slate-200 font-bold text-xs text-slate-600 hover:bg-slate-50 transition">
+          Batal
+        </button>
+        <button onclick="validateTeacherPassword()" class="py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 font-extrabold text-xs text-white shadow-md transition">
+          Buka Portal
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    /* =====================================================================
+       1. DATA MODUL 14 UNIT LENGKAP (DARI DOKUMEN PDF ASLI)
+       ===================================================================== */
+    const unitsData = [
+      {
+        id: 1,
+        stage: "A",
+        title: "Noun (Kata Benda)",
+        subtitle: "Unit 1: Noun (Kata Benda)",
+        goals: [
+          "Mengenali noun dan membedakan countable vs uncountable",
+          "Mencocokkan subjek dengan kata kerja yang benar (-s / tanpa -s)",
+          "Menulis proper noun dengan kapital dan membuat noun dari kata lain"
+        ],
+        conceptHTML: `
+          <h4 class="font-bold text-slate-800">1. Countable vs Uncountable</h4>
+          <p>Countable bisa dihitung (a book, two eggs). Uncountable tidak bisa dihitung langsung dan tidak memiliki bentuk jamak: <em>water, salt, rice, advice, information</em>. Jangan pernah menambahkan -s pada information!</p>
+          <h4 class="font-bold text-slate-800 mt-3">2. Subjek Tunggal vs Jamak Menentukan Verb</h4>
+          <p>Pada simple present, subjek tunggal membuat verb berakhiran <strong>-s</strong>:</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li><em>The price of fuel <strong>rises</strong> every year.</em> (price = satu)</li>
+            <li><em>The prices of fuel <strong>rise</strong> every year.</em> (prices = banyak)</li>
+          </ul>
+          <h4 class="font-bold text-slate-800 mt-3">3. Membuat Noun dari Ukuran (Dimension)</h4>
+          <p>deep &rarr; <strong>depth</strong> | long &rarr; <strong>length</strong> | wide &rarr; <strong>width</strong> | high &rarr; <strong>height</strong> | strong &rarr; <strong>strength</strong>.</p>
+        `,
+        traps: [
+          "Memberi -s pada kata kerja ketika subjeknya jamak (The prices rises adalah SALAH).",
+          "Menulis informations, advices, atau furnitures (Ketiganya uncountable).",
+          "Tertukar antara noun benda dan orang: procrastination (penundaan) vs procrastinator (orangnya)."
+        ],
+        questions: [
+          { q: "The ... of the swimming pool is two meters.", opts: ["deep", "deeply", "depth", "deepen"], ans: 2, exp: "Setelah the butuh noun. Noun dari deep adalah depth." },
+          { q: "The price of fuel ... every year.", opts: ["increase", "increases", "increasing", "to increase"], ans: 1, exp: "Subjek price tunggal, sehingga verb diberi akhiran -s: increases." },
+          { q: "Have you visited ...? It is a beautiful volcano.", opts: ["mount bromo", "Mount bromo", "Mount Bromo", "mount Bromo"], ans: 2, exp: "Proper noun (nama gunung) wajib diawali huruf kapital di kedua katanya." },
+          { q: "His ... made him late for school every day.", opts: ["lazy", "lazily", "laziness", "lazier"], ans: 2, exp: "Setelah his butuh noun. Noun dari lazy adalah laziness." },
+          { q: "Which word is uncountable?", opts: ["chair", "apple", "information", "student"], ans: 2, exp: "Information adalah uncountable noun, tidak boleh diberi a atau -s." },
+          { q: "The ... of this table is 120 centimeters.", opts: ["long", "length", "lengthen", "longly"], ans: 1, exp: "Setelah the butuh noun. Noun dari long adalah length." }
+        ]
+      },
+      {
+        id: 2,
+        stage: "A",
+        title: "Verb (Kata Kerja)",
+        subtitle: "Unit 2: Verb (Kata Kerja)",
+        goals: [
+          "Menguasai 5 bentuk kata kerja (V1, V1+s, V2, V3, V-ing)",
+          "Bentuk wajib setelah modal, to, dan do/does/did",
+          "Verb tidak beraturan dan phrasal verb"
+        ],
+        conceptHTML: `
+          <h4 class="font-bold text-slate-800">Aturan Emas Kata Kerja</h4>
+          <p>Setelah <strong>modal</strong> (can, must, should, will), <strong>to</strong> (infinitive), dan <strong>do/does/did</strong>, kata kerja <strong>WAJIB V1 MURNI</strong> tanpa imbuhan apa pun.</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>You must not <strong>talk</strong> here (Bukan talking).</li>
+            <li>She wants to <strong>buy</strong> a bike (Bukan bought).</li>
+            <li>We didn't <strong>watch</strong> the match (Bukan watched).</li>
+          </ul>
+        `,
+        traps: [
+          "Menulis didn't watched atau didn't saw (Setelah didn't wajib V1 murni).",
+          "Menulis readed atau breaked (Kata kerja tidak beraturan: read-read-read, break-broke-broken)."
+        ],
+        questions: [
+          { q: "You must not ... in the library.", opts: ["talking", "talks", "talk", "talked"], ans: 2, exp: "Setelah modal must not wajib V1 murni: talk." },
+          { q: "He wants to ... a new bike.", opts: ["bought", "buy", "buys", "buying"], ans: 1, exp: "Setelah to infinitive wajib V1 murni: buy." },
+          { q: "Yesterday she ... a letter to her friend.", opts: ["write", "wrote", "written", "writes"], ans: 1, exp: "Yesterday adalah penanda lampau, gunakan V2: wrote." },
+          { q: "They didn't ... the match.", opts: ["watched", "watching", "watch", "watches"], ans: 2, exp: "Setelah didn't wajib V1 murni: watch." },
+          { q: "The glass has ... into pieces.", opts: ["break", "broke", "broken", "breaking"], ans: 2, exp: "Setelah has/have pada perfect tense wajib V3: broken." },
+          { q: "Our teacher wants to ... the boring lesson like a game.", opts: ["gamify", "pacify", "liquefy", "dignify"], ans: 0, exp: "Gamify berarti membuat sesuatu menjadi menarik seperti permainan (game)." }
+        ]
+      },
+      {
+        id: 3,
+        stage: "A",
+        title: "Adjective dan Adverb",
+        subtitle: "Unit 3: Adjective dan Adverb",
+        goals: [
+          "Membedakan adjective (menerangkan benda) dan adverb (menerangkan aksi)",
+          "Memilih adjective berakhiran -ing vs -ed",
+          "Menghafal adverb pengecualian (good -> well, fast, hard)"
+        ],
+        conceptHTML: `
+          <h4 class="font-bold text-slate-800">1. Adjective -ing vs -ed</h4>
+          <p><strong>-ing</strong> menerangkan hal penyebab perasaan (The movie is <em>boring</em>). <strong>-ed</strong> menerangkan orang yang merasakan (I am <em>bored</em>).</p>
+          <h4 class="font-bold text-slate-800 mt-2">2. Pengecualian Adverb of Manner</h4>
+          <p>good &rarr; <strong>well</strong> | fast &rarr; <strong>fast</strong> | hard &rarr; <strong>hard</strong> (hardly artinya hampir tidak).</p>
+        `,
+        traps: [
+          "She sings good (Salah! Yang benar: She sings well).",
+          "Mengira hardly berarti dengan keras (hardly = hampir tidak)."
+        ],
+        questions: [
+          { q: "The vase is very ..., so please be careful.", opts: ["fragile", "solid", "hard", "firm"], ans: 0, exp: "Kata kunci be careful menunjuk pada benda yang mudah pecah/rapuh: fragile." },
+          { q: "This is a ... project, and many investors want to join.", opts: ["promised", "promises", "promise", "promising"], ans: 3, exp: "Proyek yang menjanjikan menggunakan adjective -ing: promising." },
+          { q: "I was so ... after the long trip.", opts: ["tired", "tiring", "tire", "tiredly"], ans: 0, exp: "Orang yang merasakan lelah menggunakan adjective -ed: tired." },
+          { q: "The dancers moved ... on the stage.", opts: ["elegant", "elegance", "elegantly", "eleganter"], ans: 2, exp: "Menerangkan kata kerja moved, gunakan adverb: elegantly." },
+          { q: "Which sentence is correct?", opts: ["She sings well.", "She sings good.", "She is singing goodly.", "She sings goodness."], ans: 0, exp: "Adverb dari kata sifat good adalah well." },
+          { q: "The team solved the problem ..., and finished early.", opts: ["effortlessly", "carelessly", "uselessly", "mindlessly"], ans: 0, exp: "Hasilnya positif dan cepat selesai, pilih kata bernuansa positif: effortlessly." }
+        ]
+      },
+      {
+        id: 4,
+        stage: "A",
+        title: "Article dan Pronoun",
+        subtitle: "Unit 4: Article dan Pronoun",
+        goals: [
+          "Memilih a, an, atau the berdasarkan BUNYI kata",
+          "Menguasai pronoun: subject, object, possessive, reflexive",
+          "Memahami pronoun untuk collective noun (committee, company = its)"
+        ],
+        conceptHTML: `
+          <h4 class="font-bold text-slate-800">Aturan Bunyi Article</h4>
+          <p>Yang menentukan a atau an adalah <strong>BUNYI pertama</strong>, bukan hurufnya!</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li><em>an hour</em> (dibaca aur &rarr; vokal)</li>
+            <li><em>a university</em> (dibaca yuniversiti &rarr; konsonan y)</li>
+            <li><em>an honest boy</em> (dibaca onest &rarr; vokal)</li>
+            <li><em>a unique idea</em> (dibaca yunik &rarr; konsonan y)</li>
+          </ul>
+        `,
+        traps: [
+          "Menulis a hour atau an university karena hanya melihat huruf pertama.",
+          "Mencampuradukkan its (milik) dan it's (singkatan it is)."
+        ],
+        questions: [
+          { q: "She is ... engineer.", opts: ["a", "an", "the", "(tanpa article)"], ans: 1, exp: "Engineer diawali dengan bunyi vokal, gunakan an." },
+          { q: "We visited ... university in Malang.", opts: ["a", "an", "each", "many"], ans: 0, exp: "University dibaca yuniversiti (bunyi konsonan y), gunakan a." },
+          { q: "He is ... honest boy.", opts: ["a", "an", "(tanpa article)", "many"], ans: 1, exp: "Honest dibaca onest (huruf h bisu/tidak dibaca), gunakan an." },
+          { q: "The students did the project by ...", opts: ["them", "themselves", "theirs", "their"], ans: 1, exp: "Subjek jamak (students) melakukan sendiri, gunakan reflexive pronoun: themselves." },
+          { q: "The company announced ... new product yesterday.", opts: ["their", "its", "it", "it's"], ans: 1, exp: "Company adalah satu kesatuan (tunggal), kata ganti miliknya adalah its." },
+          { q: "This book is not mine. It is ...", opts: ["your", "you", "yours", "yourself"], ans: 2, exp: "Berdiri sendiri tanpa kata benda di belakangnya, gunakan possessive pronoun: yours." }
+        ]
+      },
+      {
+        id: 5,
+        stage: "A",
+        title: "Preposition dan Conjunction",
+        subtitle: "Unit 5: Preposition dan Conjunction",
+        goals: [
+          "Membedakan at, on, in untuk waktu dan tempat",
+          "Menghafal pasangan tetap (worry about, good at, guilty of)",
+          "Menyambung kalimat dengan konjungsi setara (FANBOYS)"
+        ],
+        conceptHTML: `
+          <h4 class="font-bold text-slate-800">1. At, On, In</h4>
+          <p><strong>At:</strong> jam & titik spesifik (at 7 pm, at school). <strong>On:</strong> hari & permukaan (on Monday, on the top floor). <strong>In:</strong> bulan, tahun, kota (in July, in 2025, in Surabaya).</p>
+          <h4 class="font-bold text-slate-800 mt-2">2. Membedakan For vs So</h4>
+          <p><strong>For</strong> = sebab (karena). <em>The team won, for they trained hard.</em></p>
+          <p><strong>So</strong> = akibat. <em>They trained hard, so they won.</em></p>
+        `,
+        traps: [
+          "Memakai in untuk hari (in Monday adalah SALAH, yang benar on Monday).",
+          "Menukar penggunaan for (sebab) dan so (akibat)."
+        ],
+        questions: [
+          { q: "The class begins ... 7 a.m. ... Tuesday.", opts: ["at - on", "on - at", "in - on", "at - in"], ans: 0, exp: "At digunakan untuk jam, on digunakan untuk nama hari." },
+          { q: "Don't worry ... small things.", opts: ["in", "for", "about", "on"], ans: 2, exp: "Pasangan preposisi tetap: worry about." },
+          { q: "He is good ... drawing.", opts: ["in", "at", "on", "for"], ans: 1, exp: "Pasangan preposisi tetap: good at (terampil dalam)." },
+          { q: "It was raining, ... we stayed at home.", opts: ["but", "for", "so", "or"], ans: 2, exp: "Tinggal di rumah adalah akibat dari hujan, gunakan konjungsi so." },
+          { q: "The team won the final, ... they trained hard every day.", opts: ["so", "for", "but", "or"], ans: 1, exp: "Berlatih keras adalah sebab kemenangan, gunakan konjungsi for (karena)." }
+        ]
+      },
+      {
+        id: 6,
+        stage: "B",
+        title: "Tenses: Present",
+        subtitle: "Unit 6: Simple Present & Continuous",
+        goals: [
+          "Simple present untuk kebiasaan dan fakta ilmiah",
+          "Present continuous untuk aksi yang sedang berlangsung sekarang",
+          "Signal words penentu tenses"
+        ],
+        conceptHTML: `
+          <h4 class="font-bold text-slate-800">Perbandingan Present</h4>
+          <p><strong>Simple Present:</strong> kebiasaan/jadwal (usually, every day). Pola: S + V1 (+s/es untuk he, she, it).</p>
+          <p><strong>Present Continuous:</strong> sedang terjadi (now, at the moment, Look!). Pola: S + is/am/are + V-ing.</p>
+        `,
+        traps: [
+          "Lupa menambahkan -s pada subjek tunggal (My father work in a bank).",
+          "Memberi -s pada verb setelah does (Does she studies? Harus study)."
+        ],
+        questions: [
+          { q: "My brother ... football every Sunday.", opts: ["play", "plays", "is playing", "played"], ans: 1, exp: "Every Sunday = kebiasaan rutin, subjek tunggal orang ketiga, gunakan plays." },
+          { q: "Look! The cat ... on the sofa.", opts: ["sleeps", "sleep", "is sleeping", "slept"], ans: 2, exp: "Kata seru Look! menandakan peristiwa sedang berlangsung sekarang: is sleeping." },
+          { q: "She ... meat. She is a vegetarian.", opts: ["don't eat", "doesn't eat", "isn't eating", "not eat"], ans: 1, exp: "Fakta umum dengan subjek she menggunakan doesn't eat." }
+        ]
+      },
+      {
+        id: 7,
+        stage: "B",
+        title: "Tenses: Past",
+        subtitle: "Unit 7: Simple Past & Past Continuous",
+        goals: [
+          "Simple past (V2) untuk aksi yang telah tuntas di masa lalu",
+          "Past continuous untuk latar belakang kejadian",
+          "Past perfect (had + V3) untuk kejadian yang terjadi lebih dulu"
+        ],
+        conceptHTML: `
+          <h4 class="font-bold text-slate-800">Pola Latar dan Pemotong</h4>
+          <p>Kejadian yang sedang berlangsung (latar) memakai <strong>Past Continuous (was/were + V-ing)</strong>. Kejadian mendadak yang memotong memakai <strong>Simple Past (V2)</strong>.</p>
+          <p><em>I <strong>fell</strong> (pemotong) while I <strong>was texting</strong> my friend (latar).</em></p>
+        `,
+        traps: [
+          "Menulis did not went (Setelah did not harus V1 murni: did not go).",
+          "Menulis was walk (Harus was walking)."
+        ],
+        questions: [
+          { q: "She ... go to school yesterday because she was sick.", opts: ["don't", "doesn't", "didn't", "hadn't"], ans: 2, exp: "Yesterday adalah penanda simple past bentuk negatif: didn't + V1." },
+          { q: "I ... while I was crossing the road.", opts: ["fall", "falling", "fell", "was fall"], ans: 2, exp: "Kejadian pemotong menggunakan Simple Past (V2): fell." },
+          { q: "When we arrived, the show ...", opts: ["already started", "had already started", "has already started", "already starts"], ans: 1, exp: "Pertunjukan telah dimulai lebih dulu sebelum kami tiba di masa lampau: had already started." }
+        ]
+      },
+      {
+        id: 8,
+        stage: "B",
+        title: "Future dan Perfect",
+        subtitle: "Unit 8: Future & Present Perfect",
+        goals: [
+          "Membedakan will (spontan/janji) vs be going to (ada bukti/rencana)",
+          "Present perfect (has/have + V3) untuk pengalaman dan hasil",
+          "Since (titik waktu) vs for (durasi waktu)"
+        ],
+        conceptHTML: `
+          <h4 class="font-bold text-slate-800">Will vs Be Going To</h4>
+          <p><strong>Be Going To:</strong> bila ada bukti nyata yang terlihat atau jadwal tetap. <em>Look at the clouds! It <strong>is going to</strong> rain.</em></p>
+          <p><strong>Will:</strong> keputusan spontan atau janji. <em>Don't worry, I <strong>will help</strong> you.</em></p>
+        `,
+        traps: [
+          "Memakai simple past bersama since (I lived here since 2015 SALAH -> I have lived here since 2015).",
+          "Menulis has went (Harus has gone, bentuk V3)."
+        ],
+        questions: [
+          { q: "Look at the dark clouds! It ... rain soon.", opts: ["will", "is going to", "rains", "rained"], ans: 1, exp: "Ada bukti nyata yang terlihat (awan gelap), gunakan is going to." },
+          { q: "I ... this film three times.", opts: ["see", "saw", "have seen", "am seeing"], ans: 2, exp: "Pengalaman hidup yang pernah dilakukan berulang menuntut Present Perfect: have seen." },
+          { q: "They ... in Surabaya since 2015.", opts: ["live", "lived", "have lived", "are living"], ans: 2, exp: "Kata petunjuk since menuntut Present Perfect: have lived." }
+        ]
+      },
+      {
+        id: 9,
+        stage: "B",
+        title: "Passive Voice (Kalimat Pasif)",
+        subtitle: "Unit 9: Passive Voice",
+        goals: [
+          "Memahami rumus dasar pasif: be + V3",
+          "Ciri soal pasif: subjek benda tak bernyawa atau ada by + pelaku",
+          "Mengubah kalimat aktif menjadi pasif di berbagai tense"
+        ],
+        conceptHTML: `
+          <h4 class="font-bold text-slate-800">Rumus Dasar Kalimat Pasif</h4>
+          <p class="font-mono text-rg-navy font-bold">Subjek + be (sesuai tense) + V3 (+ by pelaku)</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>Present: is/am/are + V3 &rarr; <em>Classes are cleaned.</em></li>
+            <li>Past: was/were + V3 &rarr; <em>The window was broken.</em></li>
+            <li>Future: will be + V3 &rarr; <em>The result will be announced.</em></li>
+          </ul>
+        `,
+        traps: [
+          "Memakai V-ing setelah be pada pasif (The class is cleaning SALAH -> The class is cleaned).",
+          "Lupa been pada perfect tense (has updated SALAH -> has been updated)."
+        ],
+        questions: [
+          { q: "The letters ... every morning by the secretary.", opts: ["is typed", "are typed", "typed", "are typing"], ans: 1, exp: "Subjek jamak letters dikenai tindakan setiap pagi (simple present pasif): are typed." },
+          { q: "The cake ... by my mother yesterday.", opts: ["made", "was made", "is made", "making"], ans: 1, exp: "Yesterday menunjukkan masa lampau, pasif tunggal: was made." },
+          { q: "The results will ... tomorrow.", opts: ["announce", "announced", "be announced", "being announced"], ans: 2, exp: "Bentuk pasif masa depan (modal will): will + be + V3 (be announced)." }
+        ]
+      },
+      {
+        id: 10,
+        stage: "C",
+        title: "Pola Kalimat & WH Questions",
+        subtitle: "Unit 10: Parallel Structure, Imperative, WH",
+        goals: [
+          "Parallel Structure: menyamakan bentuk kata dalam daftar (sejajar)",
+          "Imperative: kalimat perintah & larangan selalu V1",
+          "Memilih kata tanya (who, whose, where, when, why, how)"
+        ],
+        conceptHTML: `
+          <h4 class="font-bold text-slate-800">1. Parallel Structure (Struktur Sejajar)</h4>
+          <p>Jika menyebut beberapa hal dalam daftar, semua item harus berformat sama: <em>adj + adj + adj</em> atau <em>V-ing + V-ing + V-ing</em>.</p>
+          <p><em>She likes reading, swimming, and <strong>dancing</strong>.</em> (Bukan to dance).</p>
+        `,
+        traps: [
+          "Mencampur bentuk kata (reading, swimming, and to dance adalah SALAH).",
+          "Larangan yang memakai V-ing (Don't talking SALAH -> Don't talk)."
+        ],
+        questions: [
+          { q: "My mother wants a bag that is large, light, and ...", opts: ["strongly", "strength", "strong", "strengthen"], ans: 2, exp: "Daftar kata sifat sejajar: large (adj), light (adj), maka butuh strong (adj)." },
+          { q: "... the door, please. It is cold in here.", opts: ["Closing", "Close", "Closes", "To close"], ans: 1, exp: "Kalimat perintah wajib menggunakan bentuk dasar V1 murni: Close." },
+          { q: "... bag is this? It's Rina's.", opts: ["Whose", "Who", "What", "Where"], ans: 0, exp: "Menanyakan kepemilikan seseorang (milik siapa), gunakan Whose." }
+        ]
+      },
+      {
+        id: 11,
+        stage: "D",
+        title: "Vocabulary Tematik",
+        subtitle: "Unit 11: Profesi, Rasa, Tekstur, Ukuran",
+        goals: [
+          "Menebak arti kata sulit dari konteks kalimat",
+          "Kosa kata profesi, rasa makanan, dan tekstur benda",
+          "Quantifier countable vs uncountable (few/a few, little/a little)"
+        ],
+        conceptHTML: `
+          <h4 class="font-bold text-slate-800">Kosa Kata Sering Muncul di Lomba</h4>
+          <p><strong>Profesi:</strong> <em>fish merchant</em> (penjual ikan), <em>plumber</em> (tukang pipa), <em>boatswain</em> (perawat lambung kapal).</p>
+          <p><strong>Ukuran Mikro:</strong> <em>microscopic</em> (sangat kecil & butuh kaca pembesar), <em>colossal / humongous</em> (raksasa).</p>
+        `,
+        traps: [
+          "Tertukar few (hampir tidak ada) dan a few (ada beberapa).",
+          "Memilih kata berlebihan (bayi memakai pakaian petite, bukan immense)."
+        ],
+        questions: [
+          { q: "My uncle sells fresh tuna at the harbor. He is a fish ...", opts: ["merchant", "farmer", "tailor", "barber"], ans: 0, exp: "Pedagang/penjual ikan disebut fish merchant." },
+          { q: "I can't read your handwriting. It is so ... that I need a magnifying glass.", opts: ["enormous", "gigantic", "microscopic", "massive"], ans: 2, exp: "Petunjuk magnifying glass (kaca pembesar) berarti tulisan sangat kecil: microscopic." },
+          { q: "Grandpa cannot eat much salt. Please put only ... salt in his soup.", opts: ["a few", "many", "a little", "a lot of"], ans: 2, exp: "Salt adalah uncountable, jumlah sedikit positif menggunakan a little." }
+        ]
+      },
+      {
+        id: 12,
+        stage: "E",
+        title: "Reading Comprehension",
+        subtitle: "Unit 12: Trik Membaca Cepat Soal Cerita",
+        goals: [
+          "Menghindari jebakan kata yang persis sama (paraphrase)",
+          "Menemukan main idea, stated & unstated detail",
+          "Menebak rujukan kata ganti (reference)"
+        ],
+        conceptHTML: `
+          <h4 class="font-bold text-slate-800">Kunci Utama Reading Lomba</h4>
+          <p>Jawaban hampir selalu berupa <strong>paraphrase / sinonim</strong>, bukan kata yang persis sama. <em>join competition &rarr; enroll in a contest; put out the fire &rarr; extinguish the flames</em>.</p>
+        `,
+        traps: [
+          "Memilih jawaban hanya karena memuat kata yang sama persis dengan teks.",
+          "Menjawab pertanyaan berdasarkan pengetahuan sendiri, bukan isi teks."
+        ],
+        questions: [
+          { q: "Dewi and her friends collect plastic trash from the beach every Sunday. What is the main purpose of this activity?", opts: ["To sell expensive plastic", "To protect the marine environment", "To swim with friends", "To build a hotel"], ans: 1, exp: "Membersihkan sampah di pantai bertujuan menjaga kelestarian lingkungan laut." },
+          { q: "The firefighter managed to put out the flame. The word 'put out' is closest in meaning to ...", opts: ["ignited", "extinguished", "watched", "increased"], ans: 1, exp: "Put out bermakna memadamkan api (extinguish)." }
+        ]
+      },
+      {
+        id: 13,
+        stage: "E",
+        title: "Menyusun Kalimat & Cerita",
+        subtitle: "Unit 13: Arrange Words & Complete Story",
+        goals: [
+          "Urutan baku: Subjek -> Adverb -> Verb -> Objek -> Tempat -> Waktu",
+          "Menyusun kata acak bernomor",
+          "Menyisipkan kalimat hilang pada teks bertanda (1), (2), (3), (4)"
+        ],
+        conceptHTML: `
+          <h4 class="font-bold text-slate-800">Urutan Baku Kalimat</h4>
+          <p>Keterangan <strong>Tempat diletakkan SEBELUM Waktu</strong>. <em>at the market (tempat) yesterday (waktu).</em></p>
+        `,
+        traps: [
+          "Meletakkan keterangan waktu sebelum tempat.",
+          "Menaruh adverb of frequency setelah objek kalimat."
+        ],
+        questions: [
+          { q: "Susunan yang benar: (1) usually (2) my (3) cooks (4) dinner (5) mother (6) in the kitchen", opts: ["2-5-1-3-4-6", "2-5-3-1-4-6", "5-2-1-3-4-6", "2-5-1-3-6-4"], ans: 0, exp: "My mother (2-5) usually (1) cooks (3) dinner (4) in the kitchen (6)." },
+          { q: "Susunan yang benar: (1) lost (2) yesterday (3) wallet (4) I (5) my (6) at the market", opts: ["4-1-5-3-6-2", "4-1-2-5-3-6", "5-3-4-1-6-2", "4-5-3-1-6-2"], ans: 0, exp: "I lost my wallet at the market yesterday (Tempat sebelum waktu)." }
+        ]
+      },
+      {
+        id: 14,
+        stage: "E",
+        title: "Cloze Passage (Teks Rumpang)",
+        subtitle: "Unit 14: Trik Mengisi Paragraf Kosong",
+        goals: [
+          "Menentukan jenis kata yang hilang dari kata kiri dan kanannya",
+          "Memanfaatkan kolokasi lazim (win first prize, reduce pollution)",
+          "Menyelaraskan tenses dengan konteks teks"
+        ],
+        conceptHTML: `
+          <h4 class="font-bold text-slate-800">Langkah Mengerjakan Cloze</h4>
+          <p>Lihat kata sebelum dan sesudah kotak kosong: Jika didahului <em>a/an/the</em> dan diikuti noun, maka kotak kosong tersebut butuh <strong>Adjective</strong>.</p>
+        `,
+        traps: [
+          "Langsung melihat opsi jawaban tanpa membaca kalimat utuh.",
+          "Mengabaikan kata penanda waktu yang menentukan bentuk tense."
+        ],
+        questions: [
+          { q: "Sinta is a (1) ... student who prepared a solar experiment and won the first (2) ...", opts: ["(1) diligent, (2) prize", "(1) diligence, (2) price", "(1) diligently, (2) prize", "(1) diligent, (2) priced"], ans: 0, exp: "(1) Butuh adjective sebelum student (diligent), (2) kolokasi first prize (juara pertama)." }
+        ]
+      }
+    ];
+
+    /* =====================================================================
+       2. DATA TRYOUT LOMBA (20 SOAL SIMULASI LENGKAP)
+       ===================================================================== */
+    const tryoutQuestionsData = [
+      { q: "1. The ... of this historic lake reaches more than two hundred meters.", opts: ["deep", "depth", "deeply", "deepen"], ans: 1, exp: "Setelah the dibutuhkan noun (depth)." },
+      { q: "2. Neither the students nor the teacher ... present at the hall yesterday.", opts: ["was", "were", "are", "is"], ans: 0, exp: "Pada neither... nor, kata kerja menyesuaikan subjek terdekat (the teacher = tunggal past = was)." },
+      { q: "3. You must not ... confidential documents outside the office.", opts: ["take", "taking", "took", "taken"], ans: 0, exp: "Setelah modal must not wajib V1 murni (take)." },
+      { q: "4. He is ... honorable guest who arrived from Japan this morning.", opts: ["a", "an", "the", "many"], ans: 1, exp: "Honorable dibaca onorable (bunyi vokal), gunakan an." },
+      { q: "5. The committee will present ... annual report tomorrow afternoon.", opts: ["their", "its", "it's", "theirs"], ans: 1, exp: "Committee adalah collective noun tunggal, pronoun yang tepat adalah its." },
+      { q: "6. She was found guilty ... breaking the competition rules.", opts: ["in", "at", "of", "to"], ans: 2, exp: "Pasangan preposisi tetap: guilty of." },
+      { q: "7. Listen! Someone ... on our front door right now.", opts: ["knocks", "knocked", "is knocking", "has knocked"], ans: 2, exp: "Listen! + right now menunjukkan aksi sedang berlangsung (is knocking)." },
+      { q: "8. I fell down onto the grass while I ... to catch the frisbee.", opts: ["ran", "was running", "am running", "have run"], ans: 1, exp: "Aksi latar belakang di masa lalu menggunakan past continuous (was running)." },
+      { q: "9. By the time the police officer reached the scene, the thief ...", opts: ["escaped", "had escaped", "has escaped", "was escaped"], ans: 1, exp: "By the time + simple past menuntut past perfect (had escaped)." },
+      { q: "10. Look at those dark clouds! It ... pour any minute.", opts: ["will", "is going to", "pours", "poured"], ans: 1, exp: "Terdapat bukti nyata visual (awan gelap), gunakan is going to." },
+      { q: "11. This magnificent bridge ... by skilled engineers in 1995.", opts: ["built", "was built", "is built", "had built"], ans: 1, exp: "Jembatan dibangun (pasif lampau tahun 1995), gunakan was built." },
+      { q: "12. The candidate is known as a resilient leader, a dedicated teacher, and a ...", opts: ["generosity person", "generous mentor", "generously figure", "generosity"], ans: 1, exp: "Parallel structure adjective + noun orang: generous mentor." },
+      { q: "13. Please ... the laboratory room before you turn off the main switch.", opts: ["leaving", "left", "leave", "to leave"], ans: 2, exp: "Imperative sentence (perintah) wajib menggunakan V1 murni (leave)." },
+      { q: "14. ... took my notebook from the desk? I urgently need it.", opts: ["Whose", "Who", "Where", "When"], ans: 1, exp: "Menanyakan pelaku (orang) sebagai subjek, gunakan Who." },
+      { q: "15. The mechanic used a microscope because the metal crack was ...", opts: ["gigantic", "enormous", "microscopic", "massive"], ans: 2, exp: "Butuh mikroskop berarti retakannya sangat kecil tak terlihat mata (microscopic)." },
+      { q: "16. Susun urutan yang benar: (1) seldom (2) uses (3) seasoning (4) My aunt (5) when cooking.", opts: ["4-1-2-3-5", "4-2-1-3-5", "1-4-2-3-5", "4-1-3-2-5"], ans: 0, exp: "My aunt (4) seldom (1) uses (2) seasoning (3) when cooking (5)." },
+      { q: "17. 'The team extinguished the flame quickly.' Extinguished is closest in meaning to ...", opts: ["lit up", "put out", "spread", "prevented"], ans: 1, exp: "Extinguish artinya memadamkan api (put out)." },
+      { q: "18. Sinta has been working on her project ... early this morning.", opts: ["for", "since", "until", "during"], ans: 1, exp: "Menunjukkan titik awal waktu terjadinya aksi, gunakan since." },
+      { q: "19. The soup tastes too ... because my brother spilled too much oil in it.", opts: ["greasy", "sweet", "bitter", "sour"], ans: 0, exp: "Terlalu banyak minyak menyebabkan rasa berminyak (greasy)." },
+      { q: "20. The announcement will ... by the principal at the flag ceremony.", opts: ["deliver", "delivered", "be delivered", "being delivered"], ans: 2, exp: "Passive voice modal will: will be delivered." }
+    ];
+
+    /* =====================================================================
+       3. DATA CHEAT SHEET & KAMUS
+       ===================================================================== */
+    const cheatSheetRules = [
+      { trigger: "can, will, must, should, may + [___]", pick: "V1 (Bentuk Dasar)", note: "Modal selalu diikuti V1 murni tanpa -s/-ed/-ing." },
+      { trigger: "to + [___]", pick: "V1 (Infinitive)", note: "Setelah to selalu V1: wants to buy, ready to go." },
+      { trigger: "didn't, doesn't, don't + [___]", pick: "V1 Murni", note: "Bentuk negatif kembali ke dasar: didn't watch." },
+      { trigger: "yesterday, last week, two days ago", pick: "V2 (Simple Past)", note: "Kejadian selesai di masa lalu: wrote, went, broke." },
+      { trigger: "now, at the moment, Look!, Listen!", pick: "is/am/are + V-ing", note: "Present Continuous: sedang berlangsung saat ini." },
+      { trigger: "usually, always, every day", pick: "V1 (+s/es subjek tunggal)", note: "Simple Present: fakta & kebiasaan rutin." },
+      { trigger: "while + kegiatan berlangsung", pick: "was/were + V-ing", note: "Past Continuous sebagai latar kejadian lain." },
+      { trigger: "by the time + simple past", pick: "had + V3 (Past Perfect)", note: "Kejadian yang sudah tuntas lebih dulu di masa lampau." },
+      { trigger: "since, already, so far, 3 times", pick: "has/have + V3", note: "Present Perfect: pengalaman atau efek terasa sekarang." },
+      { trigger: "Ada bukti visual (awan gelap, dll)", pick: "is/am/are going to + V1", note: "Future terencana / prediksi berdasar bukti fisik." },
+      { trigger: "Subjek benda pasif / ada kata 'by'", pick: "be + V3 (Passive)", note: "The car was repaired; classes are cleaned." },
+      { trigger: "Daftar kata: A, B, and [___]", pick: "Bentuk sama persis", note: "Parallel Structure: adj, adj, adj atau V-ing, V-ing, V-ing." }
+    ];
+
+    const glossaryList = [
+      { word: "Noun", def: "Kata benda: nama orang, benda, tempat, konsep.", ex: "book, teacher, Bali" },
+      { word: "Verb", def: "Kata kerja: aksi atau tindakan yang dilakukan.", ex: "study, write, examine" },
+      { word: "Adjective", def: "Kata sifat: menerangkan kondisi kata benda.", ex: "fragile, diligent, large" },
+      { word: "Adverb", def: "Kata keterangan: menerangkan cara, waktu, frekuensi.", ex: "carefully, always, well" },
+      { word: "Countable", def: "Benda yang bisa dihitung satu per satu secara langsung.", ex: "student, table, apple" },
+      { word: "Uncountable", def: "Benda tak bisa dihitung langsung (tidak boleh tambah -s).", ex: "information, water, salt" },
+      { word: "Signal Word", def: "Kata penanda waktu untuk menebak bentuk tenses.", ex: "yesterday, since, now" },
+      { word: "Passive Voice", def: "Kalimat pasif: subjek adalah sasaran yang dikenai aksi.", ex: "The window was broken" },
+      { word: "Parallel", def: "Struktur sejajar: format pola kata sama dalam sebuah deret.", ex: "dancing, singing, acting" }
+    ];
+
+    /* =====================================================================
+       4. STATE MANAJEMEN APLIKASI
+       ===================================================================== */
+    // KONFIGURASI URL GOOGLE APPS SCRIPT ANDA (Disimpan di dalam kode)
+    const DEFAULT_APPSCRIPT_URL = "https://script.google.com/macros/s/AKfycbz6QtG5vTn1Bt6JL-CngLEAFH3octYBKYEU0G3wQuCaQN2jGUnNnbO5h2yQFVq7EVjPzQ/exec";
+
+    let appState = {
+      studentName: "",
+      className: "",
+      school: "",
+      isRegistered: false,
+      xp: 100,
+      streak: 1,
+      completedUnits: [],
+      appScriptUrl: DEFAULT_APPSCRIPT_URL,
+      activityLog: [] // Log rekaman aktivitas untuk portal guru
+    };
+
+    let isTeacherUnlocked = false;
+
+    let activeUnitId = 1;
+    let tryoutState = {
+      currentIndex: 0,
+      answers: {},
+      timerInterval: null,
+      secondsLeft: 15 * 60,
+      isFinished: false
+    };
+
+    function initApp() {
+      loadLocalState();
+      renderHomeUnits();
+      renderAllUnitsGrid();
+      renderCheatSheetAndGlossary();
+    }
+
+    function loadLocalState() {
+      try {
+        const saved = localStorage.getItem("champion_eng_db_v2");
+        if (saved) {
+          appState = Object.assign(appState, JSON.parse(saved));
+        }
+      } catch (e) {
+        console.warn("Storage restricted, using memory state.");
+      }
+
+      if (!Array.isArray(appState.activityLog)) {
+        appState.activityLog = [];
+      }
+
+      // Pastikan URL default selalu terisi jika sebelumnya kosong
+      if (!appState.appScriptUrl) {
+        appState.appScriptUrl = DEFAULT_APPSCRIPT_URL;
+      }
+
+      if (!appState.isRegistered || !appState.studentName) {
+        showOnboardingModal();
+      }
+
+      updateUIElements();
+      renderTeacherDashboard();
+    }
+
+    function saveLocalState() {
+      try {
+        localStorage.setItem("champion_eng_db_v2", JSON.stringify(appState));
+      } catch (e) {}
+      updateUIElements();
+    }
+
+    function showOnboardingModal() {
+      const modal = document.getElementById("modalOnboarding");
+      if (modal) modal.classList.remove("hidden");
+    }
+
+    function submitOnboardingData() {
+      const name = document.getElementById("onboardStudentName").value.trim();
+      const className = document.getElementById("onboardClassName").value.trim();
+      const school = document.getElementById("onboardSchoolName").value.trim();
+
+      if (!name || !className || !school) {
+        showToast("Mohon lengkapi Nama, Kelas, dan Sekolah ya!", "error");
+        return;
+      }
+
+      appState.studentName = name;
+      appState.className = className;
+      appState.school = school;
+      appState.isRegistered = true;
+      appState.xp = Math.max(appState.xp, 100);
+
+      saveLocalState();
+      document.getElementById("modalOnboarding").classList.add("hidden");
+      showToast(`Selamat datang, ${appState.studentName}! Data berhasil disimpan.`, "success");
+
+      // Kirim registrasi ke sheets jika URL sudah ada
+      syncToGoogleSheets({
+        activity: "Registrasi Siswa Baru",
+        score: "Terdaftar",
+        details: `Kelas: ${appState.className} | Sekolah: ${appState.school}`
+      });
+    }
+
+    function updateUIElements() {
+      const name = appState.studentName || "Siswa Juara";
+      const initials = name.split(" ").map(n => n[0]).slice(0, 2).join("").toUpperCase() || "SJ";
+      const classSchool = appState.className ? `${appState.className} • ${appState.school}` : (appState.school || "SMP Siap Lomba");
+
+      document.getElementById("navStudentName").innerText = name;
+      document.getElementById("heroStudentName").innerText = name;
+      document.getElementById("navAvatarInitials").innerText = initials;
+      document.getElementById("profileAvatarBig").innerText = initials;
+      document.getElementById("headerStreak").innerText = `${appState.streak} Hari`;
+      document.getElementById("statStreakDay").innerText = `${appState.streak} Hari`;
+      document.getElementById("headerXP").innerText = `${appState.xp} XP`;
+      document.getElementById("statXPCount").innerText = `${appState.xp} XP`;
+      document.getElementById("profileXPCount").innerText = `${appState.xp} XP`;
+
+      const unitCountText = `${appState.completedUnits.length} / 14`;
+      document.getElementById("statCompletedUnits").innerText = unitCountText;
+      document.getElementById("profileCompletedCount").innerText = unitCountText;
+
+      document.getElementById("profileModalName").innerText = name;
+      document.getElementById("profileModalSchool").innerText = classSchool;
+
+      // Update Form Profil di Tab Pengaturan
+      const settingName = document.getElementById("settingStudentName");
+      const settingClass = document.getElementById("settingClassName");
+      const settingSchool = document.getElementById("settingSchoolName");
+      if (settingName) settingName.value = appState.studentName || "";
+      if (settingClass) settingClass.value = appState.className || "";
+      if (settingSchool) settingSchool.value = appState.school || "";
+
+      const cardName = document.getElementById("settingsCardName");
+      const cardSchool = document.getElementById("settingsCardSchool");
+      const avatarBadge = document.getElementById("settingsAvatarBadge");
+      if (cardName) cardName.innerText = name;
+      if (cardSchool) cardSchool.innerText = classSchool;
+      if (avatarBadge) avatarBadge.innerText = initials;
+
+      const statCloud = document.getElementById("statCloudStatus");
+      if (statCloud) {
+        statCloud.innerText = "Tersinkron";
+        statCloud.className = "font-black text-emerald-600 text-xs truncate";
+      }
+    }
+
+    /* =====================================================================
+       5. NAVIGASI TAB UTAMA (KONSISTEN HP & DESKTOP)
+       ===================================================================== */
+    function navigateTo(tabName) {
+      const tabs = ['home', 'units', 'unit-viewer', 'tryout', 'cheatSheet', 'settings', 'teacher'];
+      tabs.forEach(t => {
+        const el = document.getElementById(`tab-${t}`);
+        if (el) el.classList.add('hidden');
+      });
+
+      const target = document.getElementById(`tab-${tabName}`);
+      if (target) {
+        target.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Update Mobile Bottom Nav Active Style
+      document.querySelectorAll('.nav-bottom-item').forEach(btn => {
+        if (btn.dataset.tab === tabName) {
+          btn.classList.add('text-rg-teal');
+          btn.classList.remove('text-slate-400');
+        } else {
+          btn.classList.remove('text-rg-teal');
+          btn.classList.add('text-slate-400');
+        }
+      });
+
+      // Update Desktop Top Nav Active Style
+      document.querySelectorAll('.nav-desktop-item').forEach(btn => {
+        if (btn.dataset.tab === tabName) {
+          btn.className = "nav-desktop-item px-3.5 py-1.5 rounded-xl transition flex items-center space-x-1.5 text-rg-teal bg-white shadow-sm font-extrabold";
+        } else {
+          btn.className = "nav-desktop-item px-3.5 py-1.5 rounded-xl transition flex items-center space-x-1.5 text-slate-600 hover:text-slate-900";
+        }
+      });
+
+      if (tabName === 'teacher') {
+        renderTeacherDashboard();
+      }
+    }
+
+    /* =====================================================================
+       PORTAL RAHASIA GURU (PASSWORD: ninjasaga)
+       ===================================================================== */
+    function openTeacherAuthModal() {
+      if (isTeacherUnlocked) {
+        navigateTo('teacher');
+        return;
+      }
+      const modal = document.getElementById('modalTeacherAuth');
+      const input = document.getElementById('teacherPassInput');
+      const err = document.getElementById('teacherAuthError');
+      if (input) input.value = '';
+      if (err) err.classList.add('hidden');
+      if (modal) modal.classList.remove('hidden');
+      setTimeout(() => { if (input) input.focus(); }, 150);
+    }
+
+    function closeTeacherAuthModal() {
+      const modal = document.getElementById('modalTeacherAuth');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function validateTeacherPassword() {
+      const pass = document.getElementById('teacherPassInput').value.trim();
+      const err = document.getElementById('teacherAuthError');
+
+      if (pass === 'ninjasaga') {
+        isTeacherUnlocked = true;
+        closeTeacherAuthModal();
+        showToast("Akses Guru Berhasil Diberikan!", "success");
+        navigateTo('teacher');
+      } else {
+        if (err) err.classList.remove('hidden');
+      }
+    }
+
+    function lockTeacherPortal() {
+      isTeacherUnlocked = false;
+      showToast("Portal guru dikunci kembali.", "default");
+      navigateTo('home');
+    }
+
+    function renderTeacherDashboard() {
+      const tbody = document.getElementById('teacherRecordsTableBody');
+      const totalRecEl = document.getElementById('teacherTotalRecords');
+      const avgTryoutEl = document.getElementById('teacherAvgTryout');
+      const completedUnitsEl = document.getElementById('teacherCompletedUnitsStat');
+
+      const logs = appState.activityLog || [];
+
+      if (totalRecEl) totalRecEl.innerText = logs.length;
+      if (completedUnitsEl) completedUnitsEl.innerText = `${appState.completedUnits.length} / 14`;
+
+      // Hitung Rata-rata Skor Tryout
+      const tryoutScores = logs
+        .filter(l => l.activity && l.activity.includes('Tryout'))
+        .map(l => {
+          const match = String(l.score).match(/^(\d+)/);
+          return match ? parseInt(match[1]) : null;
+        })
+        .filter(n => n !== null);
+
+      if (avgTryoutEl) {
+        if (tryoutScores.length > 0) {
+          const avg = Math.round(tryoutScores.reduce((a, b) => a + b, 0) / tryoutScores.length);
+          avgTryoutEl.innerText = `${avg}/100`;
+        } else {
+          avgTryoutEl.innerText = "Belum Ada";
+        }
+      }
+
+      if (!tbody) return;
+
+      if (logs.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" class="p-6 text-center text-slate-400 italic">
+              Belum ada riwayat aktivitas pengerjaan murid yang terekam.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      // Urutkan dari yang paling baru
+      const sorted = [...logs].reverse();
+      tbody.innerHTML = sorted.map(row => `
+        <tr class="hover:bg-slate-50 transition">
+          <td class="p-3.5 whitespace-nowrap text-slate-400 font-mono text-[11px]">${row.time || '-'}</td>
+          <td class="p-3.5 font-bold text-slate-800">${row.studentName}</td>
+          <td class="p-3.5 text-slate-500">${row.className} • ${row.school}</td>
+          <td class="p-3.5 font-semibold text-slate-700">${row.activity}</td>
+          <td class="p-3.5">
+            <span class="px-2.5 py-1 rounded-full text-[11px] font-black ${String(row.score).includes('100') || String(row.score).includes('8') || String(row.score).includes('9') ? 'bg-emerald-100 text-emerald-800' : 'bg-indigo-50 text-indigo-700'}">
+              ${row.score}
+            </span>
+          </td>
+          <td class="p-3.5 text-slate-500 max-w-xs truncate">${row.details || '-'}</td>
+        </tr>
+      `).join('');
+    }
+
+    function exportTeacherLogToCSV() {
+      const logs = appState.activityLog || [];
+      if (logs.length === 0) {
+        showToast("Belum ada data untuk diekspor", "error");
+        return;
+      }
+
+      let csvContent = "data:text/csv;charset=utf-8,";
+      csvContent += "Waktu,Nama Siswa,Kelas,Sekolah,Aktivitas,Skor,Keterangan\n";
+
+      logs.forEach(row => {
+        const line = [
+          `"${row.time || ''}"`,
+          `"${row.studentName || ''}"`,
+          `"${row.className || ''}"`,
+          `"${row.school || ''}"`,
+          `"${row.activity || ''}"`,
+          `"${row.score || ''}"`,
+          `"${row.details || ''}"`
+        ].join(",");
+        csvContent += line + "\n";
+      });
+
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", `Rekap_Nilai_English_SMP_${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast("Rekap nilai berhasil diunduh (CSV)!", "success");
+    }
+
+    function clearTeacherHistory() {
+      if (!confirm("Apakah Bapak/Ibu guru yakin ingin menghapus seluruh log rekaman lokal murid ini? (Data di Google Sheets tetap aman)")) {
+        return;
+      }
+      appState.activityLog = [];
+      saveLocalState();
+      renderTeacherDashboard();
+      showToast("Log riwayat lokal telah dibersihkan.", "default");
+    }
+
+    function openProfileModal() {
+      document.getElementById("modalProfile").classList.remove("hidden");
+    }
+
+    function closeProfileModal() {
+      document.getElementById("modalProfile").classList.add("hidden");
+    }
+
+    function showToast(msg, type = "success") {
+      const box = document.getElementById("toastBox");
+      const text = document.getElementById("toastMsg");
+      const icon = document.getElementById("toastIcon");
+      const content = document.getElementById("toastContent");
+
+      text.innerText = msg;
+      if (type === "success") {
+        content.className = "flex items-center space-x-2 px-4 py-3 rounded-2xl shadow-xl text-xs font-bold text-white bg-emerald-600";
+        icon.className = "fa-solid fa-circle-check";
+      } else if (type === "error") {
+        content.className = "flex items-center space-x-2 px-4 py-3 rounded-2xl shadow-xl text-xs font-bold text-white bg-rose-600";
+        icon.className = "fa-solid fa-triangle-exclamation";
+      } else {
+        content.className = "flex items-center space-x-2 px-4 py-3 rounded-2xl shadow-xl text-xs font-bold text-white bg-slate-800";
+        icon.className = "fa-solid fa-circle-info";
+      }
+
+      box.classList.remove("hidden");
+      setTimeout(() => { box.classList.add("hidden"); }, 3200);
+    }
+
+    /* =====================================================================
+       6. RENDER MODUL & FILTERING
+       ===================================================================== */
+    function renderHomeUnits() {
+      const container = document.getElementById("homeUnitsGrid");
+      if (!container) return;
+      const previewUnits = unitsData.slice(0, 6);
+      container.innerHTML = previewUnits.map(u => `
+        <div onclick="openUnitViewer(${u.id})" class="bg-white p-4 rounded-2xl border border-slate-200/80 hover:border-rg-teal hover:shadow-md cursor-pointer transition space-y-2 group">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-teal-50 text-rg-tealDark uppercase">Tahap ${u.stage}</span>
+            <span class="text-[10px] font-bold text-slate-400">Unit ${u.id}</span>
+          </div>
+          <h3 class="font-extrabold text-sm text-slate-800 group-hover:text-rg-teal transition">${u.title}</h3>
+          <p class="text-[11px] text-slate-500 line-clamp-2">${u.goals[0] || 'Kuasai konsep dasar dan latihan soal kompetisi.'}</p>
+        </div>
+      `).join('');
+    }
+
+    function renderAllUnitsGrid(filter = "all") {
+      const container = document.getElementById("allUnitsGrid");
+      if (!container) return;
+
+      const filtered = filter === "all" ? unitsData : unitsData.filter(u => {
+        if (filter === "C") return ["C", "D", "E"].includes(u.stage);
+        return u.stage === filter;
+      });
+
+      container.innerHTML = filtered.map(u => {
+        const isDone = appState.completedUnits.includes(u.id);
+        return `
+          <div onclick="openUnitViewer(${u.id})" class="bg-white rounded-3xl p-5 border border-slate-200/80 hover:border-rg-teal hover:shadow-md cursor-pointer transition space-y-3 group">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-black px-2.5 py-1 rounded-full ${isDone ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-600'} uppercase">
+                ${isDone ? '✓ Selesai' : `Tahap ${u.stage}`}
+              </span>
+              <span class="text-xs font-bold text-slate-400">Unit ${u.id}</span>
+            </div>
+            <div>
+              <h3 class="font-black text-base text-slate-800 group-hover:text-rg-teal transition">${u.title}</h3>
+              <p class="text-xs text-slate-500 mt-1 line-clamp-2">${u.goals[0]}</p>
+            </div>
+            <div class="pt-2 flex items-center justify-between text-xs font-bold text-rg-teal border-t border-slate-100">
+              <span>Buka Modul</span>
+              <i class="fa-solid fa-arrow-right text-[11px] transform group-hover:translate-x-1 transition"></i>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterUnits(type) {
+      document.querySelectorAll('.unit-filter-btn').forEach(btn => {
+        if (btn.dataset.filter === type) {
+          btn.className = "unit-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-rg-teal text-white shadow-xs";
+        } else {
+          btn.className = "unit-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-600 border border-slate-200";
+        }
+      });
+      renderAllUnitsGrid(type);
+    }
+
+    /* =====================================================================
+       7. UNIT VIEWER & SOAL LATIHAN
+       ===================================================================== */
+    function openUnitViewer(id) {
+      activeUnitId = id;
+      const unit = unitsData.find(u => u.id === id);
+      if (!unit) return;
+
+      document.getElementById("viewerStageBadge").innerText = `Tahap ${unit.stage} • Unit ${unit.id}`;
+      document.getElementById("viewerUnitSubtitle").innerText = unit.subtitle;
+      document.getElementById("viewerUnitTitle").innerText = unit.title;
+      document.getElementById("viewerUnitGoals").innerHTML = unit.goals.map(g => `
+        <div class="flex items-start space-x-1.5">
+          <i class="fa-solid fa-circle-check text-rg-teal text-[11px] mt-0.5"></i>
+          <span>${g}</span>
+        </div>
+      `).join('');
+
+      document.getElementById("viewerConceptBody").innerHTML = unit.conceptHTML;
+      document.getElementById("viewerTrapsBody").innerHTML = unit.traps.map(t => `
+        <div class="flex items-start space-x-2 bg-white/80 p-3 rounded-2xl border border-amber-200">
+          <i class="fa-solid fa-circle-xmark text-rose-500 text-xs mt-0.5"></i>
+          <span class="text-slate-800 font-medium">${t}</span>
+        </div>
+      `).join('');
+
+      document.getElementById("practiceProgressBadge").innerText = `${unit.questions.length} Soal Latihan`;
+      renderUnitPracticeQuestions(unit.questions);
+
+      switchViewerTab('concept');
+      navigateTo('unit-viewer');
+    }
+
+    function switchViewerTab(tab) {
+      ['Concept', 'Traps', 'Practice'].forEach(t => {
+        document.getElementById(`subtab${t}`).classList.add('hidden');
+        const btn = document.getElementById(`tabBtn${t}`);
+        btn.className = "viewer-subtab pb-2.5 px-3 font-bold text-xs text-slate-500 hover:text-slate-700 transition";
+      });
+
+      if (tab === 'concept') {
+        document.getElementById('subtabConcept').classList.remove('hidden');
+        document.getElementById('tabBtnConcept').className = "viewer-subtab pb-2.5 px-3 font-extrabold text-xs text-rg-teal border-b-2 border-rg-teal transition";
+      } else if (tab === 'traps') {
+        document.getElementById('subtabTraps').classList.remove('hidden');
+        document.getElementById('tabBtnTraps').className = "viewer-subtab pb-2.5 px-3 font-extrabold text-xs text-amber-600 border-b-2 border-amber-500 transition";
+      } else if (tab === 'practice') {
+        document.getElementById('subtabPractice').classList.remove('hidden');
+        document.getElementById('tabBtnPractice').className = "viewer-subtab pb-2.5 px-3 font-extrabold text-xs text-indigo-600 border-b-2 border-indigo-600 transition";
+      }
+    }
+
+    function renderUnitPracticeQuestions(questions) {
+      const container = document.getElementById("viewerPracticeQuestions");
+      container.innerHTML = questions.map((q, idx) => `
+        <div class="bg-white p-5 rounded-3xl border border-slate-200/90 shadow-xs space-y-3.5" id="unitQBox-${idx}">
+          <p class="font-bold text-slate-800 text-xs sm:text-sm leading-relaxed">${idx + 1}. ${q.q}</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            ${q.opts.map((opt, optIdx) => `
+              <label class="flex items-center space-x-2.5 p-3 rounded-2xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition">
+                <input type="radio" name="unit_q_${idx}" value="${optIdx}" class="text-rg-teal focus:ring-rg-teal">
+                <span class="font-medium text-slate-700">${String.fromCharCode(65 + optIdx)}. ${opt}</span>
+              </label>
+            `).join('')}
+          </div>
+          <div id="unitQFeedback-${idx}" class="hidden p-3 rounded-2xl text-xs font-medium"></div>
+        </div>
+      `).join('');
+    }
+
+    function checkUnitPracticeAnswers() {
+      const unit = unitsData.find(u => u.id === activeUnitId);
+      if (!unit) return;
+
+      let score = 0;
+      let allAnswered = true;
+
+      unit.questions.forEach((q, idx) => {
+        const selected = document.querySelector(`input[name="unit_q_${idx}"]:checked`);
+        const feedback = document.getElementById(`unitQFeedback-${idx}`);
+        feedback.classList.remove('hidden');
+
+        if (!selected) {
+          allAnswered = false;
+          feedback.className = "p-3 rounded-2xl bg-amber-50 text-amber-800 border border-amber-200 text-xs";
+          feedback.innerText = "Belum kamu jawab.";
+          return;
+        }
+
+        const userVal = parseInt(selected.value);
+        if (userVal === q.ans) {
+          score++;
+          feedback.className = "p-3 rounded-2xl bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-semibold";
+          feedback.innerHTML = `✓ Benar! ${q.exp}`;
+        } else {
+          feedback.className = "p-3 rounded-2xl bg-rose-50 text-rose-800 border border-rose-200 text-xs";
+          feedback.innerHTML = `✗ Salah. Jawaban benar: <strong>${String.fromCharCode(65 + q.ans)}</strong>. ${q.exp}`;
+        }
+      });
+
+      if (!allAnswered) {
+        showToast("Ada soal yang belum diisi ya!", "error");
+        return;
+      }
+
+      const total = unit.questions.length;
+      const finalScore = Math.round((score / total) * 100);
+
+      if (!appState.completedUnits.includes(unit.id)) {
+        appState.completedUnits.push(unit.id);
+        appState.xp += 30;
+      }
+      saveLocalState();
+
+      showToast(`Unit ${unit.id} selesai! Skor: ${finalScore}/100`, "success");
+
+      // Kirim hasil latihan ke Spreadsheet
+      syncToGoogleSheets({
+        activity: `Latihan Unit ${unit.id} (${unit.title})`,
+        score: `${finalScore}/100 (Benar ${score} dari ${total})`,
+        details: `Tuntas unit ${unit.id}`
+      });
+    }
+
+    /* =====================================================================
+       8. TRYOUT SIMULASI EXAM LOGIC
+       ===================================================================== */
+    function startTryoutExam() {
+      tryoutState = {
+        currentIndex: 0,
+        answers: {},
+        timerInterval: null,
+        secondsLeft: 15 * 60,
+        isFinished: false
+      };
+
+      document.getElementById("tryoutIntroCard").classList.add("hidden");
+      document.getElementById("tryoutResultCard").classList.add("hidden");
+      document.getElementById("tryoutArena").classList.remove("hidden");
+
+      renderTryoutCurrentQuestion();
+      startTryoutTimer();
+    }
+
+    function startTryoutTimer() {
+      clearInterval(tryoutState.timerInterval);
+      tryoutState.timerInterval = setInterval(() => {
+        if (tryoutState.secondsLeft <= 0) {
+          clearInterval(tryoutState.timerInterval);
+          finishTryoutExam();
+          return;
+        }
+        tryoutState.secondsLeft--;
+        const mins = Math.floor(tryoutState.secondsLeft / 60);
+        const secs = tryoutState.secondsLeft % 60;
+        document.getElementById("tryoutTimerDisplay").innerText = 
+          `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+      }, 1000);
+    }
+
+    function renderTryoutCurrentQuestion() {
+      const q = tryoutQuestionsData[tryoutState.currentIndex];
+      const total = tryoutQuestionsData.length;
+
+      document.getElementById("tryoutCurrentNumberBadge").innerText = `Soal ${tryoutState.currentIndex + 1} dari ${total}`;
+      document.getElementById("tryoutQuestionText").innerText = q.q;
+
+      const savedAnswer = tryoutState.answers[tryoutState.currentIndex];
+      const container = document.getElementById("tryoutOptionsContainer");
+      container.innerHTML = q.opts.map((opt, idx) => `
+        <label class="flex items-center space-x-3 p-3.5 rounded-2xl border ${savedAnswer === idx ? 'border-rg-teal bg-teal-50/50' : 'border-slate-200'} cursor-pointer hover:bg-slate-50 transition">
+          <input type="radio" name="tryout_radio" value="${idx}" ${savedAnswer === idx ? 'checked' : ''} onchange="pickTryoutOption(${idx})" class="text-rg-teal focus:ring-rg-teal">
+          <span class="text-xs sm:text-sm font-semibold text-slate-800">${String.fromCharCode(65 + idx)}. ${opt}</span>
+        </label>
+      `).join('');
+
+      document.getElementById("btnPrevTryout").disabled = tryoutState.currentIndex === 0;
+      if (tryoutState.currentIndex === total - 1) {
+        document.getElementById("btnNextTryout").classList.add("hidden");
+        document.getElementById("btnFinishTryout").classList.remove("hidden");
+      } else {
+        document.getElementById("btnNextTryout").classList.remove("hidden");
+        document.getElementById("btnFinishTryout").classList.add("hidden");
+      }
+    }
+
+    function pickTryoutOption(optIdx) {
+      tryoutState.answers[tryoutState.currentIndex] = optIdx;
+    }
+
+    function prevTryoutQuestion() {
+      if (tryoutState.currentIndex > 0) {
+        tryoutState.currentIndex--;
+        renderTryoutCurrentQuestion();
+      }
+    }
+
+    function nextTryoutQuestion() {
+      if (tryoutState.currentIndex < tryoutQuestionsData.length - 1) {
+        tryoutState.currentIndex++;
+        renderTryoutCurrentQuestion();
+      }
+    }
+
+    function finishTryoutExam() {
+      clearInterval(tryoutState.timerInterval);
+      tryoutState.isFinished = true;
+
+      let correct = 0;
+      tryoutQuestionsData.forEach((q, idx) => {
+        if (tryoutState.answers[idx] === q.ans) {
+          correct++;
+        }
+      });
+
+      const total = tryoutQuestionsData.length;
+      const finalScore = Math.round((correct / total) * 100);
+
+      document.getElementById("tryoutArena").classList.add("hidden");
+      document.getElementById("tryoutResultCard").classList.remove("hidden");
+
+      const badge = document.getElementById("resultScoreBadge");
+      badge.innerText = finalScore;
+      if (finalScore >= 75) {
+        badge.className = "w-20 h-20 rounded-full mx-auto flex items-center justify-center text-3xl font-black shadow-lg bg-emerald-100 text-emerald-700";
+        document.getElementById("resultTitle").innerText = "Luar Biasa! Kamu Siap Juara!";
+      } else {
+        badge.className = "w-20 h-20 rounded-full mx-auto flex items-center justify-center text-3xl font-black shadow-lg bg-amber-100 text-amber-700";
+        document.getElementById("resultTitle").innerText = "Bagus! Perbanyak Latihan Tenses!";
+      }
+
+      document.getElementById("resultCorrectCount").innerText = correct;
+      document.getElementById("resultWrongCount").innerText = total - correct;
+
+      appState.xp += 150;
+      saveLocalState();
+
+      // Sinkronisasi Hasil Tryout ke Google Spreadsheet
+      syncToGoogleSheets({
+        activity: "Tryout Simulasi Lomba SMP",
+        score: `${finalScore}/100`,
+        details: `Benar ${correct} dari ${total} soal (Selesai dalam sisa waktu ${document.getElementById('tryoutTimerDisplay').innerText})`
+      });
+    }
+
+    /* =====================================================================
+       9. CHEAT SHEET & KAMUS RENDER
+       ===================================================================== */
+    function renderCheatSheetAndGlossary() {
+      const tbody = document.getElementById("cheatSheetTableBody");
+      if (tbody) {
+        tbody.innerHTML = cheatSheetRules.map(r => `
+          <tr class="hover:bg-slate-50/80 transition">
+            <td class="p-3.5 font-bold text-slate-800">${r.trigger}</td>
+            <td class="p-3.5 font-extrabold text-rg-tealDark">${r.pick}</td>
+            <td class="p-3.5 text-slate-500">${r.note}</td>
+          </tr>
+        `).join('');
+      }
+
+      const glossaryContainer = document.getElementById("glossaryGrid");
+      if (glossaryContainer) {
+        glossaryContainer.innerHTML = glossaryList.map(g => `
+          <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-slate-800 text-xs">${g.word}</span>
+              <span class="text-[10px] text-slate-400 font-mono">${g.ex}</span>
+            </div>
+            <p class="text-[11px] text-slate-600 leading-normal">${g.def}</p>
+          </div>
+        `).join('');
+      }
+    }
+
+    /* =====================================================================
+       10. SPREADSHEET & APPS SCRIPT SYNC
+       ===================================================================== */
+    function syncToGoogleSheets(payload) {
+      const nowStr = new Date().toLocaleString('id-ID', {
+        day: '2-digit', month: '2-digit', year: 'numeric',
+        hour: '2-digit', minute: '2-digit'
+      });
+
+      // Catat ke log lokal agar guru bisa melihat langsung di portal
+      const record = {
+        time: nowStr,
+        studentName: appState.studentName || "Anonim",
+        className: appState.className || "-",
+        school: appState.school || "-",
+        activity: payload.activity,
+        score: payload.score,
+        details: payload.details
+      };
+
+      if (!Array.isArray(appState.activityLog)) {
+        appState.activityLog = [];
+      }
+      appState.activityLog.push(record);
+      saveLocalState();
+      renderTeacherDashboard();
+
+      const targetUrl = appState.appScriptUrl || DEFAULT_APPSCRIPT_URL;
+      if (!targetUrl || targetUrl.includes("GANTI_DENGAN_ID_DEPLOY_ANDA")) {
+        return; // Mengabaikan jika URL belum diset dengan URL nyata Anda
+      }
+
+      const body = {
+        studentName: appState.studentName || "Anonim",
+        className: appState.className || "-",
+        school: appState.school || "-",
+        activity: payload.activity,
+        score: payload.score,
+        details: payload.details
+      };
+
+      fetch(targetUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
+      })
+      .then(() => {
+        showToast("Data tersinkron ke Google Sheets!", "success");
+      })
+      .catch(err => {
+        console.warn("Sinkronisasi gagal:", err);
+      });
+    }
+
+    function saveAppSettings() {
+      const name = document.getElementById("settingStudentName").value.trim();
+      const className = document.getElementById("settingClassName").value.trim();
+      const school = document.getElementById("settingSchoolName").value.trim();
+
+      if (!name || !className || !school) {
+        showToast("Mohon isi semua data (Nama, Kelas, dan Sekolah)", "error");
+        return;
+      }
+
+      appState.studentName = name;
+      appState.className = className;
+      appState.school = school;
+
+      saveLocalState();
+      showToast("Profil murid berhasil diperbarui!", "success");
+    }
+
+    // Inisialisasi saat window dimuat
+    window.onload = function() {
+      initApp();
+    };
+  </script>
+</body>
+</html>
