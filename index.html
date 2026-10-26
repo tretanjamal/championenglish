@@ -839,388 +839,1494 @@
   <!-- JAVASCRIPT LOGIC -->
   <script>
     /* =====================================================================
-       1. DATA MODUL 14 UNIT LENGKAP (DARI DOKUMEN PDF ASLI)
+       1. DATA MODUL 14 UNIT LENGKAP & KOMPREHENSIF (STANDAR LOMBA SMP)
        ===================================================================== */
     const unitsData = [
       {
         id: 1,
         stage: "A",
-        title: "Noun (Kata Benda)",
-        subtitle: "Unit 1: Noun (Kata Benda)",
+        title: "Noun (Kata Benda) & Nominal Morphology",
+        subtitle: "Unit 1: Noun (Kata Benda) & Pembentukan Kata",
         goals: [
-          "Mengenali noun dan membedakan countable vs uncountable",
-          "Mencocokkan subjek dengan kata kerja yang benar (-s / tanpa -s)",
-          "Menulis proper noun dengan kapital dan membuat noun dari kata lain"
+          "Membedakan Countable vs Uncountable dan jebakan quantifiers",
+          "Menganalisis Subjek Kompleks (Prepositional Phrase & Intervening Words)",
+          "Menguasai Nominal Morphology (Derivasi kata menjadi Noun: dimension, abstract, agent)"
         ],
         conceptHTML: `
-          <h4 class="font-bold text-slate-800">1. Countable vs Uncountable</h4>
-          <p>Countable bisa dihitung (a book, two eggs). Uncountable tidak bisa dihitung langsung dan tidak memiliki bentuk jamak: <em>water, salt, rice, advice, information</em>. Jangan pernah menambahkan -s pada information!</p>
-          <h4 class="font-bold text-slate-800 mt-3">2. Subjek Tunggal vs Jamak Menentukan Verb</h4>
-          <p>Pada simple present, subjek tunggal membuat verb berakhiran <strong>-s</strong>:</p>
-          <ul class="list-disc pl-5 space-y-1">
-            <li><em>The price of fuel <strong>rises</strong> every year.</em> (price = satu)</li>
-            <li><em>The prices of fuel <strong>rise</strong> every year.</em> (prices = banyak)</li>
-          </ul>
-          <h4 class="font-bold text-slate-800 mt-3">3. Membuat Noun dari Ukuran (Dimension)</h4>
-          <p>deep &rarr; <strong>depth</strong> | long &rarr; <strong>length</strong> | wide &rarr; <strong>width</strong> | high &rarr; <strong>height</strong> | strong &rarr; <strong>strength</strong>.</p>
+          <div class="space-y-4">
+            <div class="p-3.5 bg-sky-50 rounded-2xl border border-sky-100">
+              <h4 class="font-extrabold text-rg-navy text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-brain text-rg-teal"></i>
+                1. Logika Subjek Tunggal vs Jamak (Subject-Verb Agreement Trap)
+              </h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Di soal lomba, pembuat soal hampir tidak pernah memberi subjek sederhana seperti <em>"The boy runs"</em>. Mereka sengaja menyelipkan <strong>Prepositional Phrase</strong> (frasa penjelas yang diawali kata depan seperti <em>of, in, with, together with, along with</em>) untuk mengecoh pandanganmu!
+              </p>
+              <div class="mt-2.5 p-2.5 bg-white rounded-xl border border-sky-200/60 font-mono text-xs">
+                <p class="text-slate-700">Contoh: <em>The <u>price</u> [of imported fuel and electronics] <strong>rises</strong> steadily.</em></p>
+                <p class="text-emerald-700 font-sans mt-1 text-[11px]">→ <strong>Analisis:</strong> Subjek aslinya adalah <strong>price</strong> (tunggal), BUKAN <em>fuel and electronics</em>! Karena subjeknya tunggal, kata kerjanya wajib berakhiran <strong>-s</strong> (rises).</p>
+              </div>
+            </div>
+
+            <div class="p-3.5 bg-emerald-50 rounded-2xl border border-emerald-100">
+              <h4 class="font-extrabold text-emerald-900 text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-list-check text-emerald-600"></i>
+                2. Countable vs Uncountable Nouns: Kategori Krusial Lomba
+              </h4>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Kata benda <strong>Uncountable</strong> TIDAK BISA dihitung satuan, tidak boleh diberi artikel <em>a/an</em>, dan <strong>HARAM diberi akhiran -s</strong>.
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-xs">
+                <div class="p-2 bg-white rounded-xl border border-emerald-200">
+                  <span class="font-bold text-rose-600 block">Jebakan yang Sering Muncul (Salah):</span>
+                  <p class="text-slate-600 italic mt-0.5">• informations, advices, furnitures, equipments, baggages, jewelries, homeworks</p>
+                </div>
+                <div class="p-2 bg-white rounded-xl border border-emerald-200">
+                  <span class="font-bold text-emerald-700 block">Bentuk yang Benar:</span>
+                  <p class="text-slate-600 italic mt-0.5">• a piece of information, some advice, two sets of furniture, heavy equipment</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3.5 bg-amber-50 rounded-2xl border border-amber-100">
+              <h4 class="font-extrabold text-amber-900 text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-arrows-split-up-and-left text-amber-600"></i>
+                3. Nominal Morphology: Mengubah Kelas Kata Menjadi Noun
+              </h4>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Di soal pilihan ganda, bila sebelum kotak kosong terdapat artikel (<em>the, a, an</em>), kata ganti kepemilikan (<em>my, his, their, its</em>), atau kata sifat (<em>great, serious</em>), maka kotak kosong itu <strong>100% wajib diisi NOUN</strong>!
+              </p>
+              <div class="overflow-x-auto mt-2">
+                <table class="w-full text-xs text-left">
+                  <thead class="bg-amber-100/70 text-amber-900 font-bold">
+                    <tr>
+                      <th class="p-2">Adjective (Sifat)</th>
+                      <th class="p-2">Noun Bentukan</th>
+                      <th class="p-2">Arti / Kategori</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-amber-200/50 bg-white text-slate-700">
+                    <tr><td class="p-2">deep / wide / long</td><td class="p-2 font-bold text-rg-navy">depth / width / length</td><td class="p-2">Ukuran Dimensi</td></tr>
+                    <tr><td class="p-2">high / strong / heavy</td><td class="p-2 font-bold text-rg-navy">height / strength / weight</td><td class="p-2">Ukuran Fisik</td></tr>
+                    <tr><td class="p-2">lazy / lonely / kind</td><td class="p-2 font-bold text-rg-navy">laziness / loneliness / kindness</td><td class="p-2">Sifat Karakter (-ness)</td></tr>
+                    <tr><td class="p-2">generous / scarce / curious</td><td class="p-2 font-bold text-rg-navy">generosity / scarcity / curiosity</td><td class="p-2">Kondisi Abstrak (-ity)</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- VOCABULARY BOOSTER UNIT 1 -->
+            <div class="p-4 bg-indigo-50/70 rounded-2xl border border-indigo-200">
+              <h4 class="font-extrabold text-indigo-950 text-xs sm:text-sm flex items-center gap-2 mb-2">
+                <i class="fa-solid fa-book-bookmark text-indigo-600"></i>
+                Vocabulary Booster: Nouns &amp; Collocations Lomba
+              </h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">1. Procrastination</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">noun</span>
+                  <p class="text-slate-600 mt-0.5">Penundaan pekerjaan; kebiasaan menunda.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"Procrastination is the thief of time."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">2. Procrastinator</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">noun (agent)</span>
+                  <p class="text-slate-600 mt-0.5">Orang yang gemar menunda-nunda tugas.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"A chronic procrastinator often works under stress."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">3. Scarcity</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">noun</span>
+                  <p class="text-slate-600 mt-0.5">Kelangkaan; keterbatasan persediaan (sinonim: shortage).</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The scarcity of clean water threatens the village."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">4. Aspiration</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">noun</span>
+                  <p class="text-slate-600 mt-0.5">Cita-cita luhur; ambisi positif (sinonim: ambition/goal).</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"Her main aspiration is to become a neurosurgeon."</p>
+                </div>
+              </div>
+            </div>
+          </div>
         `,
         traps: [
-          "Memberi -s pada kata kerja ketika subjeknya jamak (The prices rises adalah SALAH).",
-          "Menulis informations, advices, atau furnitures (Ketiganya uncountable).",
-          "Tertukar antara noun benda dan orang: procrastination (penundaan) vs procrastinator (orangnya)."
+          "Tertipu oleh kata jamak di dalam frasa preposisi (contoh: 'The quality of these mangoes ARE good' adalah SALAH. Yang benar: 'The quality ... IS good' karena subjek intinya adalah quality).",
+          "Menambahkan akhiran -s pada Uncountable Noun (contoh: informations, advices, accommodations, machineries adalah kata ilegal dalam bahasa Inggris baku).",
+          "Menulis Proper Noun (nama tempat/geografis spesifik) dengan huruf kecil, seperti 'mount bromo' atau 'lake toba'. Kedua kata wajib diawali huruf kapital: 'Mount Bromo', 'Lake Toba'.",
+          "Tertukar antara Noun konsep/kegiatan dengan Noun pelakunya (agent): procrastination (penundaan) vs procrastinator (orangnya); scholarship (beasiswa) vs scholar (cendekiawan)."
         ],
         questions: [
-          { q: "The ... of the swimming pool is two meters.", opts: ["deep", "deeply", "depth", "deepen"], ans: 2, exp: "Setelah the butuh noun. Noun dari deep adalah depth." },
-          { q: "The price of fuel ... every year.", opts: ["increase", "increases", "increasing", "to increase"], ans: 1, exp: "Subjek price tunggal, sehingga verb diberi akhiran -s: increases." },
-          { q: "Have you visited ...? It is a beautiful volcano.", opts: ["mount bromo", "Mount bromo", "Mount Bromo", "mount Bromo"], ans: 2, exp: "Proper noun (nama gunung) wajib diawali huruf kapital di kedua katanya." },
-          { q: "His ... made him late for school every day.", opts: ["lazy", "lazily", "laziness", "lazier"], ans: 2, exp: "Setelah his butuh noun. Noun dari lazy adalah laziness." },
-          { q: "Which word is uncountable?", opts: ["chair", "apple", "information", "student"], ans: 2, exp: "Information adalah uncountable noun, tidak boleh diberi a atau -s." },
-          { q: "The ... of this table is 120 centimeters.", opts: ["long", "length", "lengthen", "longly"], ans: 1, exp: "Setelah the butuh noun. Noun dari long adalah length." }
+          { q: "The immense ... of the Pacific Ocean trench exceeds ten thousand meters.", opts: ["deep", "deeply", "depth", "deepen"], ans: 2, exp: "Didahului artikel 'the' dan kata sifat 'immense', maka posisi ini mutlak membutuhkan Noun. Noun dimensi dari 'deep' adalah 'depth'." },
+          { q: "The total production cost of all smart devices ... significantly every quarter.", opts: ["increase", "increases", "increasing", "to increase"], ans: 1, exp: "Subjek utama kalimat adalah 'The total production cost' (tunggal). Frasa 'of all smart devices' hanyalah penjelas. Subjek tunggal membutuhkan verb berakhiran -s: 'increases'." },
+          { q: "Which of the following sentences uses capital letters correctly for proper nouns?", opts: ["We enjoyed watching the sunrise over mount Bromo last sunday.", "We enjoyed watching the sunrise over Mount Bromo last Sunday.", "We enjoyed watching the sunrise over Mount bromo last Sunday.", "We enjoyed watching the sunrise over mount bromo last Sunday."], ans: 1, exp: "Nama geografis (Mount Bromo) dan nama hari (Sunday) keduanya adalah proper noun yang wajib diawali huruf kapital di setiap katanya." },
+          { q: "His chronic ... forced him to submit his competition entry after the deadline.", opts: ["lazy", "lazily", "laziness", "lazier"], ans: 2, exp: "Setelah possessive adjective 'his' dan adjective 'chronic' wajib diisi Noun. Noun dari 'lazy' adalah 'laziness'." },
+          { q: "Choose the sentence that contains NO grammatical error regarding nouns:", opts: ["The lecturer gave us many useful advices for the upcoming debate.", "The laboratory needs several new scientific equipments.", "The committee received valuable information regarding the new regulations.", "She packed all her baggages before the taxi arrived."], ans: 2, exp: "'Information' adalah uncountable noun yang tidak boleh ditambah -s. Kata 'advices', 'equipments', dan 'baggages' adalah salah kaprah umum." },
+          { q: "Engineers must calculate the precise ... of the suspension bridge to ensure vehicles can pass safely.", opts: ["wide", "width", "widen", "widely"], ans: 1, exp: "Setelah adjective 'precise' dibutuhkan Noun. Noun ukuran lebar adalah 'width' (wide = adj, widen = verb, widely = adverb)." }
         ]
       },
       {
         id: 2,
         stage: "A",
-        title: "Verb (Kata Kerja)",
-        subtitle: "Unit 2: Verb (Kata Kerja)",
+        title: "Verb (Kata Kerja) & Verbal Patterns",
+        subtitle: "Unit 2: Verb (Kata Kerja), Modal Auxiliaries & Phrasal Verbs",
         goals: [
-          "Menguasai 5 bentuk kata kerja (V1, V1+s, V2, V3, V-ing)",
-          "Bentuk wajib setelah modal, to, dan do/does/did",
-          "Verb tidak beraturan dan phrasal verb"
+          "Memahami aturan mutlak Bare Infinitive (V1 murni) setelah Modal & Auxiliaries",
+          "Menguasai Irregular Verbs yang sering mengecoh di tingkat olimpiade",
+          "Membedakan Phrasal Verbs penting (give in vs give up, turn down vs turn off)"
         ],
         conceptHTML: `
-          <h4 class="font-bold text-slate-800">Aturan Emas Kata Kerja</h4>
-          <p>Setelah <strong>modal</strong> (can, must, should, will), <strong>to</strong> (infinitive), dan <strong>do/does/did</strong>, kata kerja <strong>WAJIB V1 MURNI</strong> tanpa imbuhan apa pun.</p>
-          <ul class="list-disc pl-5 space-y-1">
-            <li>You must not <strong>talk</strong> here (Bukan talking).</li>
-            <li>She wants to <strong>buy</strong> a bike (Bukan bought).</li>
-            <li>We didn't <strong>watch</strong> the match (Bukan watched).</li>
-          </ul>
+          <div class="space-y-4">
+            <div class="p-3.5 bg-sky-50 rounded-2xl border border-sky-100">
+              <h4 class="font-extrabold text-rg-navy text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-lock text-rg-teal"></i>
+                1. Aturan Emas Bare Infinitive (V1 Murni Tanpa Modifikasi)
+              </h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Di dalam kompetisi bahasa Inggris, ada 3 kelompok kata yang bertindak seperti <strong>"gembok"</strong>: kata kerja setelahnya <strong>HARUS V1 ASLI</strong> (tidak boleh ada -s, -es, -ed, maupun -ing)!
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-2 text-xs">
+                <div class="p-2.5 bg-white rounded-xl border border-sky-200">
+                  <span class="font-bold text-rg-navy block">A. Modal Auxiliaries</span>
+                  <p class="text-slate-600 mt-1">can, could, will, would, shall, should, must, may, might</p>
+                  <p class="text-emerald-700 font-mono text-[11px] mt-1">✓ You must <strong>submit</strong> (Bukan submitting / submitted)</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-sky-200">
+                  <span class="font-bold text-rg-navy block">B. Auxiliary Do / Does / Did</span>
+                  <p class="text-slate-600 mt-1">do, does, did, don't, doesn't, didn't</p>
+                  <p class="text-emerald-700 font-mono text-[11px] mt-1">✓ She didn't <strong>realize</strong> (Bukan didn't realized!)</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-sky-200">
+                  <span class="font-bold text-rg-navy block">C. To-Infinitive</span>
+                  <p class="text-slate-600 mt-1">kata depan 'to' yang bertujuan menyatakan maksud</p>
+                  <p class="text-emerald-700 font-mono text-[11px] mt-1">✓ He decided to <strong>withdraw</strong> (Bukan withdrew)</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3.5 bg-amber-50 rounded-2xl border border-amber-100">
+              <h4 class="font-extrabold text-amber-900 text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-shuffle text-amber-600"></i>
+                2. Irregular Verbs Level Kompetisi
+              </h4>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Kata kerja berikut sering menjadi jebakan utama karena bentuknya berubah total atau memiliki kemiripan bunyi dengan kata lain:
+              </p>
+              <div class="overflow-x-auto mt-2">
+                <table class="w-full text-xs text-left">
+                  <thead class="bg-amber-100/70 text-amber-900 font-bold">
+                    <tr>
+                      <th class="p-2">V1 (Infinitive)</th>
+                      <th class="p-2">V2 (Simple Past)</th>
+                      <th class="p-2">V3 (Past Participle)</th>
+                      <th class="p-2">Arti &amp; Catatan Khusus</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-amber-200/50 bg-white text-slate-700">
+                    <tr><td class="p-2 font-bold text-rg-navy">withdraw</td><td class="p-2">withdrew</td><td class="p-2">withdrawn</td><td class="p-2">Menarik diri / menarik uang</td></tr>
+                    <tr><td class="p-2 font-bold text-rg-navy">undergo</td><td class="p-2">underwent</td><td class="p-2">undergone</td><td class="p-2">Menjalani / mengalami proses</td></tr>
+                    <tr><td class="p-2 font-bold text-rg-navy">broadcast</td><td class="p-2">broadcast</td><td class="p-2">broadcast</td><td class="p-2 font-semibold text-rose-600">Tidak berubah! Jangan broadcasted!</td></tr>
+                    <tr><td class="p-2 font-bold text-rg-navy">arise</td><td class="p-2">arose</td><td class="p-2">arisen</td><td class="p-2">Muncul / timbul (masalah/peluang)</td></tr>
+                    <tr><td class="p-2 font-bold text-rg-navy">lay vs lie</td><td class="p-2">laid vs lay</td><td class="p-2">laid vs lain</td><td class="p-2">lay = meletakkan (butuh objek); lie = berbaring</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- VOCABULARY BOOSTER UNIT 2 -->
+            <div class="p-4 bg-indigo-50/70 rounded-2xl border border-indigo-200">
+              <h4 class="font-extrabold text-indigo-950 text-xs sm:text-sm flex items-center gap-2 mb-2">
+                <i class="fa-solid fa-book-bookmark text-indigo-600"></i>
+                Vocabulary Booster: Verbs Berakhiran Khusus &amp; Phrasal Verbs
+              </h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">1. Gamify</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">verb (-ify)</span>
+                  <p class="text-slate-600 mt-0.5">Mengubah aktivitas serius menjadi bentuk permainan interaktif.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The teacher decided to gamify the grammar quiz."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">2. Extinguish</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">verb</span>
+                  <p class="text-slate-600 mt-0.5">Memadamkan api (sinonim phrasal verb: <strong>put out</strong>).</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"Firefighters managed to extinguish the massive blaze."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">3. Undergo</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">verb</span>
+                  <p class="text-slate-600 mt-0.5">Menjalani serangkaian uji coba atau tindakan medis.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The prototype must undergo rigorous safety tests."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">4. Turn down</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">phrasal verb</span>
+                  <p class="text-slate-600 mt-0.5">Menolak tawaran (sinonim: reject / decline).</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"She had to turn down the prestigious offer due to distance."</p>
+                </div>
+              </div>
+            </div>
+          </div>
         `,
         traps: [
-          "Menulis didn't watched atau didn't saw (Setelah didn't wajib V1 murni).",
-          "Menulis readed atau breaked (Kata kerja tidak beraturan: read-read-read, break-broke-broken)."
+          "Menulis V2 setelah 'didn't' (contoh: 'They didn't watched the match' atau 'He didn't knew the answer' adalah SALAH MUTLAK. Yang benar: 'didn't watch' dan 'didn't know').",
+          "Menulis kata kerja rekaan berakhiran -ed pada irregular verbs (contoh: 'readed', 'breaked', 'broadcasted', 'withdrewed').",
+          "Memakai V-ing langsung setelah modal tanpa 'be' (contoh: 'You must talking quietly' adalah salah; yang benar: 'You must talk' atau 'You must be talking')."
         ],
         questions: [
-          { q: "You must not ... in the library.", opts: ["talking", "talks", "talk", "talked"], ans: 2, exp: "Setelah modal must not wajib V1 murni: talk." },
-          { q: "He wants to ... a new bike.", opts: ["bought", "buy", "buys", "buying"], ans: 1, exp: "Setelah to infinitive wajib V1 murni: buy." },
-          { q: "Yesterday she ... a letter to her friend.", opts: ["write", "wrote", "written", "writes"], ans: 1, exp: "Yesterday adalah penanda lampau, gunakan V2: wrote." },
-          { q: "They didn't ... the match.", opts: ["watched", "watching", "watch", "watches"], ans: 2, exp: "Setelah didn't wajib V1 murni: watch." },
-          { q: "The glass has ... into pieces.", opts: ["break", "broke", "broken", "breaking"], ans: 2, exp: "Setelah has/have pada perfect tense wajib V3: broken." },
-          { q: "Our teacher wants to ... the boring lesson like a game.", opts: ["gamify", "pacify", "liquefy", "dignify"], ans: 0, exp: "Gamify berarti membuat sesuatu menjadi menarik seperti permainan (game)." }
+          { q: "During the official competition, contestants must not ... any unauthorized notes into the room.", opts: ["bringing", "brought", "bring", "brings"], ans: 2, exp: "Setelah modal auxiliary 'must not', kata kerja wajib berbentuk V1 murni (bare infinitive): 'bring'." },
+          { q: "The young debater wanted to ... from the round due to severe fever.", opts: ["withdrew", "withdraw", "withdrawn", "withdrawing"], ans: 1, exp: "Setelah 'to' infinitive, kata kerja wajib kembali ke bentuk V1: 'withdraw'." },
+          { q: "The television network ... the national spelling bee final live yesterday evening.", opts: ["broadcasted", "broadcast", "broadcasting", "was broadcasted"], ans: 1, exp: "'Broadcast' adalah irregular verb yang bentuk V1, V2, dan V3-nya sama persis: broadcast - broadcast - broadcast. Kata 'broadcasted' tidak baku." },
+          { q: "Although the debate was intense, the adjudicators didn't ... their final verdict until midnight.", opts: ["announced", "announcing", "announce", "announces"], ans: 2, exp: "Setelah auxiliary lampau negatif 'didn't', kata kerja wajib kembali ke bentuk V1 murni: 'announce'." },
+          { q: "The rare antique vase has ... into tiny fragments after falling off the marble pedestal.", opts: ["shattered", "shatter", "shattering", "shatters"], ans: 0, exp: "Setelah auxiliary 'has' pada Present Perfect tense, bentuk yang wajib digunakan adalah Past Participle (V3): 'shattered'." },
+          { q: "The educator wanted to ... the complex linguistic formulas so that seventh-graders could learn joyfully like playing a video game.", opts: ["liquefy", "pacify", "gamify", "dignify"], ans: 2, exp: "Kata kunci 'learn joyfully like playing a game' mengarah langsung pada verb 'gamify' (mengubah jadi seperti game)." }
         ]
       },
       {
         id: 3,
         stage: "A",
-        title: "Adjective dan Adverb",
-        subtitle: "Unit 3: Adjective dan Adverb",
+        title: "Adjective & Adverb (Sifat & Keterangan)",
+        subtitle: "Unit 3: Adjective vs Adverb, Participle Adjectives (-ed vs -ing) & Nuansa Konteks",
         goals: [
-          "Membedakan adjective (menerangkan benda) dan adverb (menerangkan aksi)",
-          "Memilih adjective berakhiran -ing vs -ed",
-          "Menghafal adverb pengecualian (good -> well, fast, hard)"
+          "Menganalisis perbedaan Participle Adjectives (-ed yang merasakan vs -ing penyebab)",
+          "Menghafal pengecualian Adverb of Manner (good -> well, fast, hard, late vs lately)",
+          "Menerapkan teknik Context Clues (Nuansa Positif vs Negatif) dalam memilih kosa kata"
         ],
         conceptHTML: `
-          <h4 class="font-bold text-slate-800">1. Adjective -ing vs -ed</h4>
-          <p><strong>-ing</strong> menerangkan hal penyebab perasaan (The movie is <em>boring</em>). <strong>-ed</strong> menerangkan orang yang merasakan (I am <em>bored</em>).</p>
-          <h4 class="font-bold text-slate-800 mt-2">2. Pengecualian Adverb of Manner</h4>
-          <p>good &rarr; <strong>well</strong> | fast &rarr; <strong>fast</strong> | hard &rarr; <strong>hard</strong> (hardly artinya hampir tidak).</p>
+          <div class="space-y-4">
+            <div class="p-3.5 bg-sky-50 rounded-2xl border border-sky-100">
+              <h4 class="font-extrabold text-rg-navy text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-arrows-spin text-rg-teal"></i>
+                1. Participle Adjectives: -ing vs -ed (Penyebab vs Yang Merasakan)
+              </h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Banyak siswa terjebak mengartikan <em>-ing</em> sebagai "sedang". Dalam kata sifat, rumus berpikirnya adalah:
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-xs">
+                <div class="p-2.5 bg-white rounded-xl border border-sky-200">
+                  <span class="font-bold text-rg-tealDark block">A. Akhiran -ING = Sumber / Penyebab</span>
+                  <p class="text-slate-600 mt-1">Menerangkan benda/hal yang menimbulkan efek/kesan bagi orang lain.</p>
+                  <ul class="text-[11px] text-slate-700 mt-1 space-y-0.5">
+                    <li>• a <strong>boring</strong> lecture (ceramah yang membosankan)</li>
+                    <li>• a <strong>promising</strong> project (proyek yang menjanjikan masa depan cerah)</li>
+                  </ul>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-sky-200">
+                  <span class="font-bold text-amber-700 block">B. Akhiran -ED = Yang Merasakan Efek</span>
+                  <p class="text-slate-600 mt-1">Menerangkan orang atau makhluk hidup yang merasakan kondisi psikologis/fisik tersebut.</p>
+                  <ul class="text-[11px] text-slate-700 mt-1 space-y-0.5">
+                    <li>• The students feel <strong>bored</strong> (siswa merasa bosan)</li>
+                    <li>• I was completely <strong>exhausted</strong> (saya merasa sangat kelelahan)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3.5 bg-rose-50 rounded-2xl border border-rose-100">
+              <h4 class="font-extrabold text-rose-900 text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-triangle-exclamation text-rose-600"></i>
+                2. Pengecualian Adverb: Jebakan Kata Berakhiran -ly
+              </h4>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Adverb of manner biasanya dibentuk dengan <em>Adjective + ly</em> (slow &rarr; slowly). Namun hati-hati pada kata-kata pengecualian ini:
+              </p>
+              <div class="overflow-x-auto mt-2">
+                <table class="w-full text-xs text-left">
+                  <thead class="bg-rose-100/70 text-rose-900 font-bold">
+                    <tr>
+                      <th class="p-2">Kata Sifat (Adjective)</th>
+                      <th class="p-2">Kata Keterangan (Adverb)</th>
+                      <th class="p-2">Awas Jebakan! (Arti Kata Lain)</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-rose-200/50 bg-white text-slate-700">
+                    <tr><td class="p-2 font-bold text-rg-navy">good</td><td class="p-2 font-bold text-emerald-700">well</td><td class="p-2">Jangan bilang "she speaks good"! Gunakan "she speaks well".</td></tr>
+                    <tr><td class="p-2 font-bold text-rg-navy">hard</td><td class="p-2 font-bold text-emerald-700">hard</td><td class="p-2"><strong>Hardly</strong> BUKAN 'dengan keras', melainkan 'hampir tidak pernah'!</td></tr>
+                    <tr><td class="p-2 font-bold text-rg-navy">fast</td><td class="p-2 font-bold text-emerald-700">fast</td><td class="p-2">Kata 'fastly' TIDAK PERNAH ADA dalam kamus Inggris manapun!</td></tr>
+                    <tr><td class="p-2 font-bold text-rg-navy">late</td><td class="p-2 font-bold text-emerald-700">late</td><td class="p-2"><strong>Lately</strong> artinya 'akhir-akhir ini / baru-baru ini', bukan 'terlambat'.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- VOCABULARY BOOSTER UNIT 3 -->
+            <div class="p-4 bg-indigo-50/70 rounded-2xl border border-indigo-200">
+              <h4 class="font-extrabold text-indigo-950 text-xs sm:text-sm flex items-center gap-2 mb-2">
+                <i class="fa-solid fa-book-bookmark text-indigo-600"></i>
+                Vocabulary Booster: Adjectives Nuansa Karakter &amp; Kualitas
+              </h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">1. Resilient</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">adj</span>
+                  <p class="text-slate-600 mt-0.5">Tangguh; mampu bangkit kembali setelah mengalami kegagalan/tekanan berat.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"A resilient debater never gives up after one loss."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">2. Fragile</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">adj</span>
+                  <p class="text-slate-600 mt-0.5">Rapuh; mudah pecah atau rusak (sinonim: delicate).</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The porcelain trophy is very fragile; handle it with care."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">3. Solitary</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">adj</span>
+                  <p class="text-slate-600 mt-0.5">Menyendiri; terisolasi dari keramaian (sinonim: isolated).</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The researcher spent years in solitary contemplation in the forest."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">4. Effortlessly</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">adv</span>
+                  <p class="text-slate-600 mt-0.5">Dengan sangat mudah seolah tanpa usaha berat (nuansa sangat positif).</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"He solved the advanced equation effortlessly."</p>
+                </div>
+              </div>
+            </div>
+          </div>
         `,
         traps: [
-          "She sings good (Salah! Yang benar: She sings well).",
-          "Mengira hardly berarti dengan keras (hardly = hampir tidak)."
+          "Tertukar antara 'hard' dan 'hardly' (contoh: 'He works hardly' berarti dia 'hampir tidak pernah bekerja'. Kalimat yang benar untuk pekerja keras adalah 'He works hard').",
+          "Memakai adjective untuk menerangkan verb (contoh: 'She sings good' adalah salah. Yang benar: 'She sings well').",
+          "Mengatakan 'I am boring' saat ingin menyatakan kamu merasa bosan. 'I am boring' artinya 'aku membosankan'. Yang benar: 'I am bored'."
         ],
         questions: [
-          { q: "The vase is very ..., so please be careful.", opts: ["fragile", "solid", "hard", "firm"], ans: 0, exp: "Kata kunci be careful menunjuk pada benda yang mudah pecah/rapuh: fragile." },
-          { q: "This is a ... project, and many investors want to join.", opts: ["promised", "promises", "promise", "promising"], ans: 3, exp: "Proyek yang menjanjikan menggunakan adjective -ing: promising." },
-          { q: "I was so ... after the long trip.", opts: ["tired", "tiring", "tire", "tiredly"], ans: 0, exp: "Orang yang merasakan lelah menggunakan adjective -ed: tired." },
-          { q: "The dancers moved ... on the stage.", opts: ["elegant", "elegance", "elegantly", "eleganter"], ans: 2, exp: "Menerangkan kata kerja moved, gunakan adverb: elegantly." },
-          { q: "Which sentence is correct?", opts: ["She sings well.", "She sings good.", "She is singing goodly.", "She sings goodness."], ans: 0, exp: "Adverb dari kata sifat good adalah well." },
-          { q: "The team solved the problem ..., and finished early.", opts: ["effortlessly", "carelessly", "uselessly", "mindlessly"], ans: 0, exp: "Hasilnya positif dan cepat selesai, pilih kata bernuansa positif: effortlessly." }
+          { q: "The ceramic artifact discovered at the archaeological site is extremely ..., so the museum curator insisted on wearing padded gloves.", opts: ["fragile", "sturdy", "firm", "massive"], ans: 0, exp: "Petunjuk 'insisted on wearing padded gloves' (sarung tangan berbusa) menandakan benda tersebut sangat rapuh dan mudah pecah: 'fragile'." },
+          { q: "Renewable energy has emerged as a highly ... sector, attracting billions of dollars from global investors.", opts: ["promising", "promised", "promise", "promisingly"], ans: 0, exp: "Menerangkan sektor energi yang menimbulkan harapan masa depan cerah (sumber penyebab), gunakan participle adjective -ing: 'promising'." },
+          { q: "After analyzing the complex data for seven consecutive hours, the senior researcher felt completely ...", opts: ["exhausting", "exhausted", "exhaustedly", "exhaustion"], ans: 1, exp: "Subjek adalah orang yang merasakan kelelahan hebat setelah bekerja lama, gunakan participle adjective -ed: 'exhausted'." },
+          { q: "Despite being under severe pressure during the grand final, the orator delivered her speech ... and captivated the entire audience.", opts: ["confident", "confidently", "confidence", "confidential"], ans: 1, exp: "Posisi ini menerangkan kata kerja aksi 'delivered her speech', sehingga yang wajib digunakan adalah kata keterangan (adverb of manner): 'confidently'." },
+          { q: "Identify the grammatically correct sentence:", opts: ["The young gymnast performed very good on the balance beam.", "The young gymnast performed very well on the balance beam.", "The young gymnast performed fastly and good.", "The young gymnast works hardly every single morning."], ans: 1, exp: "Kata kerja 'performed' diterangkan oleh adverb 'well' (bukan good). Kata 'fastly' tidak ada, dan 'hardly' artinya hampir tidak pernah." },
+          { q: "The well-coordinated team resolved the emergency protocol ..., allowing the entire system to resume normal operations ahead of schedule.", opts: ["effortlessly", "carelessly", "uselessly", "mindlessly"], ans: 0, exp: "Konteks kalimat bernuansa sangat positif ('well-coordinated', 'ahead of schedule'). Kata adverb positif yang tepat adalah 'effortlessly' (dengan mudah dan lancar)." }
         ]
       },
       {
         id: 4,
         stage: "A",
-        title: "Article dan Pronoun",
-        subtitle: "Unit 4: Article dan Pronoun",
+        title: "Article (a, an, the) & Pronoun Mastery",
+        subtitle: "Unit 4: Fonetik Bunyi Artikel, Kasus Pronoun & Collective Noun Agreement",
         goals: [
-          "Memilih a, an, atau the berdasarkan BUNYI kata",
-          "Menguasai pronoun: subject, object, possessive, reflexive",
-          "Memahami pronoun untuk collective noun (committee, company = its)"
+          "Menerapkan hukum Bunyi Fonetik (Vokal vs Konsonan) pada pemilihan a vs an",
+          "Menguasai tabel komprehensif Pronoun (Subject, Object, Possessive, Reflexive)",
+          "Menentukan Pronoun tunggal pada Collective Nouns (committee, jury, company -> its)"
         ],
         conceptHTML: `
-          <h4 class="font-bold text-slate-800">Aturan Bunyi Article</h4>
-          <p>Yang menentukan a atau an adalah <strong>BUNYI pertama</strong>, bukan hurufnya!</p>
-          <ul class="list-disc pl-5 space-y-1">
-            <li><em>an hour</em> (dibaca aur &rarr; vokal)</li>
-            <li><em>a university</em> (dibaca yuniversiti &rarr; konsonan y)</li>
-            <li><em>an honest boy</em> (dibaca onest &rarr; vokal)</li>
-            <li><em>a unique idea</em> (dibaca yunik &rarr; konsonan y)</li>
-          </ul>
+          <div class="space-y-4">
+            <div class="p-3.5 bg-sky-50 rounded-2xl border border-sky-100">
+              <h4 class="font-extrabold text-rg-navy text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-volume-high text-rg-teal"></i>
+                1. Aturan Bunyi Fonetik Artikel (A vs AN)
+              </h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Ingat prinsip dasarnya: <strong>BUNYI PENGUCAPAN</strong> yang menentukan artikel, BUKAN huruf pertama di atas kertas!
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-xs">
+                <div class="p-2.5 bg-white rounded-xl border border-sky-200">
+                  <span class="font-bold text-rg-tealDark block">A. Menggunakan "AN" (Bunyi Vokal: /a, i, u, e, o/)</span>
+                  <ul class="text-[11px] text-slate-700 mt-1 space-y-1">
+                    <li>• <strong>an hour</strong> (dibaca <em>/ˈaʊ.ər/</em> &rarr; huruf 'h' bisu)</li>
+                    <li>• <strong>an honest student</strong> (dibaca <em>/ˈɒn.ɪst/</em>)</li>
+                    <li>• <strong>an honourable guest</strong> (dibaca <em>/ˈɒn.ər.ə.bəl/</em>)</li>
+                    <li>• <strong>an MBA degree</strong> (dibaca <em>/em-bi-ey/</em> &rarr; diawali bunyi /e/)</li>
+                  </ul>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-sky-200">
+                  <span class="font-bold text-amber-700 block">B. Menggunakan "A" (Bunyi Konsonan termasuk /j/ dan /w/)</span>
+                  <ul class="text-[11px] text-slate-700 mt-1 space-y-1">
+                    <li>• <strong>a university</strong> (dibaca <em>/ˌjuː.nɪˈvɜː.sə.ti/</em> &rarr; bunyi konsonan 'y')</li>
+                    <li>• <strong>a unique idea</strong> (dibaca <em>/juːˈniːk/</em>)</li>
+                    <li>• <strong>a European country</strong> (dibaca <em>/ˌjʊə.rəˈpiː.ən/</em>)</li>
+                    <li>• <strong>a one-way ticket</strong> (dibaca <em>/wʌn/</em> &rarr; diawali bunyi konsonan 'w')</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3.5 bg-indigo-50 rounded-2xl border border-indigo-100">
+              <h4 class="font-extrabold text-indigo-950 text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-users-viewfinder text-indigo-600"></i>
+                2. Collective Nouns Agreement: Tunggal atau Jamak?
+              </h4>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Di lomba tingkat SMP, kata benda perkumpulan seperti <strong>committee, team, board of directors, jury, government, school, company</strong> diperlakukan sebagai <strong>SATU KESATUAN TUNGGAL</strong>.
+              </p>
+              <div class="p-2.5 bg-white rounded-xl border border-indigo-200 mt-2 text-xs font-mono">
+                <p class="text-emerald-800">✓ The committee published <strong>its</strong> annual report. (Bukan their!)</p>
+                <p class="text-emerald-800 mt-0.5">✓ The technology company announced <strong>its</strong> latest innovation.</p>
+                <p class="text-rose-700 text-[11px] font-sans mt-1">Catatan: Bedakan antara <strong>its</strong> (kata ganti kepemilikan) dan <strong>it's</strong> (singkatan dari it is / it has).</p>
+              </div>
+            </div>
+
+            <!-- VOCABULARY BOOSTER UNIT 4 -->
+            <div class="p-4 bg-indigo-50/70 rounded-2xl border border-indigo-200">
+              <h4 class="font-extrabold text-indigo-950 text-xs sm:text-sm flex items-center gap-2 mb-2">
+                <i class="fa-solid fa-book-bookmark text-indigo-600"></i>
+                Vocabulary Booster: Istilah Lembaga &amp; Karakter Pronoun
+              </h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">1. Autonomous</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">adj</span>
+                  <p class="text-slate-600 mt-0.5">Mandiri; memiliki otoritas penuh mengatur dirinya sendiri (kata ganti: itself/its).</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The campus functions as an autonomous institution."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">2. Adjudicator</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">noun</span>
+                  <p class="text-slate-600 mt-0.5">Juri penilai resmi dalam lomba debat atau kompetisi akademik.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The chief adjudicator submitted his score sheet."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">3. Delegate</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">noun / verb</span>
+                  <p class="text-slate-600 mt-0.5">Utusan / perwakilan resmi (noun); mendelegasikan tugas (verb).</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"Each delegate must introduce herself clearly."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">4. Unanimous</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">adj</span>
+                  <p class="text-slate-600 mt-0.5">Bulat; disetujui oleh seluruh anggota tanpa sanggahan (diawali 'a').</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The panel reached a unanimous decision."</p>
+                </div>
+              </div>
+            </div>
+          </div>
         `,
         traps: [
-          "Menulis a hour atau an university karena hanya melihat huruf pertama.",
-          "Mencampuradukkan its (milik) dan it's (singkatan it is)."
+          "Menulis 'an university' atau 'an European' hanya karena melihat huruf 'u' dan 'e'. Pelafalannya berbunyi 'yu' (konsonan), jadi wajib menggunakan 'a'.",
+          "Menulis 'a hour' atau 'a honest man'. Huruf 'h' tidak berbunyi, sehingga dimulai dengan bunyi vokal 'o'/'a' dan wajib menggunakan 'an'.",
+          "Memakai kata ganti jamak 'their' untuk institusi/organisasi tunggal (The school announced their policy &rarr; yang benar: The school announced its policy)."
         ],
         questions: [
-          { q: "She is ... engineer.", opts: ["a", "an", "the", "(tanpa article)"], ans: 1, exp: "Engineer diawali dengan bunyi vokal, gunakan an." },
-          { q: "We visited ... university in Malang.", opts: ["a", "an", "each", "many"], ans: 0, exp: "University dibaca yuniversiti (bunyi konsonan y), gunakan a." },
-          { q: "He is ... honest boy.", opts: ["a", "an", "(tanpa article)", "many"], ans: 1, exp: "Honest dibaca onest (huruf h bisu/tidak dibaca), gunakan an." },
-          { q: "The students did the project by ...", opts: ["them", "themselves", "theirs", "their"], ans: 1, exp: "Subjek jamak (students) melakukan sendiri, gunakan reflexive pronoun: themselves." },
-          { q: "The company announced ... new product yesterday.", opts: ["their", "its", "it", "it's"], ans: 1, exp: "Company adalah satu kesatuan (tunggal), kata ganti miliknya adalah its." },
-          { q: "This book is not mine. It is ...", opts: ["your", "you", "yours", "yourself"], ans: 2, exp: "Berdiri sendiri tanpa kata benda di belakangnya, gunakan possessive pronoun: yours." }
+          { q: "The guest speaker is ... honorable scholar who has dedicated thirty years to marine conservation.", opts: ["a", "an", "the", "(no article)"], ans: 1, exp: "Kata 'honorable' diucapkan dengan huruf h bisu (/ˈɒn.ər.ə.bəl/), diawali bunyi vokal /o/, sehingga wajib menggunakan 'an'." },
+          { q: "Our school district decided to establish ... unique curriculum focusing on artificial intelligence and ethics.", opts: ["a", "an", "the", "many"], ans: 0, exp: "Kata 'unique' dilafalkan /juːˈniːk/ yang diawali bunyi konsonan semi-vokal /j/ ('y'), sehingga artikel yang benar adalah 'a'." },
+          { q: "The disciplinary committee finalized ... investigation and will reveal the sanction this afternoon.", opts: ["their", "its", "it's", "theirs"], ans: 1, exp: "'The disciplinary committee' adalah collective noun tunggal, maka kata ganti kepemilikan yang baku adalah 'its'." },
+          { q: "Because none of the assistants were available, the lead surgeon performed the entire procedure by ...", opts: ["him", "himself", "his", "hisself"], ans: 1, exp: "Ketika pelaku dan sasaran tindakan adalah orang yang sama, gunakan reflexive pronoun: 'himself' (bentuk 'hisself' tidak ada dalam bahasa Inggris baku)." },
+          { q: "This award trophy does not belong to me; it is rightfully ...", opts: ["your", "you", "yours", "yourself"], ans: 2, exp: "Berdiri sendiri di akhir klausa tanpa diikuti kata benda di belakangnya, gunakan Possessive Pronoun: 'yours' (artinya 'milikmu')." },
+          { q: "Traveling to Japan during cherry blossom season was ... once-in-a-lifetime experience for Rina.", opts: ["a", "an", "the", "every"], ans: 0, exp: "'Once' dilafalkan /wʌns/ yang diawali dengan bunyi konsonan /w/, sehingga artikel yang tepat adalah 'a'." }
         ]
       },
       {
         id: 5,
         stage: "A",
-        title: "Preposition dan Conjunction",
-        subtitle: "Unit 5: Preposition dan Conjunction",
+        title: "Preposition & Conjunction (Kata Depan & Hubung)",
+        subtitle: "Unit 5: Ketepatan At-On-In, Dependent Prepositions & Logika Hubungan FANBOYS",
         goals: [
-          "Membedakan at, on, in untuk waktu dan tempat",
-          "Menghafal pasangan tetap (worry about, good at, guilty of)",
-          "Menyambung kalimat dengan konjungsi setara (FANBOYS)"
+          "Menerapkan hierarki ukuran Preposisi Waktu & Tempat (At spesifik, On permukaan/hari, In area luas/periode)",
+          "Menghafal Dependent Prepositions esensial (Verb + Prep & Adjective + Prep)",
+          "Menguasai logika sebab-akibat konjungsi setara (For vs So, But vs Yet)"
         ],
         conceptHTML: `
-          <h4 class="font-bold text-slate-800">1. At, On, In</h4>
-          <p><strong>At:</strong> jam & titik spesifik (at 7 pm, at school). <strong>On:</strong> hari & permukaan (on Monday, on the top floor). <strong>In:</strong> bulan, tahun, kota (in July, in 2025, in Surabaya).</p>
-          <h4 class="font-bold text-slate-800 mt-2">2. Membedakan For vs So</h4>
-          <p><strong>For</strong> = sebab (karena). <em>The team won, for they trained hard.</em></p>
-          <p><strong>So</strong> = akibat. <em>They trained hard, so they won.</em></p>
+          <div class="space-y-4">
+            <div class="p-3.5 bg-sky-50 rounded-2xl border border-sky-100">
+              <h4 class="font-extrabold text-rg-navy text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-shapes text-rg-teal"></i>
+                1. Hierarki Piramida: AT, ON, dan IN
+              </h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Kuasai piramida terbalik: semakin ke bawah semakin spesifik dan sempit!
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-2 text-xs">
+                <div class="p-2.5 bg-white rounded-xl border border-sky-200">
+                  <span class="font-bold text-rg-navy block">IN (Paling Luas / Umum)</span>
+                  <p class="text-slate-600 mt-1"><strong>Waktu:</strong> abad, tahun, bulan, musim (in 2026, in October, in the morning)</p>
+                  <p class="text-slate-600 mt-1"><strong>Tempat:</strong> negara, kota, ruangan tertutup (in Indonesia, in Jakarta, in the lab)</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-sky-200">
+                  <span class="font-bold text-rg-navy block">ON (Sedang / Permukaan)</span>
+                  <p class="text-slate-600 mt-1"><strong>Waktu:</strong> nama hari, tanggal lengkap (on Monday, on October 26th, on my birthday)</p>
+                  <p class="text-slate-600 mt-1"><strong>Tempat:</strong> nama jalan, lantai, permukaan datar (on Sudirman Street, on the 3rd floor, on the table)</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-sky-200">
+                  <span class="font-bold text-rg-navy block">AT (Paling Sempit &amp; Spesifik)</span>
+                  <p class="text-slate-600 mt-1"><strong>Waktu:</strong> jam eksak, titik waktu (at 07:30 AM, at noon, at midnight)</p>
+                  <p class="text-slate-600 mt-1"><strong>Tempat:</strong> alamat beromor, titik pertemuan (at 45 Diponegoro St, at the bus stop, at school)</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3.5 bg-amber-50 rounded-2xl border border-amber-100">
+              <h4 class="font-extrabold text-amber-900 text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-link text-amber-600"></i>
+                2. Dependent Prepositions yang Kerap Keluar di Lomba
+              </h4>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Di bahasa Inggris, pasangan kata sifat/kerja dengan preposisinya bersifat mutlak dan tidak boleh diterjemahkan secara harfiah ke bahasa Indonesia:
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-xs">
+                <div class="p-2 bg-white rounded-xl border border-amber-200">
+                  <span class="font-bold text-amber-800">Adjective + Preposition:</span>
+                  <ul class="text-slate-700 mt-1 space-y-0.5">
+                    <li>• guilty <strong>of</strong> (bersalah atas...)</li>
+                    <li>• good / skilled <strong>at</strong> (terampil dalam...)</li>
+                    <li>• interested <strong>in</strong> (tertarik pada...)</li>
+                    <li>• responsible <strong>for</strong> (bertanggung jawab atas...)</li>
+                    <li>• similar <strong>to</strong> (mirip dengan...)</li>
+                    <li>• different <strong>from</strong> (berbeda dari...)</li>
+                  </ul>
+                </div>
+                <div class="p-2 bg-white rounded-xl border border-amber-200">
+                  <span class="font-bold text-amber-800">Verb + Preposition:</span>
+                  <ul class="text-slate-700 mt-1 space-y-0.5">
+                    <li>• depend <strong>on</strong> (bergantung pada...)</li>
+                    <li>• worry <strong>about</strong> (khawatir tentang...)</li>
+                    <li>• participate <strong>in</strong> (berpartisipasi dalam...)</li>
+                    <li>• apologize <strong>for</strong> (minta maaf atas...)</li>
+                    <li>• prevent ... <strong>from</strong> (mencegah dari...)</li>
+                    <li>• consist <strong>of</strong> (terdiri dari...)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3.5 bg-indigo-50 rounded-2xl border border-indigo-100">
+              <h4 class="font-extrabold text-indigo-950 text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-code-merge text-indigo-600"></i>
+                3. Logika FANBOYS: Membedakan FOR (Sebab) vs SO (Akibat)
+              </h4>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Banyak siswa belum tahu bahwa <strong>FOR</strong> dalam konjungsi FANBOYS bermakna <strong>KARENA (sebab)</strong>, setara dengan <em>because</em>!
+              </p>
+              <div class="p-2.5 bg-white rounded-xl border border-indigo-200 mt-2 text-xs">
+                <p class="text-slate-700 font-mono">• <em>The squad claimed victory, <strong>for</strong> they had prepared relentlessly.</em></p>
+                <p class="text-slate-500 mt-0.5">&rarr; Klausa kedua ('they had prepared') adalah <strong>SEBAB</strong>, maka gunakan <strong>FOR</strong>.</p>
+                <p class="text-slate-700 font-mono mt-2">• <em>They had prepared relentlessly, <strong>so</strong> they claimed victory.</em></p>
+                <p class="text-slate-500 mt-0.5">&rarr; Klausa kedua ('they claimed victory') adalah <strong>AKIBAT</strong>, maka gunakan <strong>SO</strong>.</p>
+              </div>
+            </div>
+
+            <!-- VOCABULARY BOOSTER UNIT 5 -->
+            <div class="p-4 bg-indigo-50/70 rounded-2xl border border-indigo-200">
+              <h4 class="font-extrabold text-indigo-950 text-xs sm:text-sm flex items-center gap-2 mb-2">
+                <i class="fa-solid fa-book-bookmark text-indigo-600"></i>
+                Vocabulary Booster: Konjungsi Transisi Tingkat Lanjut
+              </h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">1. Furthermore / Moreover</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">conj adv</span>
+                  <p class="text-slate-600 mt-0.5">Selain itu / lagipula (menambahkan poin argumen seirama).</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The experiment is cheap; furthermore, it produces zero waste."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">2. Nevertheless</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">conj adv</span>
+                  <p class="text-slate-600 mt-0.5">Meskipun demikian / namun demikian (menunjukkan kontras kuat).</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The task was exhausting; nevertheless, the team persisted."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">3. Consequently</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">conj adv</span>
+                  <p class="text-slate-600 mt-0.5">Sebagai akibatnya / dampaknya (menunjukkan kesimpulan hasil).</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"He missed the deadline; consequently, his score was deducted."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">4. In accordance with</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">prep phrase</span>
+                  <p class="text-slate-600 mt-0.5">Sesuai dengan ketentuan / aturan hukum yang berlaku.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The competition was judged in accordance with standard rules."</p>
+                </div>
+              </div>
+            </div>
+          </div>
         `,
         traps: [
-          "Memakai in untuk hari (in Monday adalah SALAH, yang benar on Monday).",
-          "Menukar penggunaan for (sebab) dan so (akibat)."
+          "Memakai 'in' untuk hari (contoh: 'in Monday morning' adalah SALAH. Wajib memakai 'on Monday morning').",
+          "Memakai 'worry for' atau 'depend to'. Pasangan tetapnya adalah 'worry about' dan 'depend on'.",
+          "Tertukar antara 'for' (karena) dan 'so' (sehingga) pada klausa majemuk majemuk setara."
         ],
         questions: [
-          { q: "The class begins ... 7 a.m. ... Tuesday.", opts: ["at - on", "on - at", "in - on", "at - in"], ans: 0, exp: "At digunakan untuk jam, on digunakan untuk nama hari." },
-          { q: "Don't worry ... small things.", opts: ["in", "for", "about", "on"], ans: 2, exp: "Pasangan preposisi tetap: worry about." },
-          { q: "He is good ... drawing.", opts: ["in", "at", "on", "for"], ans: 1, exp: "Pasangan preposisi tetap: good at (terampil dalam)." },
-          { q: "It was raining, ... we stayed at home.", opts: ["but", "for", "so", "or"], ans: 2, exp: "Tinggal di rumah adalah akibat dari hujan, gunakan konjungsi so." },
-          { q: "The team won the final, ... they trained hard every day.", opts: ["so", "for", "but", "or"], ans: 1, exp: "Berlatih keras adalah sebab kemenangan, gunakan konjungsi for (karena)." }
+          { q: "The grand opening ceremony is scheduled to commence precisely ... 8:00 AM ... Friday morning.", opts: ["at - on", "on - at", "in - on", "at - in"], ans: 0, exp: "'At' digunakan untuk jam spesifik, sedangkan 'on' digunakan untuk hari (Friday morning)." },
+          { q: "During the audit, the former treasurer was officially found guilty ... misusing the school organization's emergency funds.", opts: ["at", "on", "of", "to"], ans: 2, exp: "Pasangan preposisi tetap (dependent preposition) untuk 'guilty' adalah 'of' (guilty of something)." },
+          { q: "Dr. Budi has always been remarkably good ... mentoring junior high students for national scientific olympiads.", opts: ["in", "at", "for", "with"], ans: 1, exp: "Pasangan preposisi untuk 'good' dalam arti terampil/ahli adalah 'good at' (contoh: good at drawing, good at mentoring)." },
+          { q: "The meteorological institute warned residents of impending storms, ... all fishermen cancelled their voyages.", opts: ["for", "but", "so", "or"], ans: 2, exp: "Membatalkan pelayaran adalah 'AKIBAT' dari adanya peringatan badai. Konjungsi akibat adalah 'so'." },
+          { q: "The elite robotics team won first place at the national convention, ... they had developed a groundbreaking autonomous sensor.", opts: ["so", "for", "but", "or"], ans: 1, exp: "Mengembangkan sensor canggih adalah 'SEBAB' kemenangan mereka. Konjungsi FANBOYS yang bermakna sebab (= because) adalah 'for'." },
+          { q: "The success of our eco-friendly project relies primarily ... the active participation of the local community.", opts: ["with", "to", "on", "in"], ans: 2, exp: "Pasangan kata kerja tetap untuk 'rely' (mengandalkan/bergantung) adalah 'rely on' (sinonim dengan depend on)." }
         ]
       },
       {
         id: 6,
         stage: "B",
-        title: "Tenses: Present",
-        subtitle: "Unit 6: Simple Present & Continuous",
+        title: "Tenses: Simple Present vs Present Continuous",
+        subtitle: "Unit 6: Kebiasaan Ilmiah vs Aksi Sedang Berlangsung & Stative Verbs",
         goals: [
-          "Simple present untuk kebiasaan dan fakta ilmiah",
-          "Present continuous untuk aksi yang sedang berlangsung sekarang",
-          "Signal words penentu tenses"
+          "Membedakan fakta alam / kebiasaan rutin (Simple Present) dan aksi temporal (Continuous)",
+          "Menghindari jebakan Stative Verbs (kata kerja rasa/pikir yang tabu berakhiran -ing)",
+          "Menganalisis Signal Words implisit dan kata seru (Look!, Listen!, At present)"
         ],
         conceptHTML: `
-          <h4 class="font-bold text-slate-800">Perbandingan Present</h4>
-          <p><strong>Simple Present:</strong> kebiasaan/jadwal (usually, every day). Pola: S + V1 (+s/es untuk he, she, it).</p>
-          <p><strong>Present Continuous:</strong> sedang terjadi (now, at the moment, Look!). Pola: S + is/am/are + V-ing.</p>
+          <div class="space-y-4">
+            <div class="p-3.5 bg-sky-50 rounded-2xl border border-sky-100">
+              <h4 class="font-extrabold text-rg-navy text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-clock-rotate-left text-rg-teal"></i>
+                1. Perbandingan Karakteristik Present Tenses
+              </h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Di soal lomba, jangan hanya menghafal rumus, pahami <strong>esensi waktu</strong> dari kalimat tersebut:
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-xs">
+                <div class="p-2.5 bg-white rounded-xl border border-sky-200">
+                  <span class="font-bold text-rg-navy block">Simple Present (Kebenaran Abadi &amp; Rutinitas)</span>
+                  <p class="text-slate-600 mt-1">• <strong>Fungsi:</strong> Hukum alam, fakta ilmiah, dan kebiasaan tetap.</p>
+                  <p class="text-slate-600 mt-1">• <strong>Rumus:</strong> S + V1 (+ s/es untuk He/She/It).</p>
+                  <p class="text-slate-600 mt-1">• <strong>Kata Kunci:</strong> every day, always, usually, seldom, water boils at 100°C.</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-sky-200">
+                  <span class="font-bold text-amber-700 block">Present Continuous (Aksi Temporal Saat Ini)</span>
+                  <p class="text-slate-600 mt-1">• <strong>Fungsi:</strong> Kejadian yang sedang berlangsung saat bicara atau tren sementara.</p>
+                  <p class="text-slate-600 mt-1">• <strong>Rumus:</strong> S + is/am/are + V-ing.</p>
+                  <p class="text-slate-600 mt-1">• <strong>Kata Kunci:</strong> Look!, Listen!, right now, currently, at this moment.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3.5 bg-rose-50 rounded-2xl border border-rose-100">
+              <h4 class="font-extrabold text-rose-900 text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-ban text-rose-600"></i>
+                2. Stative Verbs: Kata Kerja yang DILARANG Berakhiran -ing!
+              </h4>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Kata kerja statis menggambarkan <strong>keadaan batin, kepemilikan, atau persepsi indra</strong>, bukan tindakan fisik. Meskipun ada kata <em>now</em>, mereka <strong>TETAP WAJIB Simple Present</strong>!
+              </p>
+              <div class="p-2.5 bg-white rounded-xl border border-rose-200 mt-2 text-xs space-y-1">
+                <p class="text-slate-700">• <strong>Pikiran/Pendapat:</strong> know, believe, understand, remember, realize, think (=believe).</p>
+                <p class="text-slate-700">• <strong>Perasaan/Emosi:</strong> love, hate, like, prefer, want, need.</p>
+                <p class="text-slate-700">• <strong>Kepemilikan:</strong> have (=possess), belong to, own.</p>
+                <p class="text-rose-700 font-mono text-[11px] mt-1.5 font-bold">✗ "I am knowing the answer right now" (SALAH BESAR!) &rarr; ✓ "I know the answer right now."</p>
+              </div>
+            </div>
+
+            <!-- VOCABULARY BOOSTER UNIT 6 -->
+            <div class="p-4 bg-indigo-50/70 rounded-2xl border border-indigo-200">
+              <h4 class="font-extrabold text-indigo-950 text-xs sm:text-sm flex items-center gap-2 mb-2">
+                <i class="fa-solid fa-book-bookmark text-indigo-600"></i>
+                Vocabulary Booster: Kata Kerja Observasi &amp; Lingkungan
+              </h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">1. Fluctuate</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">verb</span>
+                  <p class="text-slate-600 mt-0.5">Naik turun tidak menentu; berfluktuasi.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The ambient temperature fluctuates rapidly in this desert."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">2. Strive</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">verb</span>
+                  <p class="text-slate-600 mt-0.5">Berjuang sekuat tenaga; berusaha keras mencapai target.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"Dedicated competitors strive for academic excellence every day."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">3. Invariably</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">adverb</span>
+                  <p class="text-slate-600 mt-0.5">Selalu tanpa terkecuali; pasti (sinonim: always / consistently).</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"Rigorous preparation invariably leads to self-confidence."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">4. Perish</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">verb</span>
+                  <p class="text-slate-600 mt-0.5">Mati atau musnah secara tragis akibat kondisi ekstrem.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"Without water, delicate seedlings perish quickly in summer."</p>
+                </div>
+              </div>
+            </div>
+          </div>
         `,
         traps: [
-          "Lupa menambahkan -s pada subjek tunggal (My father work in a bank).",
-          "Memberi -s pada verb setelah does (Does she studies? Harus study)."
+          "Lupa menambahkan akhiran -s/-es pada subjek tunggal orang ketiga (he, she, it, the scientist, each student).",
+          "Memberikan akhiran -s pada kata kerja setelah auxiliary do/does (contoh: 'Does she speaks German?' adalah SALAH. Wajib: 'Does she speak German?').",
+          "Memakai bentuk -ing pada stative verb (seperti: 'She is wanting water now')."
         ],
         questions: [
-          { q: "My brother ... football every Sunday.", opts: ["play", "plays", "is playing", "played"], ans: 1, exp: "Every Sunday = kebiasaan rutin, subjek tunggal orang ketiga, gunakan plays." },
-          { q: "Look! The cat ... on the sofa.", opts: ["sleeps", "sleep", "is sleeping", "slept"], ans: 2, exp: "Kata seru Look! menandakan peristiwa sedang berlangsung sekarang: is sleeping." },
-          { q: "She ... meat. She is a vegetarian.", opts: ["don't eat", "doesn't eat", "isn't eating", "not eat"], ans: 1, exp: "Fakta umum dengan subjek she menggunakan doesn't eat." }
+          { q: "Due to seasonal wind shifts, the ocean current along the southern peninsula ... dramatically twice a year.", opts: ["fluctuate", "fluctuates", "fluctuating", "is fluctuating"], ans: 1, exp: "Kalimat menyatakan pola siklus berulang (kebiasaan/fakta alam 'twice a year'). Subjek 'the ocean current' tunggal, maka verb berakhiran -s: 'fluctuates'." },
+          { q: "Listen! The chief scientist ... the breakthrough findings to the press in the auditorium.", opts: ["announces", "announced", "is announcing", "announce"], ans: 2, exp: "Kata seru 'Listen!' menandakan peristiwa sedang berlangsung saat pembicara mengucapkan kalimat tersebut (Present Continuous): 'is announcing'." },
+          { q: "Although the debate topic is exceedingly complex, Bima ... the underlying sociological theories very well.", opts: ["is understanding", "understands", "understand", "was understanding"], ans: 1, exp: "'Understand' adalah stative verb yang tidak boleh dibentuk continuous (-ing). Subjek Bima tunggal, maka bentuk yang benar adalah 'understands'." },
+          { q: "Neither of the two junior high school teams ... to surrender without a fierce fight in this grand final round.", opts: ["intend", "intends", "are intending", "intending"], ans: 1, exp: "Frasa 'Neither of + noun jamak' memiliki subjek grammatikal tunggal ('Neither' = tidak satu pun dari keduanya), maka verb berakhiran -s: 'intends'." },
+          { q: "At present, the municipal environmental agency ... a comprehensive survey to measure river pollution levels.", opts: ["conducts", "is conducting", "conducted", "has conducted"], ans: 1, exp: "Keterangan waktu 'At present' (saat ini) mengindikasikan kegiatan yang sedang berjalan secara temporal: 'is conducting'." },
+          { q: "How often ... your school's English club ... mock debates before participating in inter-provincial championships?", opts: ["does - conduct", "do - conduct", "does - conducts", "is - conducting"], ans: 0, exp: "Subjek kalimat adalah 'your school's English club' (tunggal/satu klub). Auxiliary simple present adalah 'does', dan verb utama wajib kembali ke bentuk dasar V1: 'conduct'." }
         ]
       },
       {
         id: 7,
         stage: "B",
-        title: "Tenses: Past",
-        subtitle: "Unit 7: Simple Past & Past Continuous",
+        title: "Tenses: Simple Past, Past Continuous & Past Perfect",
+        subtitle: "Unit 7: Hubungan Waktu Lampau, Interrupted Actions & Urutan Kronologis",
         goals: [
-          "Simple past (V2) untuk aksi yang telah tuntas di masa lalu",
-          "Past continuous untuk latar belakang kejadian",
-          "Past perfect (had + V3) untuk kejadian yang terjadi lebih dulu"
+          "Menguasai pola Interrupted Action (Past Continuous sebagai latar & Simple Past sebagai pemotong)",
+          "Menentukan Past Perfect (had + V3) untuk kejadian yang tuntas lebih dulu dibanding aksi lampau lainnya",
+          "Menganalisis signal words khas: when, while, by the time, before, after"
         ],
         conceptHTML: `
-          <h4 class="font-bold text-slate-800">Pola Latar dan Pemotong</h4>
-          <p>Kejadian yang sedang berlangsung (latar) memakai <strong>Past Continuous (was/were + V-ing)</strong>. Kejadian mendadak yang memotong memakai <strong>Simple Past (V2)</strong>.</p>
-          <p><em>I <strong>fell</strong> (pemotong) while I <strong>was texting</strong> my friend (latar).</em></p>
+          <div class="space-y-4">
+            <div class="p-3.5 bg-sky-50 rounded-2xl border border-sky-100">
+              <h4 class="font-extrabold text-rg-navy text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-film text-rg-teal"></i>
+                1. Pola Latar (Background) &amp; Pemotong (Interruption)
+              </h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Bayangkan adegan film di masa lalu: ada aksi panjang yang sedang berjalan (latar), lalu tiba-tiba terjadi aksi singkat mendadak yang memotongnya:
+              </p>
+              <div class="p-3 bg-white rounded-xl border border-sky-200 mt-2 font-mono text-xs">
+                <p class="text-rg-navy font-bold">Rumus: [While / As + Past Continuous], [Simple Past]</p>
+                <p class="text-slate-700 mt-1"><em>While the adjudicators <strong>were deliberating</strong> the scores, the microphone suddenly <strong>went</strong> dead.</em></p>
+                <div class="mt-2 text-[11px] font-sans text-slate-500 space-y-0.5">
+                  <p>• <strong>were deliberating</strong> (Past Continuous) = Latar aksi yang sedang berlangsung.</p>
+                  <p>• <strong>went dead</strong> (Simple Past V2) = Kejadian mendadak yang memotong.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3.5 bg-indigo-50 rounded-2xl border border-indigo-100">
+              <h4 class="font-extrabold text-indigo-950 text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-timeline text-indigo-600"></i>
+                2. Past Perfect: "Yang Lebih Dulu Selesai di Masa Lalu"
+              </h4>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Jika ada <strong>dua peristiwa di masa lalu</strong>, peristiwa yang terjadi <strong>PALING AWAL</strong> wajib menggunakan <strong>Past Perfect (HAD + V3)</strong>.
+              </p>
+              <div class="p-3 bg-white rounded-xl border border-indigo-200 mt-2 text-xs font-mono">
+                <p class="text-emerald-800 font-bold">Pola Khas: By the time + Simple Past, Subject + HAD + V3</p>
+                <p class="text-slate-700 mt-1"><em>By the time the ambulance <u>arrived</u> (lampau 2), the paramedics <strong>had already stabilized</strong> (lampau 1 lebih dulu) the patient.</em></p>
+              </div>
+            </div>
+
+            <!-- VOCABULARY BOOSTER UNIT 7 -->
+            <div class="p-4 bg-indigo-50/70 rounded-2xl border border-indigo-200">
+              <h4 class="font-extrabold text-indigo-950 text-xs sm:text-sm flex items-center gap-2 mb-2">
+                <i class="fa-solid fa-book-bookmark text-indigo-600"></i>
+                Vocabulary Booster: Kata Kerja Lampau &amp; Investigasi
+              </h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">1. Evacuate</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">verb (past: evacuated)</span>
+                  <p class="text-slate-600 mt-0.5">Mengungsikan orang dari daerah bahaya ke tempat aman.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"Volunteers evacuated residents before the river breached its bank."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">2. Vanish</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">verb (past: vanished)</span>
+                  <p class="text-slate-600 mt-0.5">Lenyap seketika tanpa jejak (sinonim: disappear abruptly).</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The mysterious light vanished into the dense fog."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">3. Culprit</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">noun</span>
+                  <p class="text-slate-600 mt-0.5">Pelaku kesalahan atau biang keladi kejahatan.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"Investigators identified the culprit behind the data breach."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">4. Promptly</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">adverb</span>
+                  <p class="text-slate-600 mt-0.5">Dengan sigap dan tepat waktu tanpa penundaan.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"She promptly answered all cross-examination questions."</p>
+                </div>
+              </div>
+            </div>
+          </div>
         `,
         traps: [
-          "Menulis did not went (Setelah did not harus V1 murni: did not go).",
-          "Menulis was walk (Harus was walking)."
+          "Menulis Past Perfect sendirian tanpa ada peristiwa lampau lain sebagai pembanding (contoh: 'Yesterday I had eaten lunch' adalah salah, cukup 'Yesterday I ate lunch').",
+          "Menulis 'didn't went' atau 'didn't saw'. Ingat: setelah didn't wajib kembali ke V1 murni ('didn't go', 'didn't see').",
+          "Membalik posisi: memakai Past Continuous setelah 'by the time' (By the time she was arriving... &rarr; salah! Seharusnya: By the time she arrived, they had left)."
         ],
         questions: [
-          { q: "She ... go to school yesterday because she was sick.", opts: ["don't", "doesn't", "didn't", "hadn't"], ans: 2, exp: "Yesterday adalah penanda simple past bentuk negatif: didn't + V1." },
-          { q: "I ... while I was crossing the road.", opts: ["fall", "falling", "fell", "was fall"], ans: 2, exp: "Kejadian pemotong menggunakan Simple Past (V2): fell." },
-          { q: "When we arrived, the show ...", opts: ["already started", "had already started", "has already started", "already starts"], ans: 1, exp: "Pertunjukan telah dimulai lebih dulu sebelum kami tiba di masa lampau: had already started." }
+          { q: "While the junior researcher ... chemical samples in the laboratory, the earthquake struck the city.", opts: ["tested", "was testing", "is testing", "had tested"], ans: 1, exp: "Peristiwa yang sedang berlangsung sebagai latar ketika gempa terjadi menggunakan Past Continuous: 'was testing'." },
+          { q: "By the time the rescue helicopter landed on the summit, the mountaineers ... all their emergency rations.", opts: ["consumed", "have consumed", "had already consumed", "were consuming"], ans: 2, exp: "Pola 'By the time + Simple Past (landed)' mengindikasikan aksi yang sudah tuntas lebih dulu (Past Perfect): 'had already consumed'." },
+          { q: "The security team discovered that the intruder ... the surveillance cameras before entering the vault.", opts: ["disabled", "had disabled", "disables", "has disabled"], ans: 1, exp: "Kamera dilumpuhkan lebih dulu sebelum penyusup masuk ke brankas, maka gunakan Past Perfect: 'had disabled'." },
+          { q: "Neither of the debaters ... able to cite the official statistical source during yesterday's preliminary match.", opts: ["was", "were", "is", "are"], ans: 0, exp: "'Yesterday' mengindikasikan masa lampau (Past). 'Neither of' secara grammatikal berorientasi tunggal, sehingga to be lampau yang tepat adalah 'was'." },
+          { q: "Dewi ... her valuable wallet while she was navigating the crowded traditional marketplace yesterday.", opts: ["loses", "lost", "was losing", "had lost"], ans: 1, exp: "Aksi mendadak yang memotong kegiatan belanja di masa lalu memakai Simple Past (V2): 'lost'." },
+          { q: "Before she entered the national speech competition, Sinta ... with a native speaker for six months.", opts: ["coached", "was coaching", "had practiced", "has practiced"], ans: 2, exp: "Berlatih 6 bulan selesai lebih dulu sebelum dia mendaftar kompetisi di masa lampau, gunakan Past Perfect: 'had practiced'." }
         ]
       },
       {
         id: 8,
         stage: "B",
-        title: "Future dan Perfect",
-        subtitle: "Unit 8: Future & Present Perfect",
+        title: "Tenses: Future & Perfect Aspect",
+        subtitle: "Unit 8: Will vs Be Going To, Present Perfect & Perfect Continuous",
         goals: [
-          "Membedakan will (spontan/janji) vs be going to (ada bukti/rencana)",
-          "Present perfect (has/have + V3) untuk pengalaman dan hasil",
-          "Since (titik waktu) vs for (durasi waktu)"
+          "Membedakan 'Will' (keputusan spontan / janji) vs 'Be Going To' (bukti nyata / rencana matang)",
+          "Menguasai fungsi Present Perfect (has/have + V3): pengalaman hidup & hasil saat ini",
+          "Menentukan penggunaan SINCE (titik waktu awal) vs FOR (durasi/rentang waktu)"
         ],
         conceptHTML: `
-          <h4 class="font-bold text-slate-800">Will vs Be Going To</h4>
-          <p><strong>Be Going To:</strong> bila ada bukti nyata yang terlihat atau jadwal tetap. <em>Look at the clouds! It <strong>is going to</strong> rain.</em></p>
-          <p><strong>Will:</strong> keputusan spontan atau janji. <em>Don't worry, I <strong>will help</strong> you.</em></p>
+          <div class="space-y-4">
+            <div class="p-3.5 bg-sky-50 rounded-2xl border border-sky-100">
+              <h4 class="font-extrabold text-rg-navy text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-compass text-rg-teal"></i>
+                1. Kapan Memilih "WILL" dan Kapan "BE GOING TO"?
+              </h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Di soal lomba, pembuat soal menguji kepekaanmu terhadap petunjuk situasi konteks:
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-xs">
+                <div class="p-2.5 bg-white rounded-xl border border-sky-200">
+                  <span class="font-bold text-rg-navy block">BE GOING TO (Bukti Nyata / Rencana)</span>
+                  <p class="text-slate-600 mt-1">• <strong>Ada bukti fisik yang terlihat:</strong> <em>"Look at those dark storm clouds! It <strong>is going to</strong> rain."</em></p>
+                  <p class="text-slate-600 mt-1">• <strong>Niat yang sudah dipersiapkan sebelumnya:</strong> <em>"We have booked tickets. We <strong>are going to visit</strong> Bali."</em></p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-sky-200">
+                  <span class="font-bold text-amber-700 block">WILL (Spontan, Janji, Prediksi Tanpa Bukti)</span>
+                  <p class="text-slate-600 mt-1">• <strong>Keputusan mendadak saat berbicara:</strong> <em>"The phone is ringing. I <strong>will answer</strong> it."</em></p>
+                  <p class="text-slate-600 mt-1">• <strong>Janji sukarela:</strong> <em>"Don't worry, I <strong>will help</strong> you carry these boxes."</em></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3.5 bg-emerald-50 rounded-2xl border border-emerald-100">
+              <h4 class="font-extrabold text-emerald-950 text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-hourglass-half text-emerald-600"></i>
+                2. Present Perfect: SINCE vs FOR
+              </h4>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Present Perfect (S + has/have + V3) menghubungkan aksi masa lalu dengan kondisi saat ini. Hafalkan perbedaan penanda waktunya:
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-xs">
+                <div class="p-2 bg-white rounded-xl border border-emerald-200">
+                  <span class="font-bold text-emerald-800">SINCE = Titik Awal Waktu Dimulainya Aksi</span>
+                  <p class="text-slate-600 mt-1">• since 2021, since Monday, since 7:00 AM, since she was a child.</p>
+                </div>
+                <div class="p-2 bg-white rounded-xl border border-emerald-200">
+                  <span class="font-bold text-emerald-800">FOR = Panjang Durasi / Lamanya Waktu</span>
+                  <p class="text-slate-600 mt-1">• for three hours, for five days, for a decade, for two weeks.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- VOCABULARY BOOSTER UNIT 8 -->
+            <div class="p-4 bg-indigo-50/70 rounded-2xl border border-indigo-200">
+              <h4 class="font-extrabold text-indigo-950 text-xs sm:text-sm flex items-center gap-2 mb-2">
+                <i class="fa-solid fa-book-bookmark text-indigo-600"></i>
+                Vocabulary Booster: Kata Sinyal &amp; Pencapaian
+              </h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">1. Accomplish</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">verb (pp: accomplished)</span>
+                  <p class="text-slate-600 mt-0.5">Menuntaskan misi atau target sulit dengan sukses gemilang.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The student council has accomplished all its targets."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">2. Prevalent</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">adjective</span>
+                  <p class="text-slate-600 mt-0.5">Lazim; tersebar luas pada masa tertentu (sinonim: widespread).</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"Digital learning has become increasingly prevalent."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">3. Immense</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">adjective</span>
+                  <p class="text-slate-600 mt-0.5">Sangat besar ukurannya atau dampaknya (sinonim: colossal).</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The winning team experienced immense pride."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">4. Disclose</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">verb</span>
+                  <p class="text-slate-600 mt-0.5">Mengungkapkan rahasia atau data resmi ke publik (sinonim: reveal).</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The committee will disclose the finalist names tomorrow."</p>
+                </div>
+              </div>
+            </div>
+          </div>
         `,
         traps: [
-          "Memakai simple past bersama since (I lived here since 2015 SALAH -> I have lived here since 2015).",
-          "Menulis has went (Harus has gone, bentuk V3)."
+          "Memakai Simple Past bersama kata 'since' (contoh: 'She lived here since 2018' adalah SALAH. Wajib Present Perfect: 'She has lived here since 2018').",
+          "Memakai V2 setelah has/have (contoh: 'She has wrote' atau 'They have went'. Yang benar adalah bentuk V3: 'has written', 'have gone').",
+          "Menukar 'since' dan 'for' (contoh: 'since three years' adalah salah; yang benar: 'for three years')."
         ],
         questions: [
-          { q: "Look at the dark clouds! It ... rain soon.", opts: ["will", "is going to", "rains", "rained"], ans: 1, exp: "Ada bukti nyata yang terlihat (awan gelap), gunakan is going to." },
-          { q: "I ... this film three times.", opts: ["see", "saw", "have seen", "am seeing"], ans: 2, exp: "Pengalaman hidup yang pernah dilakukan berulang menuntut Present Perfect: have seen." },
-          { q: "They ... in Surabaya since 2015.", opts: ["live", "lived", "have lived", "are living"], ans: 2, exp: "Kata petunjuk since menuntut Present Perfect: have lived." }
+          { q: "Look at the cracks rapidly spreading across the glass tank! It ... burst in seconds.", opts: ["will", "is going to", "bursts", "has burst"], ans: 1, exp: "Terdapat bukti visual yang jelas dan nyata di depan mata (retakan menyebar), maka bentuk future yang tepat adalah 'is going to'." },
+          { q: "Don't carry all those heavy encyclopedias alone; I ... the second half for you.", opts: ["am carrying", "will carry", "carried", "have carried"], ans: 1, exp: "Keputusan spontan saat itu juga untuk menawarkan bantuan menggunakan modal future 'will'." },
+          { q: "Professor Johnson ... at this national research institution ... more than fifteen consecutive years.", opts: ["works - since", "has worked - for", "worked - since", "is working - for"], ans: 1, exp: "Durasi waktu 'fifteen consecutive years' membutuhkan preposisi 'for'. Kejadian yang dimulai di masa lampau dan berlanjut hingga kini membutuhkan Present Perfect: 'has worked - for'." },
+          { q: "The young prodigy ... four international piano competitions since he was only nine years old.", opts: ["won", "wins", "has won", "is winning"], ans: 2, exp: "Kata penanda 'since' yang merujuk pada rentang pengalaman hidup hingga sekarang menuntut Present Perfect: 'has won'." },
+          { q: "Her clothes are covered in colorful pigments because she ... the main stage backdrop all afternoon.", opts: ["painted", "has been painting", "paints", "had painted"], ans: 1, exp: "Aksi yang berlangsung terus menerus dan efek/bekas fisiknya masih terlihat jelas saat ini menggunakan Present Perfect Continuous: 'has been painting'." },
+          { q: "The lead debater has already ... all factual counterarguments in her cue cards.", opts: ["summarized", "summarize", "summarizing", "summarizes"], ans: 0, exp: "Setelah kata bantu 'has' dan adverb 'already', kata kerja wajib berbentuk Past Participle (V3): 'summarized'." }
         ]
       },
       {
         id: 9,
         stage: "B",
-        title: "Passive Voice (Kalimat Pasif)",
-        subtitle: "Unit 9: Passive Voice",
+        title: "Passive Voice (Kalimat Pasif) & Agent by",
+        subtitle: "Unit 9: Rumus Universal Be + V3, Tense Transformations & Intransitive Restrictions",
         goals: [
-          "Memahami rumus dasar pasif: be + V3",
-          "Ciri soal pasif: subjek benda tak bernyawa atau ada by + pelaku",
-          "Mengubah kalimat aktif menjadi pasif di berbagai tense"
+          "Menerapkan rumus baku Passive Voice (Be + V3) pada seluruh tenses",
+          "Mengenali ciri soal pasif: subjek benda tak bernyawa & frasa 'by + agent'",
+          "Mengetahui kata kerja Intransitive yang HARAM dipasifkan (occur, happen, die, arrive)"
         ],
         conceptHTML: `
-          <h4 class="font-bold text-slate-800">Rumus Dasar Kalimat Pasif</h4>
-          <p class="font-mono text-rg-navy font-bold">Subjek + be (sesuai tense) + V3 (+ by pelaku)</p>
-          <ul class="list-disc pl-5 space-y-1">
-            <li>Present: is/am/are + V3 &rarr; <em>Classes are cleaned.</em></li>
-            <li>Past: was/were + V3 &rarr; <em>The window was broken.</em></li>
-            <li>Future: will be + V3 &rarr; <em>The result will be announced.</em></li>
-          </ul>
+          <div class="space-y-4">
+            <div class="p-3.5 bg-sky-50 rounded-2xl border border-sky-100">
+              <h4 class="font-extrabold text-rg-navy text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-gears text-rg-teal"></i>
+                1. Rumus Universal Kalimat Pasif
+              </h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Kunci kalimat pasif hanya satu: <strong>SUBJEK DIKENAI AKSI</strong>. Rumus baku pasif di bahasa Inggris adalah:
+              </p>
+              <div class="p-3 bg-white rounded-xl border border-sky-200 mt-2 font-mono text-xs">
+                <p class="text-rg-navy font-bold">Subjek + [to be sesuai tense] + V3 (+ by pelaku)</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 font-sans text-xs">
+                  <div class="p-2 bg-slate-50 rounded-lg">
+                    <span class="font-bold text-slate-700">Simple Present:</span> is/am/are + V3<br>
+                    <em>The letters <strong>are delivered</strong> daily.</em>
+                  </div>
+                  <div class="p-2 bg-slate-50 rounded-lg">
+                    <span class="font-bold text-slate-700">Simple Past:</span> was/were + V3<br>
+                    <em>The monument <strong>was built</strong> in 1945.</em>
+                  </div>
+                  <div class="p-2 bg-slate-50 rounded-lg">
+                    <span class="font-bold text-slate-700">Continuous:</span> is/am/are + <strong>being</strong> + V3<br>
+                    <em>The test is <strong>being conducted</strong> now.</em>
+                  </div>
+                  <div class="p-2 bg-slate-50 rounded-lg">
+                    <span class="font-bold text-slate-700">Perfect:</span> has/have/had + <strong>been</strong> + V3<br>
+                    <em>The issue has <strong>been resolved</strong>.</em>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3.5 bg-rose-50 rounded-2xl border border-rose-100">
+              <h4 class="font-extrabold text-rose-900 text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-hand text-rose-600"></i>
+                2. Intransitive Verbs: Kata Kerja yang TIDAK BISA Dipasifkan!
+              </h4>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Soal lomba sering mengecoh siswa dengan memunculkan kata kerja <strong>intransitif</strong> (kata kerja yang tidak memiliki objek langsung). Kata-kata ini <strong>HARAM dijadikan pasif</strong>:
+              </p>
+              <div class="p-2.5 bg-white rounded-xl border border-rose-200 mt-2 text-xs space-y-1">
+                <p class="text-slate-700 font-bold text-rose-700">• occur, happen, arrive, die, disappear, vanish, collapse, exist</p>
+                <p class="text-slate-600 text-[11px]">✗ "The accident was occurred yesterday" (SALAH!) &rarr; ✓ "The accident <strong>occurred</strong> yesterday."</p>
+                <p class="text-slate-600 text-[11px]">✗ "The dinosaur was died out" (SALAH!) &rarr; ✓ "The dinosaur <strong>died out</strong>."</p>
+              </div>
+            </div>
+
+            <!-- VOCABULARY BOOSTER UNIT 9 -->
+            <div class="p-4 bg-indigo-50/70 rounded-2xl border border-indigo-200">
+              <h4 class="font-extrabold text-indigo-950 text-xs sm:text-sm flex items-center gap-2 mb-2">
+                <i class="fa-solid fa-book-bookmark text-indigo-600"></i>
+                Vocabulary Booster: Verbs Pasif Akademik &amp; Administrasi
+              </h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">1. Implement</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">verb</span>
+                  <p class="text-slate-600 mt-0.5">Menerapkan atau memberlakukan sistem/kebijakan baru.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"New safety protocols will be implemented next semester."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">2. Reallocate</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">verb</span>
+                  <p class="text-slate-600 mt-0.5">Mengalihkan alokasi anggaran atau sumber daya ke tempat lain.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The surplus funds were reallocated to library renovation."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">3. Scrutinize</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">verb</span>
+                  <p class="text-slate-600 mt-0.5">Memeriksa secara cermat dan mendalam sampai detail terkecil.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"Every debate argument was scrutinized by the judges."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">4. Dismantle</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">verb</span>
+                  <p class="text-slate-600 mt-0.5">Membongkar struktur mesin atau bangunan menjadi komponen terpisah.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The old suspension bridge has been completely dismantled."</p>
+                </div>
+              </div>
+            </div>
+          </div>
         `,
         traps: [
-          "Memakai V-ing setelah be pada pasif (The class is cleaning SALAH -> The class is cleaned).",
-          "Lupa been pada perfect tense (has updated SALAH -> has been updated)."
+          "Lupa menyertakan 'being' pada Continuous pasif (The car is repairing &rarr; mobil tidak bisa memperbaiki dirinya sendiri! Harus: The car is being repaired).",
+          "Lupa menyertakan 'been' pada Perfect pasif (The task has finished &rarr; harus: The task has been finished).",
+          "Memasifkan kata kerja intransitif seperti 'The catastrophic incident was happened' (Yang benar: 'happened')."
         ],
         questions: [
-          { q: "The letters ... every morning by the secretary.", opts: ["is typed", "are typed", "typed", "are typing"], ans: 1, exp: "Subjek jamak letters dikenai tindakan setiap pagi (simple present pasif): are typed." },
-          { q: "The cake ... by my mother yesterday.", opts: ["made", "was made", "is made", "making"], ans: 1, exp: "Yesterday menunjukkan masa lampau, pasif tunggal: was made." },
-          { q: "The results will ... tomorrow.", opts: ["announce", "announced", "be announced", "being announced"], ans: 2, exp: "Bentuk pasif masa depan (modal will): will + be + V3 (be announced)." }
+          { q: "The confidential documents ... by the chief secretary every morning before the CEO enters the office.", opts: ["is typed", "are typed", "typed", "are typing"], ans: 1, exp: "Subjek jamak 'the confidential documents' dikenai tindakan secara rutin setiap pagi (Simple Present pasif): 'are typed'." },
+          { q: "This magnificent marble amphitheater ... by ancient Roman architects in the second century CE.", opts: ["constructed", "was constructed", "is constructed", "has constructed"], ans: 1, exp: "Terdapat penanda waktu lampau yang jelas ('in the second century CE'), bentuk pasif lampau adalah 'was constructed'." },
+          { q: "Be cautious when entering the main wing; the broken ceiling tiles ... by the maintenance team right now.", opts: ["are being replaced", "are replacing", "have replaced", "were replaced"], ans: 0, exp: "Kata keterangan 'right now' menandakan kegiatan sedang berjalan saat ini (Present Continuous pasif: are + being + V3): 'are being replaced'." },
+          { q: "All registration forms and payment slips must ... by the committee before the quota is filled.", opts: ["verify", "verified", "be verified", "being verified"], ans: 2, exp: "Bentuk pasif setelah modal auxiliary 'must' adalah modal + be + V3: 'must be verified'." },
+          { q: "Which of the following sentences is grammatically INCORRECT because it incorrectly passivizes an intransitive verb?", opts: ["The scientific discovery was published in a prestigious journal.", "A tragic accident was occurred on the highway during heavy rain.", "The final score was calculated accurately by the computerized system.", "The speech competition winner was awarded a full scholarship."], ans: 1, exp: "Kata kerja 'occur' (terjadi) bersifat intransitif dan tidak memiliki objek, sehingga TIDAK BISA dipasifkan. Kalimat yang benar: 'A tragic accident occurred...'" },
+          { q: "By the time the headmaster arrived at the podium, all graduation diplomas ... to the respective class valedictorians.", opts: ["had distributed", "had been distributed", "were distributing", "have been distributed"], ans: 1, exp: "Pola 'By the time + lampau' membutuhkan Past Perfect pasif: had + been + V3 ('had been distributed')." }
         ]
       },
       {
         id: 10,
         stage: "C",
-        title: "Pola Kalimat & WH Questions",
-        subtitle: "Unit 10: Parallel Structure, Imperative, WH",
+        title: "Parallel Structure, Imperative & WH Questions",
+        subtitle: "Unit 10: Struktur Sejajar (Seragam), Pola Perintah & Identifikasi Kata Tanya",
         goals: [
-          "Parallel Structure: menyamakan bentuk kata dalam daftar (sejajar)",
-          "Imperative: kalimat perintah & larangan selalu V1",
-          "Memilih kata tanya (who, whose, where, when, why, how)"
+          "Menerapkan prinsip Parallel Structure: menyamakan kelas kata dalam deretan konjungsi",
+          "Menguasai konstruksi Imperative (V1 murni di awal kalimat) dan Larangan (Don't / Must not)",
+          "Menentukan kata tanya WH berdasarkan fungsi grammatikal (Subject vs Object vs Possessive)"
         ],
         conceptHTML: `
-          <h4 class="font-bold text-slate-800">1. Parallel Structure (Struktur Sejajar)</h4>
-          <p>Jika menyebut beberapa hal dalam daftar, semua item harus berformat sama: <em>adj + adj + adj</em> atau <em>V-ing + V-ing + V-ing</em>.</p>
-          <p><em>She likes reading, swimming, and <strong>dancing</strong>.</em> (Bukan to dance).</p>
+          <div class="space-y-4">
+            <div class="p-3.5 bg-sky-50 rounded-2xl border border-sky-100">
+              <h4 class="font-extrabold text-rg-navy text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-bars-staggered text-rg-teal"></i>
+                1. Parallel Structure: "Hukum Keseragaman Bentuk"
+              </h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Dalam bahasa Inggris, ketika kamu menggabungkan beberapa kata dengan kata hubung <em>and, but, or</em>, semua item <strong>HARUS MEMILIKI KELAS KATA DAN BENTUK GRAMMATIKAL YANG SAMA PERSIS</strong>:
+              </p>
+              <div class="p-3 bg-white rounded-xl border border-sky-200 mt-2 text-xs space-y-2">
+                <div>
+                  <span class="font-bold text-rg-navy block">A. Deret Kata Sifat (Adjective + Adjective + Adjective)</span>
+                  <p class="text-slate-600">• ✓ She bought a bag that is <strong>light</strong>, <strong>durable</strong>, and <strong>portable</strong>.</p>
+                  <p class="text-rose-600 text-[11px]">• ✗ ... light, durable, and portability (Salah! Portability adalah noun).</p>
+                </div>
+                <div>
+                  <span class="font-bold text-rg-navy block">B. Deret Gerund (V-ing + V-ing + V-ing)</span>
+                  <p class="text-slate-600">• ✓ His hobbies are <strong>reading</strong>, <strong>swimming</strong>, and <strong>cycling</strong>.</p>
+                  <p class="text-rose-600 text-[11px]">• ✗ ... reading, swimming, and to cycle (Salah! Tidak sejajar).</p>
+                </div>
+                <div>
+                  <span class="font-bold text-rg-navy block">C. Deret Frasa Kata Benda (Adjective + Noun Orang)</span>
+                  <p class="text-slate-600">• ✓ He is a <strong>resilient leader</strong>, a <strong>passionate mentor</strong>, and a <strong>dedicated teacher</strong>.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3.5 bg-amber-50 rounded-2xl border border-amber-100">
+              <h4 class="font-extrabold text-amber-900 text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-circle-question text-amber-600"></i>
+                2. WH-Questions: Siapa Menanyakan Apa?
+              </h4>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Di soal lomba, jangan tertukar antara kata tanya yang menanyakan <strong>pelaku (subjek)</strong> dan yang menanyakan <strong>kepemilikan</strong>:
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-2 text-xs">
+                <div class="p-2 bg-white rounded-xl border border-amber-200">
+                  <span class="font-bold text-amber-900">WHO (Subjek Pelaku)</span>
+                  <p class="text-slate-600 mt-0.5"><em>"<strong>Who</strong> unlocked the door?"</em> (Langsung diikuti kata kerja tanpa did).</p>
+                </div>
+                <div class="p-2 bg-white rounded-xl border border-amber-200">
+                  <span class="font-bold text-amber-900">WHOM (Objek Sasaran)</span>
+                  <p class="text-slate-600 mt-0.5"><em>"To <strong>whom</strong> was the trophy presented?"</em> (Biasanya setelah preposisi to/with).</p>
+                </div>
+                <div class="p-2 bg-white rounded-xl border border-amber-200">
+                  <span class="font-bold text-amber-900">WHOSE (Kepemilikan)</span>
+                  <p class="text-slate-600 mt-0.5"><em>"<strong>Whose</strong> speech draft is this? It's Rina's."</em> (Menanyakan milik siapa).</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- VOCABULARY BOOSTER UNIT 10 -->
+            <div class="p-4 bg-indigo-50/70 rounded-2xl border border-indigo-200">
+              <h4 class="font-extrabold text-indigo-950 text-xs sm:text-sm flex items-center gap-2 mb-2">
+                <i class="fa-solid fa-book-bookmark text-indigo-600"></i>
+                Vocabulary Booster: Kualitas Kepemimpinan &amp; Etika
+              </h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">1. Integrity</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">noun</span>
+                  <p class="text-slate-600 mt-0.5">Integritas; kejujuran dan prinsip moral yang teguh tak tergoyahkan.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"A leader must act with honesty, courage, and integrity."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">2. Meticulous</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">adjective</span>
+                  <p class="text-slate-600 mt-0.5">Sangat teliti, cermat, dan memperhatikan setiap detail kecil.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The scientist was known for her meticulous laboratory methods."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">3. Eloquence</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">noun</span>
+                  <p class="text-slate-600 mt-0.5">Kelancaran dan kefasihan berbicara yang memikat pendengar.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The champion debater spoke with passion and eloquence."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">4. Mindful</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">adjective</span>
+                  <p class="text-slate-600 mt-0.5">Sadar dan penuh pertimbangan terhadap dampak tindakannya pada orang lain.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"Be mindful of time limits during cross-examination."</p>
+                </div>
+              </div>
+            </div>
+          </div>
         `,
         traps: [
-          "Mencampur bentuk kata (reading, swimming, and to dance adalah SALAH).",
-          "Larangan yang memakai V-ing (Don't talking SALAH -> Don't talk)."
+          "Mencampurkan kata benda dan kata sifat dalam daftar parallel (contoh: 'honesty, bravery, and generous' &rarr; generous adalah kata sifat, harus diubah jadi generosity).",
+          "Memakai kata kerja berakhiran -ing pada kalimat perintah atau larangan (contoh: 'Don't talking' adalah SALAH. Wajib: 'Don't talk').",
+          "Menggunakan 'did' ketika kata tanya WHO bertindak sebagai subjek (contoh: 'Who did break the vase?' &rarr; yang benar: 'Who broke the vase?')."
         ],
         questions: [
-          { q: "My mother wants a bag that is large, light, and ...", opts: ["strongly", "strength", "strong", "strengthen"], ans: 2, exp: "Daftar kata sifat sejajar: large (adj), light (adj), maka butuh strong (adj)." },
-          { q: "... the door, please. It is cold in here.", opts: ["Closing", "Close", "Closes", "To close"], ans: 1, exp: "Kalimat perintah wajib menggunakan bentuk dasar V1 murni: Close." },
-          { q: "... bag is this? It's Rina's.", opts: ["Whose", "Who", "What", "Where"], ans: 0, exp: "Menanyakan kepemilikan seseorang (milik siapa), gunakan Whose." }
+          { q: "An ideal team captain must demonstrate intellectual curiosity, emotional maturity, and ...", opts: ["resilient", "resilience", "resiliently", "resisting"], ans: 1, exp: "Daftar parallel kata benda (noun): intellectual curiosity (noun), emotional maturity (noun), maka posisi ketiga wajib diisi noun: 'resilience'." },
+          { q: "During her free time, Sinta genuinely enjoys sketching landscapes, reading classic literature, and ... historical documentaries.", opts: ["to watch", "watching", "watches", "watched"], ans: 1, exp: "Daftar gerund berakhiran -ing sejajar: sketching (V-ing), reading (V-ing), maka wajib diikuti oleh: 'watching'." },
+          { q: "Please ... the main gas valve and secure all chemical containers before you exit the laboratory.", opts: ["shutting", "to shut", "shut", "shuts"], ans: 2, exp: "Kalimat perintah (imperative sentence) selalu diawali dengan kata kerja dasar V1 murni: 'shut'." },
+          { q: "... be arrogant even if your team has achieved the highest score in the preliminary round.", opts: ["Doesn't", "Don't", "Not", "Isn't"], ans: 1, exp: "Kalimat larangan imperative yang diikuti kata sifat (arrogant) menggunakan rumus 'Don't + be + adjective'." },
+          { q: "... research proposal was awarded the prestigious national youth science grant? It was Budi's.", opts: ["Who", "Whom", "Whose", "Which"], ans: 2, exp: "Kunci jawaban di kalimat kedua menyebutkan kepemilikan seseorang ('It was Budi's'). Kata tanya yang menanyakan kepemilikan benda adalah 'Whose'." },
+          { q: "The candidate was described as an articulate speaker, a trustworthy peer, and a ...", opts: ["compassion mentor", "compassionate mentor", "compassionately mentor", "compassion"], ans: 1, exp: "Pola parallel sejajar terdiri dari [adjective + noun orang]: articulate speaker, trustworthy peer, maka pilihan yang tepat adalah: 'compassionate mentor'." }
         ]
       },
       {
         id: 11,
         stage: "D",
-        title: "Vocabulary Tematik",
-        subtitle: "Unit 11: Profesi, Rasa, Tekstur, Ukuran",
+        title: "Vocabulary Tematik: Profesi, Rasa, Tekstur & Ukuran",
+        subtitle: "Unit 11: Analisis Konteks Kalimat, Sensory Words & Quantifiers Countable/Uncountable",
         goals: [
-          "Menebak arti kata sulit dari konteks kalimat",
-          "Kosa kata profesi, rasa makanan, dan tekstur benda",
-          "Quantifier countable vs uncountable (few/a few, little/a little)"
+          "Menebak kosa kata sulit melalui petunjuk konteks (Context Clues & Collocations)",
+          "Menguasai kosa kata sensorik: Rasa (taste), Tekstur (texture), dan Ukuran (dimension/size)",
+          "Membedakan quantifiers bernuansa positif vs negatif: few vs a few, little vs a little"
         ],
         conceptHTML: `
-          <h4 class="font-bold text-slate-800">Kosa Kata Sering Muncul di Lomba</h4>
-          <p><strong>Profesi:</strong> <em>fish merchant</em> (penjual ikan), <em>plumber</em> (tukang pipa), <em>boatswain</em> (perawat lambung kapal).</p>
-          <p><strong>Ukuran Mikro:</strong> <em>microscopic</em> (sangat kecil & butuh kaca pembesar), <em>colossal / humongous</em> (raksasa).</p>
+          <div class="space-y-4">
+            <div class="p-3.5 bg-sky-50 rounded-2xl border border-sky-100">
+              <h4 class="font-extrabold text-rg-navy text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-utensils text-rg-teal"></i>
+                1. Kosa Kata Sensorik Lomba: Rasa (Taste) &amp; Tekstur (Texture)
+              </h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Di soal lomba, pembuat soal tidak memberikan arti kata, melainkan kalimat cerita dengan <strong>clue (petunjuk fisik)</strong>:
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-xs">
+                <div class="p-2.5 bg-white rounded-xl border border-sky-200">
+                  <span class="font-bold text-rg-navy block">Sensorik Rasa (Taste)</span>
+                  <ul class="text-[11px] text-slate-700 mt-1 space-y-1">
+                    <li>• <strong>greasy / oily:</strong> terlalu banyak minyak (fried food, too much butter)</li>
+                    <li>• <strong>bland:</strong> hambar; tidak ada bumbu sama sekali (no seasoning, tasteless)</li>
+                    <li>• <strong>sour:</strong> asam menusuk (lemon, vinegar)</li>
+                    <li>• <strong>bitter:</strong> pahit pekat (black coffee without sugar, bitter gourd)</li>
+                    <li>• <strong>acrid:</strong> bau/rasa gosong menyengat (burnt rubber, chemical smoke)</li>
+                  </ul>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-sky-200">
+                  <span class="font-bold text-amber-700 block">Sensorik Tekstur (Texture)</span>
+                  <ul class="text-[11px] text-slate-700 mt-1 space-y-1">
+                    <li>• <strong>crispy / crunchy:</strong> garing dan berbunyi saat digigit (chips, toast)</li>
+                    <li>• <strong>prickly:</strong> berduri tajam saat disentuh (rose stem, cactus)</li>
+                    <li>• <strong>crumbly:</strong> mudah hancur jadi remah-remah (dry biscuits)</li>
+                    <li>• <strong>tender:</strong> empuk dan mudah dikunyah (well-cooked steak)</li>
+                    <li>• <strong>malleable:</strong> lentur mudah dibentuk (wet clay, warm wax)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3.5 bg-emerald-50 rounded-2xl border border-emerald-100">
+              <h4 class="font-extrabold text-emerald-950 text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-scale-balanced text-emerald-600"></i>
+                2. Quantifiers: Jebakan Few vs A Few, Little vs A Little
+              </h4>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Penambahan artikel <strong>"a"</strong> merubah arti kalimat dari <strong>negatif (hampir tidak ada)</strong> menjadi <strong>positif (ada sedikit/cukup)</strong>:
+              </p>
+              <div class="overflow-x-auto mt-2">
+                <table class="w-full text-xs text-left">
+                  <thead class="bg-emerald-100/70 text-emerald-950 font-bold">
+                    <tr>
+                      <th class="p-2">Kata</th>
+                      <th class="p-2">Dipakai Untuk</th>
+                      <th class="p-2">Nuansa Makna</th>
+                      <th class="p-2">Contoh Kalimat</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-emerald-200/50 bg-white text-slate-700">
+                    <tr><td class="p-2 font-bold text-rg-navy">a few</td><td class="p-2">Countable jamak</td><td class="p-2 text-emerald-700 font-semibold">Positif: ada beberapa</td><td class="p-2">I have <strong>a few</strong> friends to help me.</td></tr>
+                    <tr><td class="p-2 font-bold text-rg-navy">few</td><td class="p-2">Countable jamak</td><td class="p-2 text-rose-600 font-semibold">Negatif: nyaris tidak ada</td><td class="p-2">He feels lonely because he has <strong>few</strong> friends.</td></tr>
+                    <tr><td class="p-2 font-bold text-rg-navy">a little</td><td class="p-2">Uncountable</td><td class="p-2 text-emerald-700 font-semibold">Positif: ada sedikit</td><td class="p-2">Add <strong>a little</strong> sugar to the tea.</td></tr>
+                    <tr><td class="p-2 font-bold text-rg-navy">little</td><td class="p-2">Uncountable</td><td class="p-2 text-rose-600 font-semibold">Negatif: nyaris habis</td><td class="p-2">Hurry, we have <strong>little</strong> time left before the bell!</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- VOCABULARY BOOSTER UNIT 11 -->
+            <div class="p-4 bg-indigo-50/70 rounded-2xl border border-indigo-200">
+              <h4 class="font-extrabold text-indigo-950 text-xs sm:text-sm flex items-center gap-2 mb-2">
+                <i class="fa-solid fa-book-bookmark text-indigo-600"></i>
+                Vocabulary Booster: Profesi Langka &amp; Istilah Ukuran Ekstrem
+              </h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">1. Boatswain</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">noun (/ˈboʊ.sən/)</span>
+                  <p class="text-slate-600 mt-0.5">Petugas kapal yang bertanggung jawab merawat lambung dan perlengkapan kapal.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The boatswain inspected the ship's rigging before setting sail."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">2. Plumber</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">noun (huruf 'b' bisu)</span>
+                  <p class="text-slate-600 mt-0.5">Tukang pipa air (sinonim: pipe specialist).</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"A certified plumber repaired the burst water mains."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">3. Microscopic</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">adjective</span>
+                  <p class="text-slate-600 mt-0.5">Terlalu kecil untuk dilihat mata telanjang; butuh mikroskop.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The crack on the metal wing was microscopic."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">4. Colossal / Humongous</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">adjective</span>
+                  <p class="text-slate-600 mt-0.5">Sangat raksasa dan luar biasa megah ukurannya (sinonim: gigantic/mammoth).</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"A colossal glacier drifted slowly into the open ocean."</p>
+                </div>
+              </div>
+            </div>
+          </div>
         `,
         traps: [
-          "Tertukar few (hampir tidak ada) dan a few (ada beberapa).",
-          "Memilih kata berlebihan (bayi memakai pakaian petite, bukan immense)."
+          "Menggunakan 'few' untuk benda cair atau tak bisa dihitung (seperti: 'few water' &rarr; salah! Seharusnya: 'little water').",
+          "Tertukar antara 'petite' (ramping mungil) dan 'colossal' (raksasa) dalam konteks pakaian bayi atau ruang kamar.",
+          "Menyimpulkan rasa 'bitter' (pahit) sebagai asam ('sour') pada buah sitrun atau cuka."
         ],
         questions: [
-          { q: "My uncle sells fresh tuna at the harbor. He is a fish ...", opts: ["merchant", "farmer", "tailor", "barber"], ans: 0, exp: "Pedagang/penjual ikan disebut fish merchant." },
-          { q: "I can't read your handwriting. It is so ... that I need a magnifying glass.", opts: ["enormous", "gigantic", "microscopic", "massive"], ans: 2, exp: "Petunjuk magnifying glass (kaca pembesar) berarti tulisan sangat kecil: microscopic." },
-          { q: "Grandpa cannot eat much salt. Please put only ... salt in his soup.", opts: ["a few", "many", "a little", "a lot of"], ans: 2, exp: "Salt adalah uncountable, jumlah sedikit positif menggunakan a little." }
+          { q: "My father works as a certified ...; he is currently examining a massive cargo ship's anchor and hull at the harbor.", opts: ["boatswain", "lumberjack", "tailor", "pharmacist"], ans: 0, exp: "Petunjuk 'ship's anchor and hull at the harbor' (jangkar dan lambung kapal di pelabuhan) menunjuk pada profesi perawat kapal: 'boatswain'." },
+          { q: "I could barely decipher the handwritten manuscript because the font size was so ... that it required a magnifying glass.", opts: ["colossal", "microscopic", "enormous", "sturdy"], ans: 1, exp: "Petunjuk 'required a magnifying glass' (membutuhkan kaca pembesar) menandakan bahwa tulisannya amat sangat kecil: 'microscopic'." },
+          { q: "Because of his severe hypertension, the physician advised the patient to consume only ... salt in his daily dietary intake.", opts: ["a few", "many", "a little", "few"], ans: 2, exp: "Garam (salt) adalah uncountable noun. Makna 'sedikit namun boleh' bernuansa positif menggunakan 'a little'." },
+          { q: "The fried chicken skin was delightfully ... and made a distinct crunching sound when bitten.", opts: ["runny", "crumbly", "crispy", "tender"], ans: 2, exp: "Petunjuk 'crunching sound when bitten' (berbunyi saat digigit) menunjuk pada tekstur renyah: 'crispy'." },
+          { q: "Be extra cautious when handling the wild desert plant; its stem is densely covered in ... needles.", opts: ["prickly", "smooth", "squishy", "fluffy"], ans: 0, exp: "Duri tanaman kaktus/gurun (needles) memiliki tekstur berduri menusuk: 'prickly'." },
+          { q: "The soup tasted completely ... because the novice chef forgot to add any salt, garlic, or pepper.", opts: ["spicy", "bland", "sour", "greasy"], ans: 1, exp: "Tidak ada garam maupun bumbu ('forgot to add any salt or pepper') berarti masakan tersebut hambar: 'bland'." }
         ]
       },
       {
         id: 12,
         stage: "E",
-        title: "Reading Comprehension",
-        subtitle: "Unit 12: Trik Membaca Cepat Soal Cerita",
+        title: "Reading Comprehension: Strategi Paraphrase & 7 Tipe Soal",
+        subtitle: "Unit 12: Trik Skimming-Scanning, Paraphrase Recognition & Jebakan Kata Serupa",
         goals: [
-          "Menghindari jebakan kata yang persis sama (paraphrase)",
-          "Menemukan main idea, stated & unstated detail",
-          "Menebak rujukan kata ganti (reference)"
+          "Mengenali jebakan 'Same Word Trap' (kata yang sama persis di teks seringkali merupakan pengecoh)",
+          "Menguasai 7 tipe pertanyaan bacaan: Main Idea, Stated Detail, Unstated, Reference, Inference, Vocab, dan Author's Purpose",
+          "Menerapkan teknik Reverse Answering: membaca pertanyaan dan kata kunci terlebih dahulu"
         ],
         conceptHTML: `
-          <h4 class="font-bold text-slate-800">Kunci Utama Reading Lomba</h4>
-          <p>Jawaban hampir selalu berupa <strong>paraphrase / sinonim</strong>, bukan kata yang persis sama. <em>join competition &rarr; enroll in a contest; put out the fire &rarr; extinguish the flames</em>.</p>
+          <div class="space-y-4">
+            <div class="p-3.5 bg-sky-50 rounded-2xl border border-sky-100">
+              <h4 class="font-extrabold text-rg-navy text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-eye text-rg-teal"></i>
+                1. Hukum Emas Reading Lomba: Jawaban Adalah PARAPHRASE!
+              </h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Pembuat soal olimpiade SMP tahu murid suka mencocokkan kata yang sama. Oleh karena itu, <strong>jawaban yang benar hampir 100% menggunakan sinonim / paraphrase</strong>, sedangkan opsi yang berisi kata sama persis dari teks sengaja dipasang sebagai perangkap!
+              </p>
+              <div class="overflow-x-auto mt-2">
+                <table class="w-full text-xs text-left">
+                  <thead class="bg-sky-100/70 text-sky-950 font-bold">
+                    <tr>
+                      <th class="p-2">Kata di Teks Bacaan</th>
+                      <th class="p-2">Paraphrase di Kunci Jawaban</th>
+                      <th class="p-2">Hubungan Makna</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-sky-200/50 bg-white text-slate-700">
+                    <tr><td class="p-2 font-mono">put out the flame</td><td class="p-2 font-bold text-emerald-700">extinguish the fire</td><td class="p-2">Sinonim tindakan memadamkan api</td></tr>
+                    <tr><td class="p-2 font-mono">dreams of becoming a surgeon</td><td class="p-2 font-bold text-emerald-700">career aspiration</td><td class="p-2">Sinonim cita-cita masa depan</td></tr>
+                    <tr><td class="p-2 font-mono">enroll in a contest</td><td class="p-2 font-bold text-emerald-700">participate in a competition</td><td class="p-2">Sinonim mendaftar lomba</td></tr>
+                    <tr><td class="p-2 font-mono">drone</td><td class="p-2 font-bold text-emerald-700">unmanned aerial vehicle</td><td class="p-2">Definisi teknis</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="p-3.5 bg-amber-50 rounded-2xl border border-amber-100">
+              <h4 class="font-extrabold text-amber-900 text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-list-ol text-amber-600"></i>
+                2. Menjawab Soal 'Main Idea' vs 'Specific Detail'
+              </h4>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Untuk pertanyaan <strong>"What is the main idea of the passage?"</strong>, pastikan jawabanmu memayungi <strong>SELURUH TEKS</strong> dari paragraf awal sampai akhir. Jangan pilih opsi yang hanya menceritakan satu paragraf saja (itu disebut 'detail', bukan ide pokok!).
+              </p>
+            </div>
+
+            <!-- VOCABULARY BOOSTER UNIT 12 -->
+            <div class="p-4 bg-indigo-50/70 rounded-2xl border border-indigo-200">
+              <h4 class="font-extrabold text-indigo-950 text-xs sm:text-sm flex items-center gap-2 mb-2">
+                <i class="fa-solid fa-book-bookmark text-indigo-600"></i>
+                Vocabulary Booster: Kosa Kata Teks Ekologi &amp; Masyarakat
+              </h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">1. Conservation</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">noun</span>
+                  <p class="text-slate-600 mt-0.5">Upaya pelestarian dan perlindungan alam dari kerusakan.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"Marine conservation is vital for coral reef survival."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">2. Inspire</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">verb</span>
+                  <p class="text-slate-600 mt-0.5">Menginspirasi; menggerakkan orang lain untuk berbuat kebaikan.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"Her relentless dedication inspired the entire student body."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">3. Community outreach</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">noun phrase</span>
+                  <p class="text-slate-600 mt-0.5">Program pengabdian dan penjangkauan masyarakat luas.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The youth group launched a successful community outreach program."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">4. Ignored</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">verb (pp)</span>
+                  <p class="text-slate-600 mt-0.5">Mengabaikan; tidak mengindahkan sama sekali (sinonim: paid no attention to).</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"Initially, skeptical neighbors ignored their warnings."</p>
+                </div>
+              </div>
+            </div>
+          </div>
         `,
         traps: [
-          "Memilih jawaban hanya karena memuat kata yang sama persis dengan teks.",
-          "Menjawab pertanyaan berdasarkan pengetahuan sendiri, bukan isi teks."
+          "Menjawab pertanyaan berdasarkan pengetahuan umum diri sendiri, bukan berdasarkan bukti yang tertera di teks bacaan.",
+          "Memilih jawaban soal reference (rujukan kata seperti 'they', 'it', 'them') dengan kata benda yang posisinya sangat jauh dan tidak sesuai jumlahnya (singular vs plural).",
+          "Terjebak memilih opsi yang memiliki kata yang persis sama dengan teks padahal maknanya telah diputarbalikkan."
         ],
         questions: [
-          { q: "Dewi and her friends collect plastic trash from the beach every Sunday. What is the main purpose of this activity?", opts: ["To sell expensive plastic", "To protect the marine environment", "To swim with friends", "To build a hotel"], ans: 1, exp: "Membersihkan sampah di pantai bertujuan menjaga kelestarian lingkungan laut." },
-          { q: "The firefighter managed to put out the flame. The word 'put out' is closest in meaning to ...", opts: ["ignited", "extinguished", "watched", "increased"], ans: 1, exp: "Put out bermakna memadamkan api (extinguish)." }
+          { q: "Dewi and her youth volunteers collect discarded plastic along East Java's beaches every Sunday. Although villagers initially ignored the project, witnessing the immaculate shoreline encouraged them to participate actively. What is the main purpose of Dewi's initiative?", opts: ["To manufacture expensive recycled souvenirs", "To safeguard coastal ecosystems and inspire community environmental stewardship", "To conduct commercial beach tourism business", "To spend Sunday mornings swimming with peers"], ans: 1, exp: "Paraphrase dari menjaga pantai dan menggerakkan warga adalah 'To safeguard coastal ecosystems and inspire community environmental stewardship'." },
+          { q: "The municipal firefighters rushed in and promptly put out the blaze before it engulfed the warehouse. The phrase 'put out' is closest in meaning to ...", opts: ["ignited", "extinguished", "observed", "accelerated"], ans: 1, exp: "Phrasal verb 'put out' memiliki sinonim baku 'extinguished' (memadamkan api)." },
+          { q: "'The villagers carried the heavy sacks to the recycling plant and unloaded them.' The pronoun 'them' refers to ...", opts: ["the villagers", "the heavy sacks", "the beaches", "the municipal volunteers"], ans: 1, exp: "Kata ganti objek jamak 'them' merujuk pada kata benda jamak terdekat yang sedang dibongkar/diangkut: 'the heavy sacks'." },
+          { q: "In the sentence 'Villagers at first ignored their weekly endeavor,' the word 'ignored' can be accurately replaced by ...", opts: ["paid no attention to", "enthusiastically embraced", "firmly opposed", "carefully monitored"], ans: 0, exp: "Kata 'ignored' berarti mengabaikan atau tidak menaruh perhatian sama sekali (paid no attention to)." },
+          { q: "What can be inferred about the villagers' attitude toward the environmental campaign over time?", opts: ["They remained perpetually hostile toward youth volunteers.", "Their skepticism gradually transformed into active collaboration.", "They abandoned the village due to accumulated trash.", "They prohibited youth from accessing the shoreline."], ans: 1, exp: "Awalnya mengabaikan namun setelah melihat hasil bersih kemudian ikut bergabung ('witnessing the immaculate shoreline encouraged them to participate') membuktikan sikap mereka berubah dari ragu menjadi ikut bekerja sama." },
+          { q: "Why did the author write this biographical report about the young volunteers?", opts: ["To advertise seaside hotel promotions", "To motivate readers to take active responsibility in preserving nature", "To explain maritime navigation techniques", "To critique village administration failures"], ans: 1, exp: "Tujuan komunikatif penulis adalah menginspirasi dan memotivasi pembaca untuk peduli lingkungan hidup." }
         ]
       },
       {
         id: 13,
         stage: "E",
-        title: "Menyusun Kalimat & Cerita",
-        subtitle: "Unit 13: Arrange Words & Complete Story",
+        title: "Menyusun Kalimat & Melengkapi Cerita",
+        subtitle: "Unit 13: Standard Word Order (S-A-V-O-P-T), Cohesive Devices & Sentence Insertion",
         goals: [
-          "Urutan baku: Subjek -> Adverb -> Verb -> Objek -> Tempat -> Waktu",
-          "Menyusun kata acak bernomor",
-          "Menyisipkan kalimat hilang pada teks bertanda (1), (2), (3), (4)"
+          "Menerapkan urutan baku: Subjek -> Adverb -> Verb -> Objek -> Keterangan Tempat -> Waktu",
+          "Menguasai trik menyusun kata acak bernomor (Arrange Words)",
+          "Menentukan posisi kalimat sisipan bertanda (1)-(4) menggunakan Cohesive Devices (However, Therefore, Pronoun Reference)"
         ],
         conceptHTML: `
-          <h4 class="font-bold text-slate-800">Urutan Baku Kalimat</h4>
-          <p>Keterangan <strong>Tempat diletakkan SEBELUM Waktu</strong>. <em>at the market (tempat) yesterday (waktu).</em></p>
+          <div class="space-y-4">
+            <div class="p-3.5 bg-sky-50 rounded-2xl border border-sky-100">
+              <h4 class="font-extrabold text-rg-navy text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-arrow-down-short-wide text-rg-teal"></i>
+                1. Rumus Urutan Baku Kalimat Bahasa Inggris
+              </h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Kuasai urutan baku ini saat menghadapi soal menyusun kata acak (Arrange Words):
+              </p>
+              <div class="p-3 bg-white rounded-xl border border-sky-200 mt-2 font-mono text-xs">
+                <p class="text-rg-navy font-bold">Subjek &rarr; Adverb of Frequency &rarr; Verb &rarr; Objek &rarr; Tempat &rarr; Waktu</p>
+                <div class="mt-2 text-slate-700 font-sans space-y-1">
+                  <p>• <em>My mother (S) <strong>seldom (Adv)</strong> uses (V) seasoning (O) <strong>in the kitchen (Tempat)</strong> yesterday (Waktu).</em></p>
+                  <p class="text-emerald-700 font-semibold text-[11px]">→ ATURAN EMAS: <strong>TEMPAT (Place) SELALU DITULIS SEBELUM WAKTU (Time)!</strong></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3.5 bg-indigo-50 rounded-2xl border border-indigo-100">
+              <h4 class="font-extrabold text-indigo-950 text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-puzzle-piece text-indigo-600"></i>
+                2. Trik Menyisipkan Kalimat dalam Cerita (Complete the Story)
+              </h4>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Pada soal menyisipkan kalimat di antara tanda (1), (2), (3), atau (4), cari <strong>KATA PENGAIT (Cohesive Device)</strong>:
+              </p>
+              <ul class="text-xs text-slate-600 mt-2 space-y-1.5">
+                <li>• <strong>Kata Kontras (However, But, Yet):</strong> Wajib diletakkan tepat setelah situasi positif sebelum masalah muncul.</li>
+                <li>• <strong>Kata Ganti Acuan (This, It, They, The guard):</strong> Benda/orangnya HARUS SUDAH DISEBUTKAN di kalimat sebelumnya!</li>
+                <li>• <strong>Urutan Waktu (First, Then, Finally, Thirty minutes later):</strong> Ikuti alur logis kegiatan secara kronologis.</li>
+              </ul>
+            </div>
+
+            <!-- VOCABULARY BOOSTER UNIT 13 -->
+            <div class="p-4 bg-indigo-50/70 rounded-2xl border border-indigo-200">
+              <h4 class="font-extrabold text-indigo-950 text-xs sm:text-sm flex items-center gap-2 mb-2">
+                <i class="fa-solid fa-book-bookmark text-indigo-600"></i>
+                Vocabulary Booster: Transisi Waktu &amp; Struktur Narasi
+              </h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">1. Cohesive</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">adjective</span>
+                  <p class="text-slate-600 mt-0.5">Padu; setiap kalimat terhubung erat satu sama lain secara logis.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"A cohesive paragraph contains clear logical transitions."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">2. Subsequently</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">adverb</span>
+                  <p class="text-slate-600 mt-0.5">Setelah itu; kemudian pada babak berikutnya (sinonim: afterwards).</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"She prepared the mixture; subsequently, she poured it into the mold."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">3. Inevitably</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">adverb</span>
+                  <p class="text-slate-600 mt-0.5">Tak dapat dielakkan; pasti akan terjadi cepat atau lambat.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"Careless mistakes inevitably lead to point deductions."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">4. Premise</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">noun</span>
+                  <p class="text-slate-600 mt-0.5">Landasan asumsi awal yang menjadi dasar penarikan kesimpulan.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The opening premise of their debate case was solid."</p>
+                </div>
+              </div>
+            </div>
+          </div>
         `,
         traps: [
-          "Meletakkan keterangan waktu sebelum tempat.",
-          "Menaruh adverb of frequency setelah objek kalimat."
+          "Menaruh waktu sebelum tempat (contoh: 'at yesterday in the market' &rarr; salah! Seharusnya: 'at the market yesterday').",
+          "Meletakkan Adverb of Frequency di akhir kalimat setelah objek (contoh: 'My mother cooks dinner usually' &rarr; salah! Adverb diletakkan sebelum verb: 'My mother usually cooks dinner').",
+          "Menaruh kalimat berawalan kata sambung 'However' di nomor (1) sebelum ada konteks pengantar."
         ],
         questions: [
-          { q: "Susunan yang benar: (1) usually (2) my (3) cooks (4) dinner (5) mother (6) in the kitchen", opts: ["2-5-1-3-4-6", "2-5-3-1-4-6", "5-2-1-3-4-6", "2-5-1-3-6-4"], ans: 0, exp: "My mother (2-5) usually (1) cooks (3) dinner (4) in the kitchen (6)." },
-          { q: "Susunan yang benar: (1) lost (2) yesterday (3) wallet (4) I (5) my (6) at the market", opts: ["4-1-5-3-6-2", "4-1-2-5-3-6", "5-3-4-1-6-2", "4-5-3-1-6-2"], ans: 0, exp: "I lost my wallet at the market yesterday (Tempat sebelum waktu)." }
+          { q: "Arrange the jumbled words into a coherent sentence:\n(1) usually (2) our (3) English debate team (4) practices (5) in the multimedia room (6) every Tuesday afternoon", opts: ["2-3-1-4-5-6", "2-3-4-1-5-6", "1-2-3-4-5-6", "2-3-1-5-4-6"], ans: 0, exp: "Urutan baku: Subjek (2-3: Our English debate team) + Adverb (1: usually) + Verb (4: practices) + Tempat (5: in the multimedia room) + Waktu (6: every Tuesday afternoon)." },
+          { q: "Arrange the jumbled words into a coherent sentence:\n(1) lost (2) yesterday (3) my vintage watch (4) I (5) at the school auditorium", opts: ["4-1-3-5-2", "4-1-2-3-5", "4-3-1-5-2", "3-4-1-5-2"], ans: 0, exp: "Subjek (4: I) + Verb (1: lost) + Objek (3: my vintage watch) + Tempat (5: at the school auditorium) + Waktu (2: yesterday). Tempat wajib sebelum waktu." },
+          { q: "Arrange the words:\n(1) is (2) currently (3) the diligent janitor (4) the chemistry laboratory (5) sanitizing", opts: ["3-1-2-5-4", "3-2-1-5-4", "1-3-2-5-4", "3-1-5-2-4"], ans: 0, exp: "Subjek (3: The diligent janitor) + to be (1: is) + adverb of time (2: currently) + verb-ing (5: sanitizing) + objek (4: the chemistry laboratory)." },
+          { q: "Rudi prepared thoroughly for the national spelling bee. (1) He memorized fifty difficult etymological words daily. (2) He also participated in rigorous weekly mock trials. (3) He won first place and brought home the championship trophy. (4)\nWhere does this sentence fit best?\n'However, his main competitor neglected preparation and was eliminated in the first round.'", opts: ["(1)", "(2)", "(3)", "(4)"], ans: 3, exp: "Kalimat berawalan 'However' menyajikan kontras tajam terhadap keberhasilan Rudi. Tempat paling logis adalah setelah Rudi dinyatakan menang (nomor 4)." },
+          { q: "Mia misplaced her competition ID badge at the crowded convention center. (1) She searched anxiously in every seminar room. (2) A friendly security officer finally discovered it near the cafeteria counter. (3) Mia expressed her deepest gratitude and proceeded to the registration desk. (4)\nWhere does this sentence fit best?\n'The officer handed it back to her with a reassuring smile.'", opts: ["(1)", "(2)", "(3)", "(4)"], ans: 2, exp: "Kalimat tersebut menyebut 'The officer' dan 'it' (kartu ID). Acuan ini hanya bisa ditaruh setelah security officer menemukan kartunya di kalimat (2)." },
+          { q: "Sinta decided to bake a cake for Teacher's Day. (1) She purchased fresh dairy milk, organic eggs, and flour at the local grocery store. (2) After whisking all ingredients meticulously, she poured the mixture into the baking pan. (3) The entire kitchen smelled delightfully sweet. (4)\nWhere does this sentence fit best?\n'First, she downloaded a simple recipe from a reputable culinary website.'", opts: ["(1)", "(2)", "(3)", "(4)"], ans: 0, exp: "Urutan waktu 'First' adalah langkah paling awal sebelum pergi membeli bahan di toko swalayan, maka posisinya berada di (1)." }
         ]
       },
       {
         id: 14,
         stage: "E",
-        title: "Cloze Passage (Teks Rumpang)",
-        subtitle: "Unit 14: Trik Mengisi Paragraf Kosong",
+        title: "Cloze Passage: Trik Mengisi Paragraf Rumpang",
+        subtitle: "Unit 14: Analisis Konteks Kiri-Kanan, Kolokasi Akademis & Penyelarasan Tenses",
         goals: [
-          "Menentukan jenis kata yang hilang dari kata kiri dan kanannya",
-          "Memanfaatkan kolokasi lazim (win first prize, reduce pollution)",
-          "Menyelaraskan tenses dengan konteks teks"
+          "Menganalisis jenis kata yang hilang (Part of Speech) dari kata sebelum dan sesudah kotak kosong",
+          "Menguasai Collocations (pasangan kata tetap dalam bahasa Inggris akademis)",
+          "Menjaga konsistensi tenses di sepanjang alur cerita teks rumpang"
         ],
         conceptHTML: `
-          <h4 class="font-bold text-slate-800">Langkah Mengerjakan Cloze</h4>
-          <p>Lihat kata sebelum dan sesudah kotak kosong: Jika didahului <em>a/an/the</em> dan diikuti noun, maka kotak kosong tersebut butuh <strong>Adjective</strong>.</p>
+          <div class="space-y-4">
+            <div class="p-3.5 bg-sky-50 rounded-2xl border border-sky-100">
+              <h4 class="font-extrabold text-rg-navy text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-crosshairs text-rg-teal"></i>
+                1. Teknik Mengintip Kiri-Kanan Kotak Rumpang
+              </h4>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Jangan langsung melihat opsi pilihan ganda A, B, C, D! Amati kata di sebelah <strong>kiri</strong> dan <strong>kanan</strong> kotak rumpang untuk menentukan kelas kata:
+              </p>
+              <div class="overflow-x-auto mt-2">
+                <table class="w-full text-xs text-left">
+                  <thead class="bg-sky-100/70 text-sky-950 font-bold">
+                    <tr>
+                      <th class="p-2">Struktur di Kalimat</th>
+                      <th class="p-2">Pasti Membutuhkan</th>
+                      <th class="p-2">Contoh Nyata</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-sky-200/50 bg-white text-slate-700">
+                    <tr><td class="p-2 font-mono">a/an/the + [ ... ] + Noun</td><td class="p-2 font-bold text-rg-navy">Adjective (Kata Sifat)</td><td class="p-2">a [diligent] student</td></tr>
+                    <tr><td class="p-2 font-mono">Verb + [ ... ] di akhir kalimat</td><td class="p-2 font-bold text-rg-navy">Adverb (Kata Keterangan)</td><td class="p-2">explained the theory [clearly]</td></tr>
+                    <tr><td class="p-2 font-mono">Possessive (my/his) + [ ... ]</td><td class="p-2 font-bold text-rg-navy">Noun (Kata Benda)</td><td class="p-2">his impressive [achievement]</td></tr>
+                    <tr><td class="p-2 font-mono">Subjek + [ ... ] + Objek</td><td class="p-2 font-bold text-rg-navy">Verb (Sesuai Tense Teks!)</td><td class="p-2">she [conducted] an experiment</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="p-3.5 bg-amber-50 rounded-2xl border border-amber-100">
+              <h4 class="font-extrabold text-amber-900 text-xs sm:text-sm flex items-center gap-2">
+                <i class="fa-solid fa-handshake text-amber-600"></i>
+                2. Kolokasi Pasangan Kata Lazim (Academic Collocations)
+              </h4>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Di bahasa Inggris, kata-kata tertentu saling 'berjodoh':
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-xs">
+                <div class="p-2 bg-white rounded-xl border border-amber-200">
+                  <span class="font-bold text-amber-800">Prestasi &amp; Sekolah:</span>
+                  <ul class="text-slate-700 mt-0.5 space-y-0.5">
+                    <li>• win first <strong>prize</strong> (bukan price!)</li>
+                    <li>• submit an <strong>assignment</strong></li>
+                    <li>• undergo an <strong>evaluation</strong></li>
+                  </ul>
+                </div>
+                <div class="p-2 bg-white rounded-xl border border-amber-200">
+                  <span class="font-bold text-amber-800">Lingkungan &amp; Medis:</span>
+                  <ul class="text-slate-700 mt-0.5 space-y-0.5">
+                    <li>• sharp <strong>pain</strong> (nyeri menusuk)</li>
+                    <li>• reduce <strong>pollution</strong></li>
+                    <li>• critical <strong>condition</strong></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- VOCABULARY BOOSTER UNIT 14 -->
+            <div class="p-4 bg-indigo-50/70 rounded-2xl border border-indigo-200">
+              <h4 class="font-extrabold text-indigo-950 text-xs sm:text-sm flex items-center gap-2 mb-2">
+                <i class="fa-solid fa-book-bookmark text-indigo-600"></i>
+                Vocabulary Booster: Kosa Kata Sains &amp; Proyek Lomba
+              </h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">1. Groundbreaking</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">adj</span>
+                  <p class="text-slate-600 mt-0.5">Sangat inovatif dan membuka babak baru dalam penemuan sains.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"The student presented groundbreaking research on biofuels."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">2. Meticulously</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">adverb</span>
+                  <p class="text-slate-600 mt-0.5">Dengan tingkat ketelitian dan kehati-hatian yang luar biasa tinggi.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"She recorded every chemical reaction meticulously."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">3. Adjudicate</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">verb</span>
+                  <p class="text-slate-600 mt-0.5">Menilai dan memberi keputusan pemenang dalam kompetisi resmi.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"Three international professors adjudicated the final round."</p>
+                </div>
+                <div class="p-2.5 bg-white rounded-xl border border-indigo-100">
+                  <span class="font-black text-indigo-700">4. Breakthrough</span> <span class="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-mono">noun</span>
+                  <p class="text-slate-600 mt-0.5">Terobosan penemuan besar yang memecahkan kebuntuan.</p>
+                  <p class="text-slate-400 italic text-[11px] mt-0.5">"Their solar sensor marked a major scientific breakthrough."</p>
+                </div>
+              </div>
+            </div>
+          </div>
         `,
         traps: [
-          "Langsung melihat opsi jawaban tanpa membaca kalimat utuh.",
-          "Mengabaikan kata penanda waktu yang menentukan bentuk tense."
+          "Tertukar antara 'prize' (hadiah/piala) dan 'price' (harga barang). Dalam kompetisi, frasa yang benar adalah 'first prize'.",
+          "Mencampurkan tenses (misalnya cerita diawali 'Last month she decided...', lalu tiba-tiba di kotak rumpang memilih kata kerja present V1 tanpa alasan penanda waktu).",
+          "Memilih kata yang artinya mirip secara kamus tapi tidak lazim secara kolokasi (misalnya 'make an operation' &rarr; kolokasi yang benar adalah 'undergo an operation')."
         ],
         questions: [
-          { q: "Sinta is a (1) ... student who prepared a solar experiment and won the first (2) ...", opts: ["(1) diligent, (2) prize", "(1) diligence, (2) price", "(1) diligently, (2) prize", "(1) diligent, (2) priced"], ans: 0, exp: "(1) Butuh adjective sebelum student (diligent), (2) kolokasi first prize (juara pertama)." }
+          { q: "Sinta is a (1) ... student who has a genuine passion for environmental physics. Last month, she (2) ... in a provincial innovation contest.\n\nChoose the best word for blank (1):", opts: ["diligent", "diligence", "diligently", "diligents"], ans: 0, exp: "Diapit oleh artikel 'a' dan noun 'student', posisi (1) mutlak membutuhkan kata sifat (adjective): 'diligent' (rajin)." },
+          { q: "Choose the best word for blank (2) from the previous text:\n'Last month, she (2) ... in a provincial innovation contest.'", opts: ["participate", "participated", "participating", "participation"], ans: 1, exp: "Keterangan waktu 'Last month' mengunci kalimat ini dalam bentuk Simple Past (V2): 'participated'." },
+          { q: "She prepared an experiment about renewable solar cells and (3) ... its mechanism to the panel of judges.\n\nChoose the best word for blank (3):", opts: ["explain", "explained", "explains", "explaining"], ans: 1, exp: "Sejajar dengan kata kerja V2 'prepared' dan dihubungkan oleh konjungsi 'and', maka verb berikutnya juga wajib V2: 'explained'." },
+          { q: "Everyone in the grand auditorium was captivated by her (4) ... presentation.\n\nChoose the best word for blank (4):", opts: ["impress", "impressive", "impressively", "impression"], ans: 1, exp: "Sebelum kata benda 'presentation' dibutuhkan kata sifat (adjective) untuk menerangkan kualitas presentasinya: 'impressive' (mengesankan)." },
+          { q: "Finally, Sinta won the first (5) ... and received a prestigious trophy.\n\nChoose the best word for blank (5):", opts: ["prize", "price", "pricing", "prized"], ans: 0, exp: "Kolokasi kompetisi juara pertama adalah 'first prize' (hadiah/penghargaan juara). Kata 'price' berarti harga barang." },
+          { q: "Her mentors and family members were exceptionally (6) ... of her remarkable dedication.\n\nChoose the best word for blank (6):", opts: ["proud", "pride", "proudly", "prouder"], ans: 0, exp: "Pasangan tetap (collocation) untuk menyatakan bangga adalah 'proud of' (proud = adjective setelah to be 'were'). 'Pride' adalah kata benda." }
         ]
       }
     ];
