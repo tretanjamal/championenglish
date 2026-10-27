@@ -732,9 +732,13 @@
             <span class="text-xs text-slate-400">Portal Evaluasi &amp; Progress Lomba</span>
           </div>
           <h2 class="text-2xl font-black text-white">Monitoring Siswa Juara SMP</h2>
-          <p class="text-xs text-slate-400 mt-1">Pantau langsung hasil rekaman kuis modul, tryout, dan data sinkronisasi Google Sheets.</p>
+          <p class="text-xs text-slate-400 mt-1">Pantau seluruh data nilai kuis unit dan tryout siswa yang tersimpan di Google Spreadsheet.</p>
         </div>
-        <div class="flex items-center gap-2">
+        <div class="flex items-center flex-wrap gap-2">
+          <button onclick="fetchTeacherDataFromSheets()" class="px-4 py-2.5 rounded-xl bg-rg-teal hover:bg-rg-tealDark text-white text-xs font-bold flex items-center space-x-2 transition shadow-md shadow-rg-teal/20">
+            <i id="refreshIcon" class="fa-solid fa-arrows-rotate"></i>
+            <span>Tarik Data Terbaru</span>
+          </button>
           <button onclick="exportTeacherLogToCSV()" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold border border-slate-700 flex items-center space-x-2 transition">
             <i class="fa-solid fa-file-csv text-emerald-400"></i>
             <span>Ekspor CSV</span>
@@ -751,7 +755,12 @@
         <div class="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-xs">
           <span class="text-[10px] font-bold uppercase text-slate-400 block">Total Aktivitas Tercatat</span>
           <span id="teacherTotalRecords" class="text-xl font-black text-slate-800">0</span>
-          <span class="text-[10px] text-slate-400 mt-0.5 block">Latihan &amp; Tryout</span>
+          <span class="text-[10px] text-slate-400 mt-0.5 block">Di Spreadsheet</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-xs">
+          <span class="text-[10px] font-bold uppercase text-slate-400 block">Jumlah Siswa Unik</span>
+          <span id="teacherUniqueStudents" class="text-xl font-black text-indigo-600">0</span>
+          <span class="text-[10px] text-slate-400 mt-0.5 block">Murid Berbeda</span>
         </div>
         <div class="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-xs">
           <span class="text-[10px] font-bold uppercase text-slate-400 block">Rata-rata Skor Tryout</span>
@@ -759,31 +768,35 @@
           <span class="text-[10px] text-slate-400 mt-0.5 block">Standar Lolos: 75</span>
         </div>
         <div class="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-xs">
-          <span class="text-[10px] font-bold uppercase text-slate-400 block">Modul Tuntas (Lokal)</span>
-          <span id="teacherCompletedUnitsStat" class="text-xl font-black text-amber-500">0 / 14</span>
-          <span class="text-[10px] text-slate-400 mt-0.5 block">Unit Dikuasai</span>
-        </div>
-        <div class="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-xs">
-          <span class="text-[10px] font-bold uppercase text-slate-400 block">Status Sinkronisasi</span>
-          <span id="teacherSyncStatus" class="text-xs font-black text-emerald-600 truncate block mt-1">Siap Merekam</span>
-          <span class="text-[10px] text-slate-400 mt-0.5 block">Google Spreadsheet</span>
+          <span class="text-[10px] font-bold uppercase text-slate-400 block">Terakhir Disinkronkan</span>
+          <span id="teacherLastUpdated" class="text-xs font-black text-emerald-600 truncate block mt-1">Belum ditarik</span>
+          <span class="text-[10px] text-slate-400 mt-0.5 block">Google Sheets</span>
         </div>
       </div>
 
-      <!-- Tabel Riwayat Pengerjaan Murid -->
+      <!-- Tabel Riwayat Pengerjaan Seluruh Murid -->
       <div class="bg-white rounded-3xl border border-slate-200 shadow-xs overflow-hidden">
-        <div class="p-4 sm:p-5 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-50/50">
+        <div class="p-4 sm:p-5 border-b border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-slate-50/50">
           <div>
             <h3 class="font-extrabold text-sm text-slate-800 flex items-center gap-2">
               <i class="fa-solid fa-list-check text-rg-teal"></i>
-              <span>Log Riwayat Belajar &amp; Tryout Siswa</span>
+              <span>Log Data Seluruh Siswa (Live Spreadsheet)</span>
             </h3>
-            <p class="text-xs text-slate-500">Riwayat otomatis terupdate saat murid menyelesaikan latihan soal atau tryout.</p>
+            <p class="text-xs text-slate-500">Menampilkan rekaman seluruh murid yang telah mengerjakan modul atau tryout.</p>
           </div>
-          <div class="flex items-center gap-2">
-            <button onclick="clearTeacherHistory()" class="text-xs font-bold text-rose-500 hover:text-rose-700 px-3 py-1.5 rounded-lg border border-rose-200 hover:bg-rose-50 transition">
-              <i class="fa-solid fa-trash-can mr-1"></i>Bersihkan Log
-            </button>
+          
+          <!-- Filter & Search Siswa -->
+          <div class="flex items-center flex-wrap gap-2">
+            <div class="relative">
+              <input type="text" id="teacherSearchInput" oninput="filterTeacherTable()" placeholder="Cari nama, kelas, sekolah..." class="pl-8 pr-3 py-1.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-rg-teal outline-none w-48 sm:w-56">
+              <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-2.5 text-slate-400 text-xs"></i>
+            </div>
+            <select id="teacherActivityFilter" onchange="filterTeacherTable()" class="px-2.5 py-1.5 rounded-xl border border-slate-200 text-xs bg-white text-slate-700 font-semibold outline-none">
+              <option value="all">Semua Aktivitas</option>
+              <option value="Tryout">Hanya Tryout</option>
+              <option value="Latihan">Hanya Latihan Unit</option>
+              <option value="Registrasi">Registrasi Siswa</option>
+            </select>
           </div>
         </div>
 
@@ -791,6 +804,7 @@
           <table class="w-full text-left text-xs">
             <thead class="bg-slate-100/75 text-slate-700 font-extrabold border-b border-slate-200">
               <tr>
+                <th class="p-3.5">No</th>
                 <th class="p-3.5">Waktu</th>
                 <th class="p-3.5">Nama Siswa</th>
                 <th class="p-3.5">Kelas / Sekolah</th>
@@ -2391,7 +2405,7 @@
        4. STATE MANAJEMEN APLIKASI
        ===================================================================== */
     // KONFIGURASI URL GOOGLE APPS SCRIPT ANDA (Disimpan di dalam kode)
-    const DEFAULT_APPSCRIPT_URL = "https://script.google.com/macros/s/AKfycbz6QtG5vTn1Bt6JL-CngLEAFH3octYBKYEU0G3wQuCaQN2jGUnNnbO5h2yQFVq7EVjPzQ/exec";
+    const DEFAULT_APPSCRIPT_URL = "https://script.google.com/macros/s/AKfycbyiLGCOO9yfPH2kCorZKevp5OXPI1m-dA0TcsXOuDxMxSUJruwhVlbFj5qNnSvmoBR29A/exec";
 
     let appState = {
       studentName: "",
@@ -2402,11 +2416,11 @@
       streak: 1,
       completedUnits: [],
       appScriptUrl: DEFAULT_APPSCRIPT_URL,
-      activityLog: [] // Log rekaman aktivitas untuk portal guru
+      activityLog: [] // Log rekaman lokal jika offline
     };
 
     let isTeacherUnlocked = false;
-
+    let globalSpreadsheetData = []; // Menampung semua data murid dari Google Sheets
     let activeUnitId = 1;
     let tryoutState = {
       currentIndex: 0,
@@ -2581,6 +2595,7 @@
     function openTeacherAuthModal() {
       if (isTeacherUnlocked) {
         navigateTo('teacher');
+        fetchTeacherDataFromSheets();
         return;
       }
       const modal = document.getElementById('modalTeacherAuth');
@@ -2606,6 +2621,7 @@
         closeTeacherAuthModal();
         showToast("Akses Guru Berhasil Diberikan!", "success");
         navigateTo('teacher');
+        fetchTeacherDataFromSheets();
       } else {
         if (err) err.classList.remove('hidden');
       }
@@ -2617,20 +2633,73 @@
       navigateTo('home');
     }
 
-    function renderTeacherDashboard() {
+    // FUNGSI UTAMA: MENARIK SEMUA DATA MURID DARI SPREADSHEET
+    async function fetchTeacherDataFromSheets() {
+      const refreshIcon = document.getElementById('refreshIcon');
+      const targetUrl = appState.appScriptUrl || DEFAULT_APPSCRIPT_URL;
+      const tbody = document.getElementById('teacherRecordsTableBody');
+
+      if (refreshIcon) refreshIcon.classList.add('fa-spin');
+      showToast("Mengunduh data seluruh siswa dari Google Sheets...", "default");
+
+      if (tbody) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="7" class="p-8 text-center text-slate-500 font-medium">
+              <i class="fa-solid fa-spinner fa-spin text-rg-teal text-lg mb-2 block"></i>
+              Sedang mengambil data seluruh siswa dari Google Spreadsheet...
+            </td>
+          </tr>
+        `;
+      }
+
+      if (!targetUrl || targetUrl.includes("GANTI_DENGAN_ID_DEPLOY_ANDA")) {
+        if (refreshIcon) refreshIcon.classList.remove('fa-spin');
+        showToast("URL Google Apps Script belum diisi di kode!", "error");
+        globalSpreadsheetData = appState.activityLog || [];
+        renderTeacherDashboard(globalSpreadsheetData);
+        return;
+      }
+
+      try {
+        const response = await fetch(targetUrl + "?action=getAllData");
+        const json = await response.json();
+
+        if (json.status === "success" && Array.isArray(json.data)) {
+          globalSpreadsheetData = json.data;
+          renderTeacherDashboard(globalSpreadsheetData);
+          const updateEl = document.getElementById('teacherLastUpdated');
+          if (updateEl) updateEl.innerText = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+          showToast(`Berhasil memuat ${globalSpreadsheetData.length} data siswa!`, "success");
+        } else {
+          throw new Error(json.message || "Gagal membaca data");
+        }
+      } catch (err) {
+        console.warn("Gagal fetch spreadsheet, beralih ke cache lokal:", err);
+        showToast("Gagal terhubung ke Google Sheets. Menampilkan riwayat lokal.", "error");
+        globalSpreadsheetData = appState.activityLog || [];
+        renderTeacherDashboard(globalSpreadsheetData);
+      } finally {
+        if (refreshIcon) refreshIcon.classList.remove('fa-spin');
+      }
+    }
+
+    function renderTeacherDashboard(dataToRender = null) {
+      const logs = dataToRender || globalSpreadsheetData || [];
       const tbody = document.getElementById('teacherRecordsTableBody');
       const totalRecEl = document.getElementById('teacherTotalRecords');
+      const uniqueStudentsEl = document.getElementById('teacherUniqueStudents');
       const avgTryoutEl = document.getElementById('teacherAvgTryout');
-      const completedUnitsEl = document.getElementById('teacherCompletedUnitsStat');
-
-      const logs = appState.activityLog || [];
 
       if (totalRecEl) totalRecEl.innerText = logs.length;
-      if (completedUnitsEl) completedUnitsEl.innerText = `${appState.completedUnits.length} / 14`;
 
-      // Hitung Rata-rata Skor Tryout
+      // Hitung total murid unik (berdasarkan nama dan kelas)
+      const uniqueSet = new Set(logs.map(l => (l.studentName || '').toLowerCase().trim()).filter(Boolean));
+      if (uniqueStudentsEl) uniqueStudentsEl.innerText = uniqueSet.size;
+
+      // Hitung Rata-rata Skor Tryout seluruh siswa
       const tryoutScores = logs
-        .filter(l => l.activity && l.activity.includes('Tryout'))
+        .filter(l => l.activity && l.activity.toLowerCase().includes('tryout'))
         .map(l => {
           const match = String(l.score).match(/^(\d+)/);
           return match ? parseInt(match[1]) : null;
@@ -2651,8 +2720,8 @@
       if (logs.length === 0) {
         tbody.innerHTML = `
           <tr>
-            <td colspan="6" class="p-6 text-center text-slate-400 italic">
-              Belum ada riwayat aktivitas pengerjaan murid yang terekam.
+            <td colspan="7" class="p-6 text-center text-slate-400 italic">
+              Belum ada riwayat aktivitas pengerjaan murid yang terekam di Spreadsheet.
             </td>
           </tr>
         `;
@@ -2661,24 +2730,50 @@
 
       // Urutkan dari yang paling baru
       const sorted = [...logs].reverse();
-      tbody.innerHTML = sorted.map(row => `
-        <tr class="hover:bg-slate-50 transition">
-          <td class="p-3.5 whitespace-nowrap text-slate-400 font-mono text-[11px]">${row.time || '-'}</td>
-          <td class="p-3.5 font-bold text-slate-800">${row.studentName}</td>
-          <td class="p-3.5 text-slate-500">${row.className} • ${row.school}</td>
-          <td class="p-3.5 font-semibold text-slate-700">${row.activity}</td>
-          <td class="p-3.5">
-            <span class="px-2.5 py-1 rounded-full text-[11px] font-black ${String(row.score).includes('100') || String(row.score).includes('8') || String(row.score).includes('9') ? 'bg-emerald-100 text-emerald-800' : 'bg-indigo-50 text-indigo-700'}">
-              ${row.score}
-            </span>
-          </td>
-          <td class="p-3.5 text-slate-500 max-w-xs truncate">${row.details || '-'}</td>
-        </tr>
-      `).join('');
+      tbody.innerHTML = sorted.map((row, index) => {
+        const scoreStr = String(row.score || '-');
+        const isHighScore = scoreStr.includes('100') || scoreStr.includes('8') || scoreStr.includes('9');
+        return `
+          <tr class="hover:bg-slate-50 transition">
+            <td class="p-3.5 text-slate-400 font-bold">${index + 1}</td>
+            <td class="p-3.5 whitespace-nowrap text-slate-500 font-mono text-[11px]">${row.time || '-'}</td>
+            <td class="p-3.5 font-bold text-slate-800">${row.studentName || 'Anonim'}</td>
+            <td class="p-3.5 text-slate-500">${row.className || '-'} • ${row.school || '-'}</td>
+            <td class="p-3.5 font-semibold text-slate-700">${row.activity || '-'}</td>
+            <td class="p-3.5">
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-black ${isHighScore ? 'bg-emerald-100 text-emerald-800' : 'bg-indigo-50 text-indigo-700'}">
+                ${scoreStr}
+              </span>
+            </td>
+            <td class="p-3.5 text-slate-500 max-w-xs truncate" title="${row.details || ''}">${row.details || '-'}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function filterTeacherTable() {
+      const search = (document.getElementById('teacherSearchInput')?.value || '').toLowerCase().trim();
+      const activityFilter = document.getElementById('teacherActivityFilter')?.value || 'all';
+
+      const filtered = globalSpreadsheetData.filter(item => {
+        const nameMatch = (item.studentName || '').toLowerCase().includes(search);
+        const classMatch = (item.className || '').toLowerCase().includes(search);
+        const schoolMatch = (item.school || '').toLowerCase().includes(search);
+        const textMatch = nameMatch || classMatch || schoolMatch;
+
+        let actMatch = true;
+        if (activityFilter === 'Tryout') actMatch = (item.activity || '').toLowerCase().includes('tryout');
+        else if (activityFilter === 'Latihan') actMatch = (item.activity || '').toLowerCase().includes('latihan');
+        else if (activityFilter === 'Registrasi') actMatch = (item.activity || '').toLowerCase().includes('registrasi');
+
+        return textMatch && actMatch;
+      });
+
+      renderTeacherDashboard(filtered);
     }
 
     function exportTeacherLogToCSV() {
-      const logs = appState.activityLog || [];
+      const logs = globalSpreadsheetData.length > 0 ? globalSpreadsheetData : (appState.activityLog || []);
       if (logs.length === 0) {
         showToast("Belum ada data untuk diekspor", "error");
         return;
@@ -2703,21 +2798,11 @@
       const encodedUri = encodeURI(csvContent);
       const link = document.createElement("a");
       link.setAttribute("href", encodedUri);
-      link.setAttribute("download", `Rekap_Nilai_English_SMP_${new Date().toISOString().slice(0,10)}.csv`);
+      link.setAttribute("download", `Rekap_Nilai_English_SMP_Semua_Siswa_${new Date().toISOString().slice(0,10)}.csv`);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      showToast("Rekap nilai berhasil diunduh (CSV)!", "success");
-    }
-
-    function clearTeacherHistory() {
-      if (!confirm("Apakah Bapak/Ibu guru yakin ingin menghapus seluruh log rekaman lokal murid ini? (Data di Google Sheets tetap aman)")) {
-        return;
-      }
-      appState.activityLog = [];
-      saveLocalState();
-      renderTeacherDashboard();
-      showToast("Log riwayat lokal telah dibersihkan.", "default");
+      showToast("Rekap nilai seluruh siswa berhasil diunduh (CSV)!", "success");
     }
 
     function openProfileModal() {
